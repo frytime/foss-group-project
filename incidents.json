@@ -1,0 +1,222 @@
+[
+    {
+        "incidentId": "INC-001",
+        "timestamp": "2026-11-03T10:15:00Z",
+        "callerName": "Alice Turner",
+        "callerPhone": "07700110001",
+        "location": "Bristol City Centre",
+        "incidentType": "Suspicious Package",
+        "casualties": 0,
+        "priority": "High",
+        "assignedAgency": "Police"
+    },
+    {
+        "incidentId": "INC-002",
+        "timestamp": "2026-11-03T10:30:00Z",
+        "callerName": "David Hall",
+        "callerPhone": "07700110002",
+        "location": "Bath",
+        "incidentType": "Road Traffic Collision",
+        "casualties": 2,
+        "priority": "Medium",
+        "assignedAgency": "Ambulance"
+    },
+    {
+        "incidentId": "INC-003",
+        "timestamp": "2026-11-03T10:45:00Z",
+        "callerName": "Emma Lewis",
+        "callerPhone": "07700110003",
+        "location": "Taunton",
+        "incidentType": "Fire",
+        "casualties": 0,
+        "priority": "High",
+        "assignedAgency": "Fire"
+    },
+    {
+        "incidentId": "INC-004",
+        "timestamp": "2026-11-03T11:00:00Z",
+        "callerName": "Jacob Smith",
+        "callerPhone": "07700110004",
+        "location": "Exeter",
+        "incidentType": "Medical Emergency",
+        "casualties": 1,
+        "priority": "High",
+        "assignedAgency": "Ambulance"
+    },
+    {
+        "incidentId": "INC-005",
+        "timestamp": "2026-11-03T11:20:00Z",
+        "callerName": "Sophie Baker",
+        "callerPhone": "07700110005",
+        "location": "Gloucester",
+        "incidentType": "Missing Person",
+        "casualties": 0,
+        "priority": "Medium",
+        "assignedAgency": "Police"
+    },
+    {
+        "incidentId": "INC-006",
+        "timestamp": "2026-11-03T11:35:00Z",
+        "callerName": "Oliver Young",
+        "callerPhone": "07700110006",
+        "location": "Yeovil",
+        "incidentType": "Flooding",
+        "casualties": 0,
+        "priority": "High",
+        "assignedAgency": "Fire"
+    },
+    {
+        "incidentId": "INC-007",
+        "timestamp": "2026-11-03T11:50:00Z",
+        "callerName": "Grace Evans",
+        "callerPhone": "07700110007",
+        "location": "Plymouth",
+        "incidentType": "Chemical Spill",
+        "casualties": 3,
+        "priority": "Critical",
+        "assignedAgency": "Fire"
+    },
+    {
+        "incidentId": "INC-008",
+        "timestamp": "2026-11-03T12:10:00Z",
+        "callerName": "Harry Green",
+        "callerPhone": "07700110008",
+        "location": "Swindon",
+        "incidentType": "Building Collapse",
+        "casualties": 5,
+        "priority": "Critical",
+        "assignedAgency": "Fire"
+    },
+    {
+        "incidentId": "INC-009",
+        "timestamp": "2026-11-03T12:30:00Z",
+        "callerName": "Mia Adams",
+        "callerPhone": "07700110009",
+        "location": "Bournemouth",
+        "incidentType": "Public Disorder",
+        "casualties": 0,
+        "priority": "Medium",
+        "assignedAgency": "Police"
+    },
+    {
+        "incidentId": "INC-010",
+        "timestamp": "2026-11-03T12:50:00Z",
+        "callerName": "Leo Ward",
+        "callerPhone": "07700110010",
+        "location": "Cheltenham",
+        "incidentType": "Terrorism Threat",
+        "casualties": 0,
+        "priority": "Critical",
+        "assignedAgency": "Police"
+    },
+    {
+        "incidentId": "INC-011",
+        "timestamp": "2026-11-03T13:10:00Z",
+        "callerName": "Sarah White",
+        "callerPhone": "07700110011",
+        "location": "Weston-super-Mare",
+        "incidentType": "Fire",
+        "casualties": 1,
+        "priority": "High",
+        "assignedAgency": "Fire"
+    },
+    {
+        "incidentId": "INC-012",
+        "timestamp": "2026-11-03T13:30:00Z",
+        "callerName": "Ethan Cooper",
+        "callerPhone": "07700110012",
+        "location": "Chippenham",
+        "incidentType": "Medical Emergency",
+        "casualties": 2,
+        "priority": "High",
+        "assignedAgency": "Ambulance"
+    },
+    {
+        "incidentId": "INC-013",
+        "timestamp": "2026-11-03T14:00:00Z",
+        "callerName": "Ruby King",
+        "callerPhone": "07700110013",
+        "location": "Torquay",
+        "incidentType": "Road Traffic Collision",
+        "casualties": 1,
+        "priority": "Medium",
+        "assignedAgency": "Ambulance"
+    },
+    {
+        "incidentId": "INC-014",
+        "timestamp": "2026-11-03T14:15:00Z",
+        "callerName": "Lucas Hill",
+        "callerPhone": "07700110014",
+        "location": "Bristol Airport",
+        "incidentType": "Suspicious Package",
+        "casualties": 0,
+        "priority": "Critical",
+        "assignedAgency": "Police"
+    },
+    {
+        "incidentId": "INC-015",
+        "timestamp": "2026-11-03T14:30:00Z",
+        "callerName": "Amelia Scott",
+        "callerPhone": "07700110015",
+        "location": "Salisbury",
+        "incidentType": "Missing Person",
+        "casualties": 0,
+        "priority": "Medium",
+        "assignedAgency": "Police"
+    },
+    {
+        "incidentId": "INC-016",
+        "timestamp": "2026-11-03T14:45:00Z",
+        "callerName": "Thomas Clark",
+        "callerPhone": "07700110016",
+        "location": "Truro",
+        "incidentType": "Flooding",
+        "casualties": 0,
+        "priority": "Medium",
+        "assignedAgency": "Fire"
+    },
+    {
+        "incidentId": "INC-017",
+        "timestamp": "2026-11-03T15:00:00Z",
+        "callerName": "Chloe Bell",
+        "callerPhone": "07700110017",
+        "location": "Newquay",
+        "incidentType": "Medical Emergency",
+        "casualties": 1,
+        "priority": "High",
+        "assignedAgency": "Ambulance"
+    },
+    {
+        "incidentId": "INC-018",
+        "timestamp": "2026-11-03T15:20:00Z",
+        "callerName": "James Reed",
+        "callerPhone": "07700110018",
+        "location": "Poole",
+        "incidentType": "Public Disorder",
+        "casualties": 0,
+        "priority": "Medium",
+        "assignedAgency": "Police"
+    },
+    {
+        "incidentId": "INC-019",
+        "timestamp": "2026-11-03T15:40:00Z",
+        "callerName": "Lily Cook",
+        "callerPhone": "07700110019",
+        "location": "Bridgwater",
+        "incidentType": "Chemical Spill",
+        "casualties": 1,
+        "priority": "High",
+        "assignedAgency": "Fire"
+    },
+    {
+        "incidentId": "INC-020",
+        "timestamp": "2026-11-03T16:00:00Z",
+        "callerName": "Daniel Price",
+        "callerPhone": "07700110020",
+        "location": "Cardiff",
+        "incidentType": "Terrorism Threat",
+        "casualties": 0,
+        "priority": "Critical",
+        "assignedAgency": "Police"
+    }
+]

@@ -1,0 +1,142 @@
+[
+    {
+        "eventId": "AUD-001",
+        "actor": "Regional Commander",
+        "action": "Viewed Intelligence Report",
+        "resource": "INT-001",
+        "timestamp": "2026-11-03T10:35:00Z"
+    },
+    {
+        "eventId": "AUD-002",
+        "actor": "Police Officer",
+        "action": "Created Incident",
+        "resource": "INC-001",
+        "timestamp": "2026-11-03T10:16:00Z"
+    },
+    {
+        "eventId": "AUD-003",
+        "actor": "Dispatcher",
+        "action": "Assigned Responder",
+        "resource": "INC-002",
+        "timestamp": "2026-11-03T10:32:00Z"
+    },
+    {
+        "eventId": "AUD-004",
+        "actor": "Paramedic",
+        "action": "Updated Incident",
+        "resource": "INC-004",
+        "timestamp": "2026-11-03T11:12:00Z"
+    },
+    {
+        "eventId": "AUD-005",
+        "actor": "Fire Officer",
+        "action": "Viewed Incident",
+        "resource": "INC-003",
+        "timestamp": "2026-11-03T10:59:00Z"
+    },
+    {
+        "eventId": "AUD-006",
+        "actor": "Intelligence Analyst",
+        "action": "Viewed Intelligence Report",
+        "resource": "INT-005",
+        "timestamp": "2026-11-03T11:20:00Z"
+    },
+    {
+        "eventId": "AUD-007",
+        "actor": "Regional Commander",
+        "action": "Exported Report",
+        "resource": "INT-007",
+        "timestamp": "2026-11-03T11:45:00Z"
+    },
+    {
+        "eventId": "AUD-008",
+        "actor": "Dispatcher",
+        "action": "Assigned Responder",
+        "resource": "INC-008",
+        "timestamp": "2026-11-03T12:13:00Z"
+    },
+    {
+        "eventId": "AUD-009",
+        "actor": "Police Officer",
+        "action": "Viewed Intelligence Report",
+        "resource": "INT-003",
+        "timestamp": "2026-11-03T12:21:00Z"
+    },
+    {
+        "eventId": "AUD-010",
+        "actor": "National Commander",
+        "action": "Viewed Intelligence Report",
+        "resource": "INT-010",
+        "timestamp": "2026-11-03T12:55:00Z"
+    },
+    {
+        "eventId": "AUD-011",
+        "actor": "Fire Officer",
+        "action": "Closed Incident",
+        "resource": "INC-011",
+        "timestamp": "2026-11-03T13:28:00Z"
+    },
+    {
+        "eventId": "AUD-012",
+        "actor": "Paramedic",
+        "action": "Updated Incident",
+        "resource": "INC-012",
+        "timestamp": "2026-11-03T13:42:00Z"
+    },
+    {
+        "eventId": "AUD-013",
+        "actor": "Auditor",
+        "action": "Reviewed Audit Trail",
+        "resource": "AUDIT-SYSTEM",
+        "timestamp": "2026-11-03T14:00:00Z"
+    },
+    {
+        "eventId": "AUD-014",
+        "actor": "Regional Commander",
+        "action": "Modified Classification",
+        "resource": "INT-012",
+        "timestamp": "2026-11-03T14:16:00Z"
+    },
+    {
+        "eventId": "AUD-015",
+        "actor": "Police Officer",
+        "action": "Created Incident",
+        "resource": "INC-014",
+        "timestamp": "2026-11-03T14:17:00Z"
+    },
+    {
+        "eventId": "AUD-016",
+        "actor": "Intelligence Analyst",
+        "action": "Viewed Intelligence Report",
+        "resource": "INT-014",
+        "timestamp": "2026-11-03T14:30:00Z"
+    },
+    {
+        "eventId": "AUD-017",
+        "actor": "Dispatcher",
+        "action": "Assigned Responder",
+        "resource": "INC-017",
+        "timestamp": "2026-11-03T15:04:00Z"
+    },
+    {
+        "eventId": "AUD-018",
+        "actor": "Regional Commander",
+        "action": "Archived Record",
+        "resource": "INC-006",
+        "timestamp": "2026-11-03T15:20:00Z"
+    },
+    {
+        "eventId": "AUD-019",
+        "actor": "Auditor",
+        "action": "Reviewed Audit Trail",
+        "resource": "AUDIT-SYSTEM",
+        "timestamp": "2026-11-03T15:40:00Z"
+    },
+    {
+        "eventId": "AUD-020",
+        "actor": "National Commander",
+        "action": "Viewed Intelligence Report",
+        "resource": "INT-020",
+        "timestamp": "2026-11-03T16:05:00Z"
+    }
+]

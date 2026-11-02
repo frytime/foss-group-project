@@ -1,0 +1,182 @@
+[
+  {
+    "reportId":"INT-001",
+    "reportSource":"Counter Terrorism Unit",
+    "threatLevel":"SEVERE",
+    "region":"South West",
+    "suspectIdentifier":"SUBJ-101",
+    "summary":"Possible hostile reconnaissance activity near critical transport infrastructure.",
+    "classificationHint":"SECRET"
+  },
+  {
+    "reportId":"INT-002",
+    "reportSource":"National Cyber Centre",
+    "threatLevel":"HIGH",
+    "region":"National",
+    "suspectIdentifier":"CYB-202",
+    "summary":"Targeted phishing campaign against emergency responders.",
+    "classificationHint":"SECRET"
+  },
+  {
+    "reportId":"INT-003",
+    "reportSource":"Police Intelligence",
+    "threatLevel":"MEDIUM",
+    "region":"Bristol",
+    "suspectIdentifier":"ORG-301",
+    "summary":"Organised crime group monitoring police activity.",
+    "classificationHint":"CONFIDENTIAL"
+  },
+  {
+    "reportId":"INT-004",
+    "reportSource":"Fire Investigation Unit",
+    "threatLevel":"LOW",
+    "region":"Somerset",
+    "suspectIdentifier":"N/A",
+    "summary":"Pattern of deliberate grassland fires identified.",
+    "classificationHint":"OFFICIAL"
+  },
+  {
+    "reportId":"INT-005",
+    "reportSource":"Counter Terrorism Unit",
+    "threatLevel":"CRITICAL",
+    "region":"National",
+    "suspectIdentifier":"SUBJ-501",
+    "summary":"Credible attack planning against transport network.",
+    "classificationHint":"TOP SECRET"
+  },
+  {
+    "reportId":"INT-006",
+    "reportSource":"Cyber Security Team",
+    "threatLevel":"HIGH",
+    "region":"Regional",
+    "suspectIdentifier":"CYB-410",
+    "summary":"Malware found in dispatch scheduling systems.",
+    "classificationHint":"SECRET"
+  },
+  {
+    "reportId":"INT-007",
+    "reportSource":"Police Intelligence",
+    "threatLevel":"MEDIUM",
+    "region":"Devon",
+    "suspectIdentifier":"ORG-711",
+    "summary":"Criminal network exploiting emergency procurement processes.",
+    "classificationHint":"CONFIDENTIAL"
+  },
+  {
+    "reportId":"INT-008",
+    "reportSource":"Border Security Agency",
+    "threatLevel":"HIGH",
+    "region":"South West",
+    "suspectIdentifier":"SUBJ-812",
+    "summary":"Suspicious travel patterns linked to known extremist contacts.",
+    "classificationHint":"SECRET"
+  },
+  {
+    "reportId":"INT-009",
+    "reportSource":"National Infrastructure Centre",
+    "threatLevel":"HIGH",
+    "region":"National",
+    "suspectIdentifier":"INF-901",
+    "summary":"Potential threat to power distribution facilities.",
+    "classificationHint":"SECRET"
+  },
+  {
+    "reportId":"INT-010",
+    "reportSource":"Counter Terrorism Unit",
+    "threatLevel":"CRITICAL",
+    "region":"London",
+    "suspectIdentifier":"SUBJ-1001",
+    "summary":"Coordinated attack planning suspected across multiple regions.",
+    "classificationHint":"TOP SECRET"
+  },
+  {
+    "reportId":"INT-011",
+    "reportSource":"Fire Intelligence Service",
+    "threatLevel":"LOW",
+    "region":"Cornwall",
+    "suspectIdentifier":"N/A",
+    "summary":"Increased wildfire risk due to weather conditions.",
+    "classificationHint":"OFFICIAL"
+  },
+  {
+    "reportId":"INT-012",
+    "reportSource":"Police Intelligence",
+    "threatLevel":"MEDIUM",
+    "region":"Gloucestershire",
+    "suspectIdentifier":"ORG-1201",
+    "summary":"Extremist group planning public demonstration.",
+    "classificationHint":"CONFIDENTIAL"
+  },
+  {
+    "reportId":"INT-013",
+    "reportSource":"National Cyber Centre",
+    "threatLevel":"HIGH",
+    "region":"National",
+    "suspectIdentifier":"CYB-1301",
+    "summary":"Credential stuffing activity against responder accounts.",
+    "classificationHint":"SECRET"
+  },
+  {
+    "reportId":"INT-014",
+    "reportSource":"Intelligence Liaison Office",
+    "threatLevel":"CRITICAL",
+    "region":"National",
+    "suspectIdentifier":"SUBJ-1401",
+    "summary":"High-confidence intelligence concerning critical infrastructure sabotage.",
+    "classificationHint":"TOP SECRET"
+  },
+  {
+    "reportId":"INT-015",
+    "reportSource":"Police Intelligence",
+    "threatLevel":"LOW",
+    "region":"Bristol",
+    "suspectIdentifier":"N/A",
+    "summary":"Increase in nuisance emergency calls.",
+    "classificationHint":"OFFICIAL"
+  },
+  {
+    "reportId":"INT-016",
+    "reportSource":"Counter Terrorism Unit",
+    "threatLevel":"SEVERE",
+    "region":"South West",
+    "suspectIdentifier":"SUBJ-1601",
+    "summary":"Potential attack on crowded public event.",
+    "classificationHint":"SECRET"
+  },
+  {
+    "reportId":"INT-017",
+    "reportSource":"National Cyber Centre",
+    "threatLevel":"MEDIUM",
+    "region":"Regional",
+    "suspectIdentifier":"CYB-1701",
+    "summary":"Misconfigured systems exposing operational metadata.",
+    "classificationHint":"CONFIDENTIAL"
+  },
+  {
+    "reportId":"INT-018",
+    "reportSource":"Police Intelligence",
+    "threatLevel":"HIGH",
+    "region":"Wales",
+    "suspectIdentifier":"ORG-1801",
+    "summary":"Criminal network with access to hazardous materials.",
+    "classificationHint":"SECRET"
+  },
+  {
+    "reportId":"INT-019",
+    "reportSource":"Infrastructure Protection Service",
+    "threatLevel":"HIGH",
+    "region":"National",
+    "suspectIdentifier":"INF-1901",
+    "summary":"Targeted reconnaissance against communications hubs.",
+    "classificationHint":"SECRET"
+  },
+  {
+    "reportId":"INT-020",
+    "reportSource":"Counter Terrorism Unit",
+    "threatLevel":"CRITICAL",
+    "region":"National",
+    "suspectIdentifier":"SUBJ-2001",
+    "summary":"Multi-region coordinated attack intelligence received.",
+    "classificationHint":"TOP SECRET"
+  }
+]

@@ -1,0 +1,162 @@
+[
+    {
+        "responderId": "R001",
+        "name": "Emma Wright",
+        "role": "Police Officer",
+        "station": "Bristol Central",
+        "clearanceLevel": "SECRET",
+        "currentAssignment": "INC-001"
+    },
+    {
+        "responderId": "R002",
+        "name": "Daniel Morgan",
+        "role": "Paramedic",
+        "station": "Bath South",
+        "clearanceLevel": "OFFICIAL",
+        "currentAssignment": "INC-002"
+    },
+    {
+        "responderId": "R003",
+        "name": "Olivia Price",
+        "role": "Fire Officer",
+        "station": "Taunton",
+        "clearanceLevel": "OFFICIAL",
+        "currentAssignment": "INC-003"
+    },
+    {
+        "responderId": "R004",
+        "name": "Oliver Hughes",
+        "role": "Intelligence Analyst",
+        "station": "Regional HQ",
+        "clearanceLevel": "TOP SECRET",
+        "currentAssignment": null
+    },
+    {
+        "responderId": "R005",
+        "name": "Sophia Davies",
+        "role": "Police Officer",
+        "station": "Exeter",
+        "clearanceLevel": "SECRET",
+        "currentAssignment": "INC-005"
+    },
+    {
+        "responderId": "R006",
+        "name": "Jack Thomas",
+        "role": "Fire Officer",
+        "station": "Yeovil",
+        "clearanceLevel": "OFFICIAL",
+        "currentAssignment": "INC-006"
+    },
+    {
+        "responderId": "R007",
+        "name": "Mia Roberts",
+        "role": "Paramedic",
+        "station": "Plymouth",
+        "clearanceLevel": "OFFICIAL",
+        "currentAssignment": "INC-007"
+    },
+    {
+        "responderId": "R008",
+        "name": "Harry Wilson",
+        "role": "Police Officer",
+        "station": "Swindon",
+        "clearanceLevel": "SECRET",
+        "currentAssignment": "INC-008"
+    },
+    {
+        "responderId": "R009",
+        "name": "Amelia Lewis",
+        "role": "Regional Commander",
+        "station": "South West Command",
+        "clearanceLevel": "TOP SECRET",
+        "currentAssignment": null
+    },
+    {
+        "responderId": "R010",
+        "name": "George Hall",
+        "role": "National Commander",
+        "station": "National Response Centre",
+        "clearanceLevel": "TOP SECRET",
+        "currentAssignment": null
+    },
+    {
+        "responderId": "R011",
+        "name": "Lily Walker",
+        "role": "Police Officer",
+        "station": "Cheltenham",
+        "clearanceLevel": "SECRET",
+        "currentAssignment": "INC-010"
+    },
+    {
+        "responderId": "R012",
+        "name": "Noah Young",
+        "role": "Paramedic",
+        "station": "Weston-super-Mare",
+        "clearanceLevel": "OFFICIAL",
+        "currentAssignment": "INC-011"
+    },
+    {
+        "responderId": "R013",
+        "name": "Grace King",
+        "role": "Fire Officer",
+        "station": "Chippenham",
+        "clearanceLevel": "OFFICIAL",
+        "currentAssignment": "INC-012"
+    },
+    {
+        "responderId": "R014",
+        "name": "Thomas Scott",
+        "role": "Intelligence Analyst",
+        "station": "Regional HQ",
+        "clearanceLevel": "SECRET",
+        "currentAssignment": null
+    },
+    {
+        "responderId": "R015",
+        "name": "Ella Green",
+        "role": "Police Officer",
+        "station": "Torquay",
+        "clearanceLevel": "SECRET",
+        "currentAssignment": "INC-013"
+    },
+    {
+        "responderId": "R016",
+        "name": "Leo Adams",
+        "role": "Fire Officer",
+        "station": "Truro",
+        "clearanceLevel": "OFFICIAL",
+        "currentAssignment": "INC-016"
+    },
+    {
+        "responderId": "R017",
+        "name": "Ruby Clark",
+        "role": "Paramedic",
+        "station": "Poole",
+        "clearanceLevel": "OFFICIAL",
+        "currentAssignment": "INC-018"
+    },
+    {
+        "responderId": "R018",
+        "name": "Henry Baker",
+        "role": "Police Officer",
+        "station": "Bridgwater",
+        "clearanceLevel": "SECRET",
+        "currentAssignment": "INC-019"
+    },
+    {
+        "responderId": "R019",
+        "name": "Chloe Cooper",
+        "role": "Auditor",
+        "station": "Oversight Office",
+        "clearanceLevel": "SECRET",
+        "currentAssignment": null
+    },
+    {
+        "responderId": "R020",
+        "name": "James Reed",
+        "role": "Intelligence Analyst",
+        "station": "National Response Centre",
+        "clearanceLevel": "TOP SECRET",
+        "currentAssignment": null
+    }
+]

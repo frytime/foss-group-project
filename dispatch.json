@@ -1,0 +1,162 @@
+[
+    {
+        "dispatchId": "D001",
+        "incidentId": "INC-001",
+        "unit": "Police Unit 7",
+        "departureTime": "10:20",
+        "arrivalTime": "10:27",
+        "status": "Completed"
+    },
+    {
+        "dispatchId": "D002",
+        "incidentId": "INC-002",
+        "unit": "Ambulance Unit 3",
+        "departureTime": "10:33",
+        "arrivalTime": "10:40",
+        "status": "Completed"
+    },
+    {
+        "dispatchId": "D003",
+        "incidentId": "INC-003",
+        "unit": "Fire Unit 5",
+        "departureTime": "10:48",
+        "arrivalTime": "10:56",
+        "status": "Completed"
+    },
+    {
+        "dispatchId": "D004",
+        "incidentId": "INC-004",
+        "unit": "Ambulance Unit 8",
+        "departureTime": "11:02",
+        "arrivalTime": "11:11",
+        "status": "Completed"
+    },
+    {
+        "dispatchId": "D005",
+        "incidentId": "INC-005",
+        "unit": "Police Unit 2",
+        "departureTime": "11:22",
+        "arrivalTime": "11:34",
+        "status": "Completed"
+    },
+    {
+        "dispatchId": "D006",
+        "incidentId": "INC-006",
+        "unit": "Fire Unit 9",
+        "departureTime": "11:39",
+        "arrivalTime": "11:52",
+        "status": "Completed"
+    },
+    {
+        "dispatchId": "D007",
+        "incidentId": "INC-007",
+        "unit": "Hazmat Team 1",
+        "departureTime": "11:55",
+        "arrivalTime": "12:05",
+        "status": "Escalated"
+    },
+    {
+        "dispatchId": "D008",
+        "incidentId": "INC-008",
+        "unit": "Urban Rescue Team",
+        "departureTime": "12:12",
+        "arrivalTime": "12:24",
+        "status": "Escalated"
+    },
+    {
+        "dispatchId": "D009",
+        "incidentId": "INC-009",
+        "unit": "Police Unit 12",
+        "departureTime": "12:35",
+        "arrivalTime": "12:43",
+        "status": "Completed"
+    },
+    {
+        "dispatchId": "D010",
+        "incidentId": "INC-010",
+        "unit": "Counter Terror Unit",
+        "departureTime": "12:52",
+        "arrivalTime": "13:01",
+        "status": "In Progress"
+    },
+    {
+        "dispatchId": "D011",
+        "incidentId": "INC-011",
+        "unit": "Fire Unit 4",
+        "departureTime": "13:12",
+        "arrivalTime": "13:20",
+        "status": "Completed"
+    },
+    {
+        "dispatchId": "D012",
+        "incidentId": "INC-012",
+        "unit": "Ambulance Unit 5",
+        "departureTime": "13:33",
+        "arrivalTime": "13:41",
+        "status": "Completed"
+    },
+    {
+        "dispatchId": "D013",
+        "incidentId": "INC-013",
+        "unit": "Ambulance Unit 1",
+        "departureTime": "14:01",
+        "arrivalTime": "14:09",
+        "status": "Completed"
+    },
+    {
+        "dispatchId": "D014",
+        "incidentId": "INC-014",
+        "unit": "Explosives Team 2",
+        "departureTime": "14:18",
+        "arrivalTime": "14:29",
+        "status": "In Progress"
+    },
+    {
+        "dispatchId": "D015",
+        "incidentId": "INC-015",
+        "unit": "Police Unit 5",
+        "departureTime": "14:32",
+        "arrivalTime": "14:46",
+        "status": "Completed"
+    },
+    {
+        "dispatchId": "D016",
+        "incidentId": "INC-016",
+        "unit": "Fire Unit 11",
+        "departureTime": "14:47",
+        "arrivalTime": "15:01",
+        "status": "Completed"
+    },
+    {
+        "dispatchId": "D017",
+        "incidentId": "INC-017",
+        "unit": "Ambulance Unit 6",
+        "departureTime": "15:02",
+        "arrivalTime": "15:11",
+        "status": "Completed"
+    },
+    {
+        "dispatchId": "D018",
+        "incidentId": "INC-018",
+        "unit": "Police Unit 4",
+        "departureTime": "15:25",
+        "arrivalTime": "15:36",
+        "status": "Completed"
+    },
+    {
+        "dispatchId": "D019",
+        "incidentId": "INC-019",
+        "unit": "Hazmat Team 2",
+        "departureTime": "15:43",
+        "arrivalTime": "15:54",
+        "status": "Completed"
+    },
+    {
+        "dispatchId": "D020",
+        "incidentId": "INC-020",
+        "unit": "Counter Terror Unit",
+        "departureTime": "16:01",
+        "arrivalTime": null,
+        "status": "Pending"
+    }
+]
