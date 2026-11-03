@@ -1,6 +1,17 @@
+SECURITY DOMAINS
+- Operational
+- Oversight
+- Intelligence
+
+TRUST BOUNDARIES
+- Operational
+- Oversight
+- Intelligence
+- User
+- Researcher
+
 CONFIDENTIALITY LABELS (low → high)
 PUBLIC < OFFICIAL < CONFIDENTIAL < SECRET < TOP SECRET
-(CONFIDENTIAL kept from the dataset; noted as not a current UK tier)
 
 INTEGRITY LEVELS (low → high)
 Unverified < Operational < Command < Audit
