@@ -1,0 +1,236 @@
+#!/usr/bin/env python3
+"""
+Architecture & Threat Model (Part A) - Minimal working version
+Outputs JSON evidence for architecture, trust boundaries, security domains, threats.
+"""
+from dataclasses import dataclass, field, asdict
+from typing import Any, Optional
+from enum import Enum
+import json
+from pathlib import Path
+
+from nerp.models import SecurityDomain, TrustBoundary, Classification, Integrity, Role
+
+
+@dataclass
+class Service:
+    name: str
+    domain: Optional[SecurityDomain]      # None = outside the three security domains (Fig 1.1)
+    trust_boundary: TrustBoundary
+    replication: str
+    datastore: str
+    auth_required: bool
+    audit_required: bool
+    consensus_protocol: str = ""
+
+
+@dataclass
+class Architecture:
+    services: list[Service] = field(default_factory=list)
+    trust_boundaries: list[TrustBoundary] = field(default_factory=list)
+    security_domains: list[SecurityDomain] = field(default_factory=list)
+    replication_mechanisms: dict[str, str] = field(default_factory=dict)
+    datastores: dict[str, str] = field(default_factory=dict)
+
+
+REGIONS = ["region-a", "region-b", "region-c"]  # three physically separate UK datacentres
+
+
+def build_nerp_architecture() -> Architecture:
+    """Mirrors Fig 1.1 (Task A1) and the 5 trust boundaries in CONTRACT.md."""
+    arch = Architecture()
+    OP, INTEL, OVS = SecurityDomain.OPERATIONAL, SecurityDomain.INTELLIGENCE, SecurityDomain.OVERSIGHT
+    TB = TrustBoundary
+    arch.services = [
+        # Entry chain - outside the security domains
+        Service("API Gateway / WAF", None, TB.USER,
+                "Stateless, deployed in all 3 regions", "None (TLS termination, rate limiting, request validation)",
+                False, True),
+        Service("Authentication Service", None, TB.USER,
+                "Deployed in all 3 regions", "Credential store (OIDC, MFA, short-lived tokens)", False, True),
+        Service("Policy Engine", None, TB.USER,
+                "Deployed in all 3 regions", "Versioned policy store (ACM + Bell-LaPadula + Biba)", True, True),
+        # Security Domain 1: Operational
+        Service("Incident Management", OP, TB.OPERATIONAL,
+                "Raft within the cluster; async cross-region copies", "Encrypted Regional Incident/Dispatch DB",
+                True, True, "Raft"),
+        Service("Emergency Dispatch", OP, TB.OPERATIONAL,
+                "Raft (consensus-replicated)", "Encrypted Regional Incident/Dispatch DB", True, True, "Raft"),
+        Service("Resource Allocation", OP, TB.OPERATIONAL,
+                "Paxos across regions (any region may propose)", "Encrypted allocation store", True, True, "Paxos"),
+        Service("Information Governance", OP, TB.OPERATIONAL,
+                "Async", "Generated views (operational / analytics / research)", True, True),
+        # Guard sits between the Operational and Intelligence domains
+        Service("Guard", INTEL, TB.INTELLIGENCE,
+                "Deployed per region", "None (cross-domain filter: sanitised threat flags only)", True, True),
+        # Security Domain 2: Intelligence
+        Service("Intelligence Management", INTEL, TB.INTELLIGENCE,
+                "BFT (Intelligence Distribution)", "Encrypted Intelligence DB", True, True, "BFT"),
+        # Security Domain 3: Oversight
+        Service("Consensus Cluster", OVS, TB.OVERSIGHT,
+                "Raft / BFT across 3 regions", "Consensus logs", True, True, "Raft/BFT"),
+        Service("Audit Service", OVS, TB.OVERSIGHT,
+                "BFT (National Audit Log)", "Immutable Audit Log (signed, tamper-evident)", True, True, "BFT"),
+        # Outside the domains, behind the researcher boundary
+        Service("Analytics Service", None, TB.RESEARCHER,
+                "Async", "Anonymised views from Information Governance", True, True),
+    ]
+    arch.trust_boundaries = [TB.USER, TB.OPERATIONAL, TB.INTELLIGENCE, TB.OVERSIGHT, TB.RESEARCHER]
+    arch.security_domains = [OP, OVS, INTEL]
+    arch.replication_mechanisms = {
+        "datastores": "Each department's encrypted datastore is replicated asynchronously across the 3 regions",
+        "dispatch_and_incidents": "Raft: authoritative order, only the majority side can commit",
+        "resource_allocation": "Paxos: no fixed leader, any region can allocate",
+        "audit_and_intelligence": "BFT (n = 3f+1): tolerates f malicious validators",
+        "audit_events": "Every audit event is digitally signed before being appended",
+    }
+    arch.datastores = {
+        "incidents": "Encrypted Regional Incident/Dispatch DB",
+        "dispatch": "Encrypted Regional Incident/Dispatch DB",
+        "resource_allocation": "Encrypted allocation store",
+        "intelligence": "Encrypted Intelligence DB",
+        "audit": "Immutable Audit Log (signed, tamper-evident)",
+    }
+    return arch
+
+
+# Table 1 (Task A2). stride = STRIDE category letter(s).
+# tool_id = threat ID generated by Microsoft Threat Modeling Tool for the Fig 1.1 model;
+# "Manual" = threat the tool did not generate, added by the team.
+TOOL_ID_LEGEND = "Microsoft Threat Modeling Tool threat ID; Manual = added by the team"
+THREATS = [
+    {"id": "T1", "name": "Denial of service", "stride": "D", "tool_id": "285-286",
+     "assets": ["Call intake", "Dispatch"],
+     "attack": "Flood edge gateway or a Raft leader with requests",
+     "consequences": "Delayed calls and stalled dispatch",
+     "mitigation": "Rate limits across the external boundary and load balancing",
+     "residual_risk": "Large DDoS can still saturate links; mitigated with upstream scrubbing",
+     "experiment": ["raft-dos", "raft-election-storm"]},
+    {"id": "T2", "name": "Credential theft", "stride": "S", "tool_id": "302",
+     "assets": ["Responder accounts and every record they can read"],
+     "attack": "Phishing or credential stuffing",
+     "consequences": "Unauthorised reads of confidential data",
+     "mitigation": "Policy engine applies BLP to stolen identities; short-lived tokens; MFA",
+     "residual_risk": "Real-time phishing, malware or session hijacking, especially of high-clearance accounts",
+     "experiment": ["bft-key-compromise"],
+     "experiment_note": "validator credentials are the credential-theft case exercised experimentally; "
+                        "user-credential effects are bounded by the Part D policy engine (policy_conflicts.json)"},
+    {"id": "T3", "name": "Insider abuse (export / reclassify)", "stride": "E", "tool_id": "153-155",
+     "assets": ["Threat flag integrity", "Intelligence reports", "Audit trail"],
+     "attack": "Legitimate user exports or reclassifies data beyond their need",
+     "consequences": "Classified intelligence leaked and labels lowered to widen access",
+     "mitigation": "Least privilege via the policy engine; approval before intelligence leaves the Guard's zone",
+     "residual_risk": "An insider acting within their permissions can only be detected afterwards",
+     "experiment": ["bft-equivocation", "raft-leadership-churn"],
+     "experiment_note": "insider operating a validator (equivocation) or a Raft node (term inflation, run D)"},
+    {"id": "T4", "name": "Insider abuse (Guard impersonation)", "stride": "E", "tool_id": "229-231",
+     "assets": ["Incident records", "Operational decisions"],
+     "attack": "Insider impersonates the Guard and exploits Incident via a crafted threat flag",
+     "consequences": "Unauthorised incident modifications, false threat assessments, misleading dispatch",
+     "mitigation": "Service authentication, input validation, least privilege",
+     "residual_risk": "Stolen Guard certificates may bypass authentication",
+     "experiment": []},
+    {"id": "T5", "name": "Malware", "stride": "T", "tool_id": "340",
+     "assets": ["Dispatch service and its data store"],
+     "attack": "Compromised host in the operational zone",
+     "consequences": "Dispatch orders tampered with or blocked; attempt to move into intelligence",
+     "mitigation": "Domain segmentation blocks lateral movement; every service-to-service request re-authorised",
+     "residual_risk": "Malware acts with the infected host's legitimate rights until detected",
+     "experiment": ["raft-leadership-churn"],
+     "experiment_note": "run D: modified code on one Raft node degrades dispatch without breaking safety"},
+    {"id": "T6", "name": "Supply-chain compromise", "stride": "T, E", "tool_id": "Manual",
+     "assets": ["All services", "Consensus nodes"],
+     "attack": "Malicious library, container image or update rolled out to every region",
+     "consequences": "Backdoors in every replica at once",
+     "mitigation": "Signed builds, pinned and verified dependencies, rolling out one region at a time",
+     "residual_risk": "Common-mode failure: consensus cannot detect replicas that are all wrong the same way",
+     "experiment": ["bft-audit-corruption", "bft-key-compromise"],
+     "experiment_note": "bft-audit-corruption (pre-signing corruption) shows identical bad input on every "
+                        "replica is committed: the common-mode effect of a backdoored build. "
+                        "bft-key-compromise shows the effect of signing keys exfiltrated by such a build."},
+    {"id": "T7", "name": "Datacentre failure", "stride": "D", "tool_id": "7",
+     "assets": ["Services and data stores in one region"],
+     "attack": "Power loss, flood or a physical attack on one datacentre",
+     "consequences": "That region's services go down",
+     "mitigation": "Replicas in the other 2 regions keep a majority; the gateway reroutes traffic",
+     "residual_risk": "With 3 regions BFT may halt; async-replicated data can lose its latest writes",
+     "experiment": ["paxos-state-loss"]},
+    {"id": "T8", "name": "Network partition", "stride": "D", "tool_id": "Manual",
+     "assets": ["Consistency of incident and dispatch records across regions"],
+     "attack": "Network links between regions are cut",
+     "consequences": "Stale or inconsistent information; regions act on different incident states",
+     "mitigation": "Consensus ensures only the majority side can commit",
+     "residual_risk": "Minority region loses write access until the partition heals",
+     "experiment": ["raft-partition", "raft-leadership-churn", "paxos-quorum-misconfig"]},
+    {"id": "T9", "name": "Data corruption", "stride": "T", "tool_id": "272",
+     "assets": ["Audit log", "Casualty figures"],
+     "attack": "Deliberate tampering via a crafted query, software bug, or disk fault",
+     "consequences": "Wrong operational decisions; the audit trail can't be trusted",
+     "mitigation": "Signed audit events on a tamper-evident log, parameterised queries, consensus replication",
+     "residual_risk": "Corruption that happens before signing or commit is replicated faithfully",
+     "experiment": ["bft-audit-corruption"]},
+]
+
+
+ASSURANCE_SUMMARY = (
+    "Availability: services run in three UK regions; when one region fails the other two keep a majority "
+    "and continue, and data is replicated between regions. Confidentiality: users must authenticate (OIDC, "
+    "MFA, short-lived tokens) and the policy engine grants access only when the access-control matrix, "
+    "Bell-LaPadula and Biba all permit; datastores are encrypted, and five trust boundaries separate users, "
+    "the operational, intelligence and oversight domains, and research partners. Integrity: critical "
+    "transactions commit only with agreement from a majority of replicas (Raft, Paxos), and BFT protects "
+    "the audit log and intelligence against tampering by up to f malicious validators. Replication cannot "
+    "protect against common-mode failures (supply chain, pre-commit corruption), which remain the principal "
+    "residual risks."
+)
+
+
+def generate_architecture_assurance(arch: Architecture, threats: list) -> str:
+    return ASSURANCE_SUMMARY
+
+
+def save_architecture(output_dir=None):
+    output_dir = str(output_dir or Path(__file__).parent / "experiments")
+    Path(output_dir).mkdir(parents=True, exist_ok=True)
+    arch = build_nerp_architecture()
+    with open(f"{output_dir}/architecture.json", 'w') as f:
+        json.dump({
+            "services": [asdict(s) for s in arch.services],
+            "trust_boundaries": [t.value for t in arch.trust_boundaries],
+            "security_domains": [d.value for d in arch.security_domains],
+            "regions": REGIONS,
+            "replication": arch.replication_mechanisms,
+            "datastores": arch.datastores,
+            "assurance_summary": ASSURANCE_SUMMARY
+        }, f, indent=2, default=lambda o: o.value if isinstance(o, Enum) else str(o))
+    with open(f"{output_dir}/threat_model.json", 'w') as f:
+        json.dump({"tool_id_legend": TOOL_ID_LEGEND, "threats": THREATS}, f, indent=2)
+    print(f"[SAVED] Architecture & threat model to {output_dir}/")
+
+
+if __name__ == "__main__":
+    arch = build_nerp_architecture()
+    threats = THREATS
+    assurance = generate_architecture_assurance(arch, threats)
+
+    print("NERP ARCHITECTURE")
+    print("=" * 50)
+    print(f"Services: {len(arch.services)}")
+    print(f"Trust Boundaries: {[t.value for t in arch.trust_boundaries]}")
+    print(f"Security Domains: {[d.value for d in arch.security_domains]}")
+    print("\nServices:")
+    for s in arch.services:
+        print(f"  {s.name}: domain={s.domain.value if s.domain else '-'}, boundary={s.trust_boundary.value}, consensus={s.consensus_protocol}")
+
+    print(f"\n\nTHREAT MODEL ({len(threats)} threats)")
+    print("-" * 50)
+    for t in threats:
+        print(f"\n{t['id']}: {t['name']} [STRIDE {t['stride']}, tool {t['tool_id']}]")
+        print(f"  Assets: {', '.join(t['assets'])}")
+        print(f"  Mitigation: {t['mitigation'][:80]}...")
+
+    print(f"\n\nASSURANCE SUMMARY")
+    print("-" * 50)
+    print(assurance)
+
+    save_architecture()

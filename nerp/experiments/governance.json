@@ -1,0 +1,199 @@
+{
+  "impact_assessments": [
+    {
+      "scenario": "Research org requests unrestricted intelligence access",
+      "security_properties": [
+        "Confidentiality",
+        "Integrity"
+      ],
+      "components": [
+        "Intelligence",
+        "Policy",
+        "Classification",
+        "InfoFlow"
+      ],
+      "consensus_assumptions": [
+        "BFT validator authenticity",
+        "Fixed validator membership"
+      ],
+      "classification_impact": "TOP SECRET exposed",
+      "policy_impact": "BLP/Biba violated",
+      "retention_impact": "Retention conflict",
+      "severity": "critical"
+    },
+    {
+      "scenario": "Responders request classified access",
+      "security_properties": [
+        "Confidentiality",
+        "Operational"
+      ],
+      "components": [
+        "Intelligence",
+        "Policy",
+        "ACM",
+        "InfoFlow"
+      ],
+      "consensus_assumptions": [
+        "BFT quorum certificates",
+        "Fixed validator membership"
+      ],
+      "classification_impact": "Classification boundaries broken",
+      "policy_impact": "ACM/BLP changes needed",
+      "retention_impact": "Longer audit retention",
+      "severity": "high"
+    },
+    {
+      "scenario": "Regional datacenter permanently unavailable",
+      "security_properties": [
+        "Availability",
+        "Integrity"
+      ],
+      "components": [
+        "IncidentDB",
+        "Dispatch",
+        "Consensus",
+        "Replication"
+      ],
+      "consensus_assumptions": [
+        "Raft majority",
+        "Paxos majority",
+        "BFT 3f+1"
+      ],
+      "classification_impact": "Failover may expose data",
+      "policy_impact": "Policy must replicate",
+      "retention_impact": "Signed audit log must survive",
+      "severity": "high"
+    },
+    {
+      "scenario": "Validator credentials compromised",
+      "security_properties": [
+        "Integrity",
+        "Confidentiality",
+        "Non-repudiation"
+      ],
+      "components": [
+        "AuditLog",
+        "BFT",
+        "Hardening",
+        "Keys"
+      ],
+      "consensus_assumptions": [
+        "Epoch key rotation",
+        "Equivocation-proof revocation",
+        "Quorum certificates"
+      ],
+      "classification_impact": "SECRET audit at risk",
+      "policy_impact": "Biba/BLP violated",
+      "retention_impact": "20yr retention undermined",
+      "severity": "critical"
+    },
+    {
+      "scenario": "New regulation: 20yr retention for all records",
+      "security_properties": [
+        "Confidentiality",
+        "Integrity",
+        "Availability"
+      ],
+      "components": [
+        "All Datastores",
+        "Retention",
+        "Governance",
+        "Archive",
+        "Audit"
+      ],
+      "consensus_assumptions": [
+        "Long-term keys",
+        "20yr storage integrity",
+        "Format readability"
+      ],
+      "classification_impact": "Exposure risk increases",
+      "policy_impact": "Policy versioning needed",
+      "retention_impact": "Unified 20yr minimum",
+      "severity": "high"
+    }
+  ],
+  "governance_decisions": [
+    {
+      "scenario": "Research org requests unrestricted intelligence access",
+      "action": "Deny unrestricted. Provide sanitized Research View via InfoFlow (PII removed, summaries only). Require data sharing agreement with audit trail.",
+      "prioritized": [
+        "confidentiality",
+        "integrity"
+      ],
+      "sacrificed": [
+        "operational_effectiveness"
+      ],
+      "confidentiality": "Preserved: TOP SECRET stays in the Intelligence domain",
+      "integrity": "Preserved: Research view read-only, verified transform",
+      "availability": "Reduced: Delayed, limited access",
+      "operational": "Minimal: Operational views unchanged",
+      "residual_risk": "Re-identification risk; mitigated by k-anonymity/differential privacy"
+    },
+    {
+      "scenario": "Responders request classified access",
+      "action": "Deny direct access. Intelligence Analysts produce sanitized Operational Briefs (CONFIDENTIAL). Responders access briefs, not raw intel.",
+      "prioritized": [
+        "confidentiality",
+        "operational_effectiveness"
+      ],
+      "sacrificed": [
+        "availability"
+      ],
+      "confidentiality": "Preserved: Raw intel stays in the Intelligence domain",
+      "integrity": "Preserved: Briefs created by authorized analysts under Biba",
+      "availability": "Reduced: Wait for analyst briefs",
+      "operational": "Balanced: Actionable intel without violation",
+      "residual_risk": "Brief production delay; mitigated by pre-positioned analysts/templates"
+    },
+    {
+      "scenario": "Regional datacenter permanently unavailable",
+      "action": "Activate cross-region failover. Reconfigure quorums. Rebuild when restored. Audit failover.",
+      "prioritized": [
+        "availability",
+        "integrity"
+      ],
+      "sacrificed": [
+        "confidentiality"
+      ],
+      "confidentiality": "Reduced: Temp clearance differences; mitigated by policy replication",
+      "integrity": "Preserved: Raft/Paxos/BFT state survives; quorum certs verify",
+      "availability": "Preserved: the two surviving regions keep a majority and continue",
+      "operational": "Minor: Latency to new primary",
+      "residual_risk": "Split-brain during detection; mitigated by Raft lease/BFT partition tolerance"
+    },
+    {
+      "scenario": "Validator credentials compromised",
+      "action": "Revoke via Hardening. Activate key rotation. Rebuild audit from last quorum cert. Forensic analysis. Mandate HSM keys.",
+      "prioritized": [
+        "integrity",
+        "confidentiality"
+      ],
+      "sacrificed": [
+        "availability"
+      ],
+      "confidentiality": "Preserved: Key rotation limits exposure; separate encryption keys",
+      "integrity": "Restored: Pre-compromise certs valid; post-compromise flagged",
+      "availability": "Reduced: Audit degraded hours; ops unaffected",
+      "operational": "Minimal: Separate validators for ops consensus",
+      "residual_risk": "Undetected forgeries between compromise/detection; mitigated by hash-chain comparison across 2f+1 validators"
+    },
+    {
+      "scenario": "New regulation: 20yr retention",
+      "action": "Unified 20yr minimum tier. Signed, tamper-evident audit log. Policy versioning with timestamps. Plan post-quantum agility. Budget 20yr storage/keys.",
+      "prioritized": [
+        "integrity",
+        "confidentiality"
+      ],
+      "sacrificed": [
+        "availability",
+        "operational_effectiveness"
+      ],
+      "confidentiality": "Preserved: Classification enforced 20yrs; key rotation extends",
+      "integrity": "Enhanced: hash-chain heads published, format migration",
+      "availability": "Reduced: Storage costs up; archive latency higher",
+      "operational": "Increased: Compliance burden; evaluate 20yr-old policies",
+      "residual_risk": "Crypto obsolescence; mitigated by agility framework/migration plan"
+    }
+  ],
+  "assurance_statement": "NERP Security Assurance Statement\n\nMost Significant Residual Risks:\n1. Cryptographic Agility: 20yr confidentiality depends on unbroken algorithms; post-quantum plan untested.\n2. Insider Threat in the Intelligence domain: BFT/BLP mitigate but can't eliminate cleared personnel exfiltration.\n3. Consensus Liveness Under Partition: Raft/Paxos need majority; extended partition loses availability.\n4. Key Management at Scale: HSM keys for every validator; single HSM failure could cascade.\n5. Policy Conflict Resolution: Conservative deny-by-default may impede emergency ops.\n\nCritical Assumptions:\n- <1/3 BFT validators Byzantine (fixed, governed membership; see bft-sybil)\n- Raft/Paxos majorities connected (multi-region)\n- HSMs correctly generate/protect keys\n- Classification labels accurate (auto engine + human review)\n- Policy engine correctly implements ACM/BLP/Biba (tested via outcome matrix; not formally verified)\n- Audit Service signs events correctly (corruption before signing is replicated; see bft-audit-corruption)\n\nMost Important Controls:\n1. Consensus Hardening: epoch keys, equivocation-proof revocation and quorum certificates (bft-key-compromise).\n2. Multi-Layer Policy Engine: ACM+BLP+Biba defence-in-depth.\n3. Information Flow Engine: Classification boundaries at data level.\n4. Cross-Region Consensus: Geographic diversity survives datacenter loss.\n5. Continuous Experimentation: Attack sims validate assumptions regularly.\n\nRecommendation: CONDITIONED deployment - pilot with live shadowing, independent pentest, formal verification of BLP/Biba, 24/7 SOC, annual assumption re-evaluation.\nNERP is not perfectly secure but provides reasoned basis for trust via defence-in-depth, protocol diversity, crypto hardening, and evidence-based assurance.\n"
+}

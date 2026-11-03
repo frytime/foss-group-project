@@ -1,0 +1,288 @@
+{
+  "scenarios": [
+    {
+      "scenario": "ACM permits but Bell-LaPadula prevents",
+      "user": "Henry Baker (police_officer, SECRET, OPERATIONAL)",
+      "action": "read intelligence",
+      "resource": "INT-005 (TOP_SECRET, COMMAND)",
+      "acm": "grant",
+      "bell_lapadula": "deny",
+      "biba": "grant",
+      "final": "deny",
+      "property_protected": "Confidentiality: No Read Up (SECRET subject, TOP SECRET object)"
+    },
+    {
+      "scenario": "Bell-LaPadula permits but Biba prevents",
+      "user": "Ruby Clark (paramedic, OFFICIAL, OPERATIONAL)",
+      "action": "write incidents",
+      "resource": "INC-007 (CONFIDENTIAL, COMMAND)",
+      "acm": "grant",
+      "bell_lapadula": "grant",
+      "biba": "deny",
+      "final": "deny",
+      "property_protected": "Integrity: No Write Up (OPERATIONAL subject, COMMAND Critical incident)"
+    },
+    {
+      "scenario": "All security controls permit",
+      "user": "Amelia Lewis (regional_cmdr, TOP_SECRET, COMMAND)",
+      "action": "read intelligence",
+      "resource": "INT-001 (SECRET, COMMAND)",
+      "acm": "grant",
+      "bell_lapadula": "grant",
+      "biba": "grant",
+      "final": "grant",
+      "property_protected": "Operational effectiveness: cleared commander reads SECRET intelligence"
+    },
+    {
+      "scenario": "Both MAC models permit but ACM prevents",
+      "user": "Ruby Clark (paramedic, OFFICIAL, OPERATIONAL)",
+      "action": "read intelligence",
+      "resource": "INT-004 (OFFICIAL, COMMAND)",
+      "acm": "deny",
+      "bell_lapadula": "grant",
+      "biba": "grant",
+      "final": "deny",
+      "property_protected": "Need-to-know: paramedics have no intelligence role permission"
+    },
+    {
+      "scenario": "Conflict: strict Biba blocks a legitimate read",
+      "user": "Amelia Lewis (regional_cmdr, TOP_SECRET, COMMAND)",
+      "action": "read incidents",
+      "resource": "INC-001 (SECRET, OPERATIONAL)",
+      "acm": "grant",
+      "bell_lapadula": "grant",
+      "biba": "deny",
+      "final": "deny",
+      "property_protected": "Biba No Read Down stops a COMMAND subject reading OPERATIONAL incidents"
+    },
+    {
+      "scenario": "Conflict: analyst cannot write intelligence",
+      "user": "James Reed (intel_analyst, TOP_SECRET, OPERATIONAL)",
+      "action": "write intelligence",
+      "resource": "INT-005 (TOP_SECRET, COMMAND)",
+      "acm": "grant",
+      "bell_lapadula": "grant",
+      "biba": "deny",
+      "final": "deny",
+      "property_protected": "Biba No Write Up: OPERATIONAL analyst vs COMMAND intelligence"
+    }
+  ],
+  "outcome_matrix": {
+    "police_officer": {
+      "incidents": {
+        "read": 20,
+        "write": 1,
+        "total": 20
+      },
+      "intelligence": {
+        "read": 16,
+        "write": 0,
+        "total": 20
+      },
+      "dispatch": {
+        "read": 20,
+        "write": 0,
+        "total": 20
+      },
+      "audit": {
+        "read": 0,
+        "write": 0,
+        "total": 20
+      },
+      "responders": {
+        "read": 20,
+        "write": 0,
+        "total": 20
+      }
+    },
+    "paramedic": {
+      "incidents": {
+        "read": 0,
+        "write": 15,
+        "total": 20
+      },
+      "intelligence": {
+        "read": 0,
+        "write": 0,
+        "total": 20
+      },
+      "dispatch": {
+        "read": 16,
+        "write": 0,
+        "total": 20
+      },
+      "audit": {
+        "read": 0,
+        "write": 0,
+        "total": 20
+      },
+      "responders": {
+        "read": 0,
+        "write": 0,
+        "total": 20
+      }
+    },
+    "fire_officer": {
+      "incidents": {
+        "read": 0,
+        "write": 15,
+        "total": 20
+      },
+      "intelligence": {
+        "read": 3,
+        "write": 0,
+        "total": 20
+      },
+      "dispatch": {
+        "read": 16,
+        "write": 0,
+        "total": 20
+      },
+      "audit": {
+        "read": 0,
+        "write": 0,
+        "total": 20
+      },
+      "responders": {
+        "read": 0,
+        "write": 0,
+        "total": 20
+      }
+    },
+    "intel_analyst": {
+      "incidents": {
+        "read": 20,
+        "write": 0,
+        "total": 20
+      },
+      "intelligence": {
+        "read": 20,
+        "write": 0,
+        "total": 20
+      },
+      "dispatch": {
+        "read": 20,
+        "write": 0,
+        "total": 20
+      },
+      "audit": {
+        "read": 20,
+        "write": 0,
+        "total": 20
+      },
+      "responders": {
+        "read": 20,
+        "write": 0,
+        "total": 20
+      }
+    },
+    "regional_cmdr": {
+      "incidents": {
+        "read": 5,
+        "write": 0,
+        "total": 20
+      },
+      "intelligence": {
+        "read": 20,
+        "write": 4,
+        "total": 20
+      },
+      "dispatch": {
+        "read": 5,
+        "write": 0,
+        "total": 20
+      },
+      "audit": {
+        "read": 20,
+        "write": 0,
+        "total": 20
+      },
+      "responders": {
+        "read": 0,
+        "write": 0,
+        "total": 20
+      }
+    },
+    "national_cmdr": {
+      "incidents": {
+        "read": 5,
+        "write": 0,
+        "total": 20
+      },
+      "intelligence": {
+        "read": 20,
+        "write": 4,
+        "total": 20
+      },
+      "dispatch": {
+        "read": 5,
+        "write": 0,
+        "total": 20
+      },
+      "audit": {
+        "read": 20,
+        "write": 0,
+        "total": 20
+      },
+      "responders": {
+        "read": 0,
+        "write": 0,
+        "total": 20
+      }
+    },
+    "auditor": {
+      "incidents": {
+        "read": 0,
+        "write": 0,
+        "total": 20
+      },
+      "intelligence": {
+        "read": 0,
+        "write": 0,
+        "total": 20
+      },
+      "dispatch": {
+        "read": 0,
+        "write": 0,
+        "total": 20
+      },
+      "audit": {
+        "read": 20,
+        "write": 0,
+        "total": 20
+      },
+      "responders": {
+        "read": 0,
+        "write": 0,
+        "total": 20
+      }
+    },
+    "dispatcher": {
+      "incidents": {
+        "read": 0,
+        "write": 15,
+        "total": 20
+      },
+      "intelligence": {
+        "read": 3,
+        "write": 0,
+        "total": 20
+      },
+      "dispatch": {
+        "read": 16,
+        "write": 15,
+        "total": 20
+      },
+      "audit": {
+        "read": 0,
+        "write": 0,
+        "total": 20
+      },
+      "responders": {
+        "read": 0,
+        "write": 20,
+        "total": 20
+      }
+    }
+  }
+}

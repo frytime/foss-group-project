@@ -1,0 +1,111 @@
+{
+  "selections": [
+    {
+      "subsystem": "Regional Incident Database",
+      "selected": "Raft",
+      "justification": "Regional incident databases require strong consistency for operational correctness (dispatch decisions based on current incident state) but operate within a trusted regional infrastructure. Raft's leader-based model provides clear operational semantics, understandable failure modes, and sufficient performance for regional write loads. The single-leader model simplifies conflict resolution for incident updates.",
+      "rejected": {
+        "Byzantine Fault Tolerance": "Overhead of 3f+1 validators and quadratic messaging unnecessary for trusted regional nodes; no Byzantine threat model within regional infrastructure.",
+        "Paxos": "Multi-Paxos complexity offers no advantage over Raft for this use case; Raft's leadership provides simpler membership changes for regional scaling."
+      },
+      "trust_assumptions": [
+        "Regional nodes are non-Byzantine",
+        "Network partitions are rare within region",
+        "Clocks loosely synchronized"
+      ],
+      "attack_surface": [
+        "Leader compromise",
+        "Log replication delay",
+        "Membership change safety"
+      ],
+      "availability": "High (regional outage tolerated via cross-region async)",
+      "performance": "Low latency writes (single leader), ~10ms commit"
+    },
+    {
+      "subsystem": "Emergency Dispatch Service",
+      "selected": "Raft",
+      "justification": "Dispatch requires low-latency, strongly consistent state for unit assignment and status tracking. Raft's leader lease mechanism provides fast reads and writes with bounded staleness. The operational environment is trusted (police/fire/ambulance infrastructure), making Byzantine tolerance unnecessary. Leader failover is well-understood for operational teams.",
+      "rejected": {
+        "Byzantine Fault Tolerance": "Performance overhead (3+ round trips) incompatible with sub-second dispatch requirements; no Byzantine adversaries in dispatch infrastructure.",
+        "Paxos": "No distinguished leader adds latency for read-heavy dispatch status queries; Raft's leader optimizes this path."
+      },
+      "trust_assumptions": [
+        "Dispatch infrastructure is trusted",
+        "Leader failure detection works",
+        "Network RTT < 100ms within region"
+      ],
+      "attack_surface": [
+        "Leader election storm",
+        "Split-brain during partition",
+        "Log truncation on leader change"
+      ],
+      "availability": "Critical (life-safety), <1s failover",
+      "performance": "Sub-100ms commit, lease reads <1ms"
+    },
+    {
+      "subsystem": "Resource Allocation Service",
+      "selected": "Paxos",
+      "justification": "Resource allocation spans multiple regions and agencies with no natural single leader. Paxos's leaderless design allows any region to propose allocations, avoiding cross-region latency to a fixed leader. Multi-Paxos optimizes for repeated proposals. The trust model assumes non-Byzantine but geographically distributed participants.",
+      "rejected": {
+        "Byzantine Fault Tolerance": "Byzantine tolerance not required for resource allocation; 3f+1 overhead reduces capacity for legitimate participants.",
+        "Raft": "Fixed leader creates cross-region latency for proposals; leadership transfer on region failure adds complexity."
+      },
+      "trust_assumptions": [
+        "Majority of regions operational",
+        "Proposers are authenticated",
+        "Message delivery eventually reliable"
+      ],
+      "attack_surface": [
+        "Duelling proposers",
+        "Quorum misconfiguration",
+        "State loss on majority failure"
+      ],
+      "availability": "High (survives single region loss)",
+      "performance": "2-3 round trips cross-region, ~200-500ms"
+    },
+    {
+      "subsystem": "National Audit Log",
+      "selected": "Byzantine Fault Tolerance",
+      "justification": "National audit log is a high-value target for tampering (insider threats, nation-state actors). BFT provides safety even with f < n/3 malicious validators. The audit log must remain immutable and verifiable even if infrastructure is partially compromised. Quorum certificates provide cryptographic proof of agreement.",
+      "rejected": {
+        "Paxos": "Crash fault tolerance only; compromised validator can corrupt log without detection. No cryptographic evidence of agreement.",
+        "Raft": "Single leader is single point of compromise; log can be rewritten by malicious leader. No Byzantine resilience."
+      },
+      "trust_assumptions": [
+        "< 1/3 validators Byzantine",
+        "Cryptographic keys secure",
+        "Validators authentically identified"
+      ],
+      "attack_surface": [
+        "Equivocation",
+        "Sybil",
+        "Key compromise",
+        "Long-range attack"
+      ],
+      "availability": "High (tolerates f failures)",
+      "performance": "3-4 round trips, ~500ms-1s (acceptable for audit)"
+    },
+    {
+      "subsystem": "Intelligence Distribution Service",
+      "selected": "Byzantine Fault Tolerance",
+      "justification": "Intelligence distribution handles TOP SECRET data across agencies with potential insider threats. BFT ensures safety even if intelligence analysts or infrastructure are compromised. The high classification demands cryptographic proof of correct dissemination. Quorum certificates (2f+1 signatures) provide non-repudiation.",
+      "rejected": {
+        "Paxos": "Insufficient for insider threat model; compromised acceptor can learn/distribute classified data incorrectly.",
+        "Raft": "Leader has full access to all intelligence; compromise exposes entire stream. No Byzantine resilience."
+      },
+      "trust_assumptions": [
+        "< 1/3 validators Byzantine",
+        "Key management per classification level",
+        "Attestation chain for validators"
+      ],
+      "attack_surface": [
+        "Equivocation on classification",
+        "Sybil in validator set",
+        "Key compromise",
+        "Covert channel"
+      ],
+      "availability": "Medium (intelligence can queue)",
+      "performance": "Higher latency acceptable for security"
+    }
+  ]
+}

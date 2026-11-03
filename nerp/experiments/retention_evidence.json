@@ -1,0 +1,468 @@
+{
+  "schedule": [
+    {
+      "dataset": "incidents",
+      "classification": "OFFICIAL",
+      "active_years": 1,
+      "retention_years": 7,
+      "end_action": "destroy",
+      "basis": "Limitation Act 1980: 6-year claim window + 1 year margin"
+    },
+    {
+      "dataset": "incidents",
+      "classification": "CONFIDENTIAL",
+      "active_years": 1,
+      "retention_years": 10,
+      "end_action": "destroy",
+      "basis": "Caller personal data, often with casualty/health content: aligned with NHS Records Management Code (ambulance records, adults: 10 years), which exceeds the Limitation Act 6-year window"
+    },
+    {
+      "dataset": "incidents",
+      "classification": "SECRET",
+      "active_years": 2,
+      "retention_years": 20,
+      "end_action": "review",
+      "basis": "Security incidents may feed investigations/inquiries: review at 20 years (Public Records Act transfer point), never auto-destroy"
+    },
+    {
+      "dataset": "dispatch",
+      "classification": "inherits",
+      "active_years": "-",
+      "retention_years": "-",
+      "end_action": "destroyed with linked incident",
+      "basis": "inherit:incidents"
+    },
+    {
+      "dataset": "intelligence",
+      "classification": "OFFICIAL",
+      "active_years": 1,
+      "retention_years": 6,
+      "end_action": "review",
+      "basis": "MoPI-style review: retain only while necessary and proportionate"
+    },
+    {
+      "dataset": "intelligence",
+      "classification": "CONFIDENTIAL",
+      "active_years": 1,
+      "retention_years": 6,
+      "end_action": "review",
+      "basis": "MoPI-style review at 6 years"
+    },
+    {
+      "dataset": "intelligence",
+      "classification": "SECRET",
+      "active_years": 2,
+      "retention_years": 10,
+      "end_action": "review",
+      "basis": "Review at 10 years; extended while the threat remains live"
+    },
+    {
+      "dataset": "intelligence",
+      "classification": "TOP_SECRET",
+      "active_years": 2,
+      "retention_years": 25,
+      "end_action": "review",
+      "basis": "Review at 25 years; national-security retention or transfer"
+    },
+    {
+      "dataset": "audit",
+      "classification": "CONFIDENTIAL",
+      "active_years": 1,
+      "retention_years": 7,
+      "end_action": "tombstone",
+      "basis": "Minimum 7 years immutable; payload shredded, digest kept"
+    },
+    {
+      "dataset": "audit",
+      "classification": "SECRET",
+      "active_years": 1,
+      "retention_years": 7,
+      "end_action": "tombstone",
+      "basis": "As CONFIDENTIAL, but never before the referenced record's own retention ends (access history lives as long as the data)"
+    },
+    {
+      "dataset": "responders",
+      "classification": "OFFICIAL",
+      "active_years": 6,
+      "retention_years": 6,
+      "end_action": "review",
+      "basis": "Employment record: annual review; employment end date not in dataset, so held for review at 6 years"
+    },
+    {
+      "dataset": "responders",
+      "classification": "CONFIDENTIAL",
+      "active_years": 6,
+      "retention_years": 6,
+      "end_action": "review",
+      "basis": "As OFFICIAL"
+    },
+    {
+      "dataset": "responders",
+      "classification": "SECRET",
+      "active_years": 6,
+      "retention_years": 6,
+      "end_action": "review",
+      "basis": "As CONFIDENTIAL; review also checks the linked security incident's legal hold before disposal"
+    },
+    {
+      "dataset": "incidents",
+      "classification": "field: callerName, callerPhone",
+      "active_years": "30 days",
+      "retention_years": "30 days",
+      "end_action": "redact (re-encrypt, old key shredded)",
+      "basis": "UK GDPR data minimisation"
+    }
+  ],
+  "enforcement": {
+    "timeline": [
+      {
+        "checkpoint": "day 0",
+        "date": "2026-11-03",
+        "actions": {
+          "pii_minimised": 0,
+          "archived": 0,
+          "destroyed": 0,
+          "queued_for_review": 0,
+          "blocked_by_legal_hold": 0,
+          "audit_deferred_referenced_record_live": 0
+        },
+        "tiers": {
+          "active": {
+            "incidents": 20,
+            "dispatch": 20,
+            "intelligence": 20,
+            "audit": 20,
+            "responders": 20
+          }
+        },
+        "bytes": {
+          "active": 44200,
+          "archived": 0,
+          "review": 0
+        },
+        "legal_holds": [
+          "incidents/INC-010",
+          "incidents/INC-014",
+          "incidents/INC-020"
+        ]
+      },
+      {
+        "checkpoint": "+31 days",
+        "date": "2026-12-04",
+        "actions": {
+          "pii_minimised": 17,
+          "archived": 0,
+          "destroyed": 0,
+          "queued_for_review": 0,
+          "blocked_by_legal_hold": 0,
+          "audit_deferred_referenced_record_live": 0
+        },
+        "tiers": {
+          "active": {
+            "incidents": 20,
+            "dispatch": 20,
+            "intelligence": 20,
+            "audit": 20,
+            "responders": 20
+          }
+        },
+        "bytes": {
+          "active": 43898,
+          "archived": 0,
+          "review": 0
+        },
+        "legal_holds": [
+          "incidents/INC-010",
+          "incidents/INC-014",
+          "incidents/INC-020"
+        ]
+      },
+      {
+        "checkpoint": "+2 years",
+        "date": "2028-12-02",
+        "actions": {
+          "pii_minimised": 0,
+          "archived": 80,
+          "destroyed": 0,
+          "queued_for_review": 0,
+          "blocked_by_legal_hold": 0,
+          "audit_deferred_referenced_record_live": 0
+        },
+        "tiers": {
+          "archived": {
+            "incidents": 20,
+            "dispatch": 20,
+            "intelligence": 20,
+            "audit": 20
+          },
+          "active": {
+            "responders": 20
+          }
+        },
+        "bytes": {
+          "active": 7727,
+          "archived": 22963,
+          "review": 0
+        },
+        "legal_holds": [
+          "incidents/INC-010",
+          "incidents/INC-014",
+          "incidents/INC-020"
+        ]
+      },
+      {
+        "checkpoint": "+8 years",
+        "date": "2034-12-01",
+        "actions": {
+          "pii_minimised": 0,
+          "archived": 20,
+          "destroyed": 2,
+          "queued_for_review": 27,
+          "blocked_by_legal_hold": 0,
+          "audit_deferred_referenced_record_live": 3
+        },
+        "tiers": {
+          "archived": {
+            "incidents": 20,
+            "dispatch": 20,
+            "intelligence": 13,
+            "audit": 18
+          },
+          "review": {
+            "intelligence": 7,
+            "responders": 20
+          },
+          "destroyed": {
+            "audit": 2
+          }
+        },
+        "bytes": {
+          "active": 0,
+          "archived": 20412,
+          "review": 7220
+        },
+        "legal_holds": [
+          "incidents/INC-010",
+          "incidents/INC-014",
+          "incidents/INC-020"
+        ]
+      },
+      {
+        "checkpoint": "+11 years",
+        "date": "2037-11-30",
+        "actions": {
+          "pii_minimised": 0,
+          "archived": 0,
+          "destroyed": 24,
+          "queued_for_review": 9,
+          "blocked_by_legal_hold": 0,
+          "audit_deferred_referenced_record_live": 4
+        },
+        "tiers": {
+          "archived": {
+            "incidents": 4,
+            "dispatch": 4,
+            "intelligence": 4,
+            "audit": 10
+          },
+          "destroyed": {
+            "incidents": 16,
+            "dispatch": 16,
+            "audit": 10
+          },
+          "review": {
+            "intelligence": 16,
+            "responders": 20
+          }
+        },
+        "bytes": {
+          "active": 0,
+          "archived": 6760,
+          "review": 9998
+        },
+        "legal_holds": [
+          "incidents/INC-010",
+          "incidents/INC-014",
+          "incidents/INC-020"
+        ]
+      },
+      {
+        "checkpoint": "+21 years",
+        "date": "2047-11-28",
+        "actions": {
+          "pii_minimised": 0,
+          "archived": 0,
+          "destroyed": 0,
+          "queued_for_review": 5,
+          "blocked_by_legal_hold": 3,
+          "audit_deferred_referenced_record_live": 6
+        },
+        "tiers": {
+          "review": {
+            "incidents": 1,
+            "dispatch": 4,
+            "intelligence": 16,
+            "responders": 20
+          },
+          "destroyed": {
+            "incidents": 16,
+            "dispatch": 16,
+            "audit": 10
+          },
+          "archived": {
+            "incidents": 3,
+            "intelligence": 4,
+            "audit": 10
+          }
+        },
+        "bytes": {
+          "active": 0,
+          "archived": 5252,
+          "review": 11506
+        },
+        "legal_holds": [
+          "incidents/INC-010",
+          "incidents/INC-014",
+          "incidents/INC-020"
+        ]
+      },
+      {
+        "checkpoint": "+26 years",
+        "date": "2052-11-26",
+        "actions": {
+          "pii_minimised": 0,
+          "archived": 0,
+          "destroyed": 0,
+          "queued_for_review": 4,
+          "blocked_by_legal_hold": 3,
+          "audit_deferred_referenced_record_live": 10
+        },
+        "tiers": {
+          "review": {
+            "incidents": 1,
+            "dispatch": 4,
+            "intelligence": 20,
+            "responders": 20
+          },
+          "destroyed": {
+            "incidents": 16,
+            "dispatch": 16,
+            "audit": 10
+          },
+          "archived": {
+            "incidents": 3,
+            "audit": 10
+          }
+        },
+        "bytes": {
+          "active": 0,
+          "archived": 3976,
+          "review": 12782
+        },
+        "legal_holds": [
+          "incidents/INC-010",
+          "incidents/INC-014",
+          "incidents/INC-020"
+        ]
+      }
+    ],
+    "probes": {
+      "pii_after_31_days": {
+        "callerName": null,
+        "callerPhone": null
+      },
+      "archive_read_paramedic": {
+        "allowed": false,
+        "error": "RetentionError: paramedic may not read archived incidents/INC-002: not an archive role"
+      },
+      "archive_read_auditor_audit_record": {
+        "allowed": true,
+        "result": {
+          "_integrity": "AUDIT",
+          "_label": "CONFIDENTIAL",
+          "_reasons": [
+            "CONFIDENTIAL (baseline): records staff identity and activity",
+            "review: high-risk action 'Modified Classification' (insider-abuse indicator)",
+            "AUDIT integrity: audit record"
+          ],
+          "_review": [
+            "high-risk action 'Modified Classification'"
+          ],
+          "action": "Modified Classification",
+          "actor": "Regional Commander",
+          "eventId": "AUD-014",
+          "resource": "INT-012",
+          "timestamp": "2026-11-03T14:16:00Z"
+        }
+      },
+      "archive_read_regional_cmdr_secret_intel": {
+        "allowed": true,
+        "result": {
+          "_integrity": "COMMAND",
+          "_label": "SECRET",
+          "_reasons": [
+            "SECRET: originator marking (classificationHint)",
+            "contains a suspect identifier (personal data under investigation)",
+            "COMMAND integrity: intelligence report"
+          ],
+          "classificationHint": "SECRET",
+          "region": "South West",
+          "reportId": "INT-001",
+          "reportSource": "Counter Terrorism Unit",
+          "summary": "Possible hostile reconnaissance activity near critical transport infrastructure.",
+          "suspectIdentifier": "SUBJ-101",
+          "threatLevel": "SEVERE"
+        }
+      },
+      "archive_read_regional_cmdr_incident": {
+        "allowed": false,
+        "error": "RetentionError: regional_cmdr may not read archived incidents/INC-002: Denied by: Biba"
+      },
+      "early_destroy_audit_by_commander": {
+        "allowed": false,
+        "error": "RetentionError: regional_cmdr may not authorise destruction"
+      },
+      "early_destroy_audit_by_auditor": {
+        "allowed": false,
+        "error": "RetentionError: audit/AUD-014 retained until 2033-11-01"
+      },
+      "read_destroyed_record": {
+        "allowed": false,
+        "error": "KeyError: 'key incidents/INC-002@v119 destroyed (crypto-shredded)'"
+      },
+      "destroyed_key_id_still_in_keystore": false,
+      "INC-002_dispatch_D002_tier": "destroyed",
+      "destroy_under_legal_hold": {
+        "allowed": false,
+        "error": "RetentionError: incidents/INC-010 is under legal hold"
+      }
+    },
+    "log_integrity": {
+      "governance_log_entries": 214,
+      "chain_valid": true,
+      "forged_copy_detected": true
+    },
+    "storage_record_years": 1112.0
+  },
+  "regulation_20y": {
+    "years": 20,
+    "records_with_longer_retention": {
+      "incidents/CONFIDENTIAL": 16,
+      "dispatch/OFFICIAL": 16,
+      "intelligence/SECRET": 9,
+      "intelligence/CONFIDENTIAL": 4,
+      "intelligence/OFFICIAL": 3,
+      "audit/SECRET": 1,
+      "audit/CONFIDENTIAL": 13,
+      "responders/SECRET": 2,
+      "responders/CONFIDENTIAL": 18
+    },
+    "record_years_before": 1112.0,
+    "record_years_after": 2046.0,
+    "conflicts": [
+      "Caller PII: 20-year retention of the whole record conflicts with UK GDPR storage limitation; the field-level 30-day minimisation still applies unless the regulation names PII explicitly.",
+      "Data keys must stay recoverable for 20 years (HSM lifecycle, key escrow, crypto agility).",
+      "Intelligence 'review' rules become 'retain at least 20 years': review can no longer dispose early."
+    ]
+  }
+}

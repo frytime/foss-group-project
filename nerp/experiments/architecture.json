@@ -1,0 +1,156 @@
+{
+  "services": [
+    {
+      "name": "API Gateway / WAF",
+      "domain": null,
+      "trust_boundary": "TB1 Users/Internet -> API Gateway",
+      "replication": "Stateless, deployed in all 3 regions",
+      "datastore": "None (TLS termination, rate limiting, request validation)",
+      "auth_required": false,
+      "audit_required": true,
+      "consensus_protocol": ""
+    },
+    {
+      "name": "Authentication Service",
+      "domain": null,
+      "trust_boundary": "TB1 Users/Internet -> API Gateway",
+      "replication": "Deployed in all 3 regions",
+      "datastore": "Credential store (OIDC, MFA, short-lived tokens)",
+      "auth_required": false,
+      "audit_required": true,
+      "consensus_protocol": ""
+    },
+    {
+      "name": "Policy Engine",
+      "domain": null,
+      "trust_boundary": "TB1 Users/Internet -> API Gateway",
+      "replication": "Deployed in all 3 regions",
+      "datastore": "Versioned policy store (ACM + Bell-LaPadula + Biba)",
+      "auth_required": true,
+      "audit_required": true,
+      "consensus_protocol": ""
+    },
+    {
+      "name": "Incident Management",
+      "domain": "operational",
+      "trust_boundary": "TB2 Entry services -> Operational domain",
+      "replication": "Raft within the cluster; async cross-region copies",
+      "datastore": "Encrypted Regional Incident/Dispatch DB",
+      "auth_required": true,
+      "audit_required": true,
+      "consensus_protocol": "Raft"
+    },
+    {
+      "name": "Emergency Dispatch",
+      "domain": "operational",
+      "trust_boundary": "TB2 Entry services -> Operational domain",
+      "replication": "Raft (consensus-replicated)",
+      "datastore": "Encrypted Regional Incident/Dispatch DB",
+      "auth_required": true,
+      "audit_required": true,
+      "consensus_protocol": "Raft"
+    },
+    {
+      "name": "Resource Allocation",
+      "domain": "operational",
+      "trust_boundary": "TB2 Entry services -> Operational domain",
+      "replication": "Paxos across regions (any region may propose)",
+      "datastore": "Encrypted allocation store",
+      "auth_required": true,
+      "audit_required": true,
+      "consensus_protocol": "Paxos"
+    },
+    {
+      "name": "Information Governance",
+      "domain": "operational",
+      "trust_boundary": "TB2 Entry services -> Operational domain",
+      "replication": "Async",
+      "datastore": "Generated views (operational / analytics / research)",
+      "auth_required": true,
+      "audit_required": true,
+      "consensus_protocol": ""
+    },
+    {
+      "name": "Guard",
+      "domain": "intelligence",
+      "trust_boundary": "TB3 Operational domain -> Intelligence domain (Guard)",
+      "replication": "Deployed per region",
+      "datastore": "None (cross-domain filter: sanitised threat flags only)",
+      "auth_required": true,
+      "audit_required": true,
+      "consensus_protocol": ""
+    },
+    {
+      "name": "Intelligence Management",
+      "domain": "intelligence",
+      "trust_boundary": "TB3 Operational domain -> Intelligence domain (Guard)",
+      "replication": "BFT (Intelligence Distribution)",
+      "datastore": "Encrypted Intelligence DB",
+      "auth_required": true,
+      "audit_required": true,
+      "consensus_protocol": "BFT"
+    },
+    {
+      "name": "Consensus Cluster",
+      "domain": "oversight",
+      "trust_boundary": "TB4 Operational/Intelligence domains -> Oversight domain",
+      "replication": "Raft / BFT across 3 regions",
+      "datastore": "Consensus logs",
+      "auth_required": true,
+      "audit_required": true,
+      "consensus_protocol": "Raft/BFT"
+    },
+    {
+      "name": "Audit Service",
+      "domain": "oversight",
+      "trust_boundary": "TB4 Operational/Intelligence domains -> Oversight domain",
+      "replication": "BFT (National Audit Log)",
+      "datastore": "Immutable Audit Log (signed, tamper-evident)",
+      "auth_required": true,
+      "audit_required": true,
+      "consensus_protocol": "BFT"
+    },
+    {
+      "name": "Analytics Service",
+      "domain": null,
+      "trust_boundary": "TB5 NERP -> External research partners",
+      "replication": "Async",
+      "datastore": "Anonymised views from Information Governance",
+      "auth_required": true,
+      "audit_required": true,
+      "consensus_protocol": ""
+    }
+  ],
+  "trust_boundaries": [
+    "TB1 Users/Internet -> API Gateway",
+    "TB2 Entry services -> Operational domain",
+    "TB3 Operational domain -> Intelligence domain (Guard)",
+    "TB4 Operational/Intelligence domains -> Oversight domain",
+    "TB5 NERP -> External research partners"
+  ],
+  "security_domains": [
+    "operational",
+    "oversight",
+    "intelligence"
+  ],
+  "regions": [
+    "region-a",
+    "region-b",
+    "region-c"
+  ],
+  "replication": {
+    "datastores": "Each department's encrypted datastore is replicated asynchronously across the 3 regions",
+    "dispatch_and_incidents": "Raft: authoritative order, only the majority side can commit",
+    "resource_allocation": "Paxos: no fixed leader, any region can allocate",
+    "audit_and_intelligence": "BFT (n = 3f+1): tolerates f malicious validators",
+    "audit_events": "Every audit event is digitally signed before being appended"
+  },
+  "datastores": {
+    "incidents": "Encrypted Regional Incident/Dispatch DB",
+    "dispatch": "Encrypted Regional Incident/Dispatch DB",
+    "resource_allocation": "Encrypted allocation store",
+    "intelligence": "Encrypted Intelligence DB",
+    "audit": "Immutable Audit Log (signed, tamper-evident)"
+  },
+  "assurance_summary": "Availability: services run in three UK regions; when one region fails the other two keep a majority and continue, and data is replicated between regions. Confidentiality: users must authenticate (OIDC, MFA, short-lived tokens) and the policy engine grants access only when the access-control matrix, Bell-LaPadula and Biba all permit; datastores are encrypted, and five trust boundaries separate users, the operational, intelligence and oversight domains, and research partners. Integrity: critical transactions commit only with agreement from a majority of replicas (Raft, Paxos), and BFT protects the audit log and intelligence against tampering by up to f malicious validators. Replication cannot protect against common-mode failures (supply chain, pre-commit corruption), which remain the principal residual risks."
+}

@@ -1,0 +1,1506 @@
+{
+  "timestamp": "2026-11-03T16:13:10.277867",
+  "components": {
+    "architecture": {
+      "services": 12,
+      "trust_boundaries": [
+        "TB1 Users/Internet -> API Gateway",
+        "TB2 Entry services -> Operational domain",
+        "TB3 Operational domain -> Intelligence domain (Guard)",
+        "TB4 Operational/Intelligence domains -> Oversight domain",
+        "TB5 NERP -> External research partners"
+      ],
+      "security_domains": [
+        "operational",
+        "oversight",
+        "intelligence"
+      ],
+      "assurance_summary": "Availability: services run in three UK regions; when one region fails the other two keep a majority and continue, and data is replicated between regions. Confidentiality: users must authenticate (OIDC, MFA, short-lived tokens) and the policy engine grants access only when the access-control matrix, Bell-LaPadula and Biba all permit; datastores are encrypted, and five trust boundaries separate users, the operational, intelligence and oversight domains, and research partners. Integrity: critical transactions commit only with agreement from a majority of replicas (Raft, Paxos), and BFT protects the audit log and intelligence against tampering by up to f malicious validators. Replication cannot protect against common-mode failures (supply chain, pre-commit corruption), which remain the principal residual risks."
+    },
+    "threat_model": [
+      {
+        "id": "T1",
+        "name": "Denial of service",
+        "stride": "D",
+        "tool_id": "285-286",
+        "experiment": [
+          "raft-dos",
+          "raft-election-storm"
+        ]
+      },
+      {
+        "id": "T2",
+        "name": "Credential theft",
+        "stride": "S",
+        "tool_id": "302",
+        "experiment": [
+          "bft-key-compromise"
+        ]
+      },
+      {
+        "id": "T3",
+        "name": "Insider abuse (export / reclassify)",
+        "stride": "E",
+        "tool_id": "153-155",
+        "experiment": [
+          "bft-equivocation",
+          "raft-leadership-churn"
+        ]
+      },
+      {
+        "id": "T4",
+        "name": "Insider abuse (Guard impersonation)",
+        "stride": "E",
+        "tool_id": "229-231",
+        "experiment": []
+      },
+      {
+        "id": "T5",
+        "name": "Malware",
+        "stride": "T",
+        "tool_id": "340",
+        "experiment": [
+          "raft-leadership-churn"
+        ]
+      },
+      {
+        "id": "T6",
+        "name": "Supply-chain compromise",
+        "stride": "T, E",
+        "tool_id": "Manual",
+        "experiment": [
+          "bft-audit-corruption",
+          "bft-key-compromise"
+        ]
+      },
+      {
+        "id": "T7",
+        "name": "Datacentre failure",
+        "stride": "D",
+        "tool_id": "7",
+        "experiment": [
+          "paxos-state-loss"
+        ]
+      },
+      {
+        "id": "T8",
+        "name": "Network partition",
+        "stride": "D",
+        "tool_id": "Manual",
+        "experiment": [
+          "raft-partition",
+          "raft-leadership-churn",
+          "paxos-quorum-misconfig"
+        ]
+      },
+      {
+        "id": "T9",
+        "name": "Data corruption",
+        "stride": "T",
+        "tool_id": "272",
+        "experiment": [
+          "bft-audit-corruption"
+        ]
+      }
+    ],
+    "consensus_selection": {
+      "Regional Incident Database": "Raft",
+      "Emergency Dispatch Service": "Raft",
+      "Resource Allocation Service": "Paxos",
+      "National Audit Log": "Byzantine Fault Tolerance",
+      "Intelligence Distribution Service": "Byzantine Fault Tolerance"
+    },
+    "consensus_experiments": {
+      "raft-partition": {
+        "with_check_quorum": {
+          "check_quorum": true,
+          "old_leader": "B2",
+          "old_leader_region": "region-b",
+          "old_leader_stepped_down_after_ticks": 16,
+          "new_majority_leader": "C1",
+          "new_leader_after_ticks": 16,
+          "leaders_during_partition": 1,
+          "minority_write_accepted": true,
+          "minority_write_committed_after_heal": false,
+          "majority_write_committed": true,
+          "stale_reads_served_by_old_leader": 0,
+          "reads_served_by_old_leader": 15,
+          "elections_total": 9,
+          "safety": {
+            "two_leaders_same_term": {},
+            "divergent_committed_logs": [],
+            "safe": true
+          },
+          "final_leader": "A2"
+        },
+        "without_check_quorum": {
+          "check_quorum": false,
+          "old_leader": "B2",
+          "old_leader_region": "region-b",
+          "old_leader_stepped_down_after_ticks": null,
+          "new_majority_leader": "C1",
+          "new_leader_after_ticks": 16,
+          "leaders_during_partition": 2,
+          "minority_write_accepted": true,
+          "minority_write_committed_after_heal": false,
+          "majority_write_committed": true,
+          "stale_reads_served_by_old_leader": 102,
+          "reads_served_by_old_leader": 120,
+          "elections_total": 2,
+          "safety": {
+            "two_leaders_same_term": {},
+            "divergent_committed_logs": [],
+            "safe": true
+          },
+          "final_leader": "C1"
+        }
+      },
+      "raft-election-storm": {
+        "A_correct": {
+          "config": {
+            "election_timeout": [
+              15,
+              30
+            ],
+            "heartbeat": 3,
+            "pre_vote": false
+          },
+          "why": "baseline: min timeout = 5 x heartbeat, 15-tick randomisation window",
+          "ticks": 300,
+          "elections": 0,
+          "leader_changes": 0,
+          "ticks_without_leader_pct": 0.0,
+          "max_term": 1,
+          "orders_sent": 125,
+          "orders_committed": 125,
+          "orders_outstanding": 0,
+          "resends": 0,
+          "duplicate_commits": 0,
+          "latency_ticks_median": 2,
+          "latency_ticks_p95": 3,
+          "pre_votes_failed": 0,
+          "votes_refused_by_stickiness": 0,
+          "safety": {
+            "two_leaders_same_term": {},
+            "divergent_committed_logs": [],
+            "safe": true
+          }
+        },
+        "A2_correct_lossy_wan": {
+          "config": {
+            "election_timeout": [
+              15,
+              30
+            ],
+            "heartbeat": 3,
+            "pre_vote": false,
+            "loss": 0.1
+          },
+          "why": "baseline config on a degraded WAN (10% message loss)",
+          "ticks": 300,
+          "elections": 0,
+          "leader_changes": 0,
+          "ticks_without_leader_pct": 0.0,
+          "max_term": 1,
+          "orders_sent": 125,
+          "orders_committed": 125,
+          "orders_outstanding": 0,
+          "resends": 0,
+          "duplicate_commits": 0,
+          "latency_ticks_median": 2,
+          "latency_ticks_p95": 3,
+          "pre_votes_failed": 0,
+          "votes_refused_by_stickiness": 0,
+          "safety": {
+            "two_leaders_same_term": {},
+            "divergent_committed_logs": [],
+            "safe": true
+          }
+        },
+        "B_heartbeat_raised": {
+          "config": {
+            "election_timeout": [
+              15,
+              30
+            ],
+            "heartbeat": 20,
+            "pre_vote": false
+          },
+          "why": "heartbeat raised 3 -> 20 to save WAN bandwidth; timeout unchanged",
+          "ticks": 300,
+          "elections": 14,
+          "leader_changes": 14,
+          "ticks_without_leader_pct": 24.7,
+          "max_term": 15,
+          "orders_sent": 125,
+          "orders_committed": 0,
+          "orders_outstanding": 125,
+          "resends": 1876,
+          "duplicate_commits": 0,
+          "latency_ticks_median": null,
+          "latency_ticks_p95": null,
+          "pre_votes_failed": 0,
+          "votes_refused_by_stickiness": 0,
+          "safety": {
+            "two_leaders_same_term": {},
+            "divergent_committed_logs": [],
+            "safe": true
+          }
+        },
+        "C_aggressive_timeout_lossy_wan": {
+          "config": {
+            "election_timeout": [
+              3,
+              4
+            ],
+            "heartbeat": 3,
+            "pre_vote": false,
+            "loss": 0.1
+          },
+          "why": "timeout cut to 3-4 ticks 'for faster failover'; 1-tick window; same 10% message loss",
+          "ticks": 300,
+          "elections": 61,
+          "leader_changes": 31,
+          "ticks_without_leader_pct": 19.7,
+          "max_term": 55,
+          "orders_sent": 125,
+          "orders_committed": 125,
+          "orders_outstanding": 0,
+          "resends": 80,
+          "duplicate_commits": 3,
+          "latency_ticks_median": 3,
+          "latency_ticks_p95": 35,
+          "pre_votes_failed": 0,
+          "votes_refused_by_stickiness": 0,
+          "safety": {
+            "two_leaders_same_term": {},
+            "divergent_committed_logs": [],
+            "safe": true
+          }
+        },
+        "D_heartbeat_raised_prevote": {
+          "config": {
+            "election_timeout": [
+              15,
+              30
+            ],
+            "heartbeat": 20,
+            "pre_vote": true
+          },
+          "why": "config B with Pre-Vote + leader stickiness enabled",
+          "ticks": 300,
+          "elections": 13,
+          "leader_changes": 13,
+          "ticks_without_leader_pct": 28.3,
+          "max_term": 14,
+          "orders_sent": 125,
+          "orders_committed": 0,
+          "orders_outstanding": 125,
+          "resends": 1751,
+          "duplicate_commits": 0,
+          "latency_ticks_median": null,
+          "latency_ticks_p95": null,
+          "pre_votes_failed": 1,
+          "votes_refused_by_stickiness": 1,
+          "safety": {
+            "two_leaders_same_term": {},
+            "divergent_committed_logs": [],
+            "safe": true
+          }
+        },
+        "E_config_validation": {
+          "A_correct": {
+            "accepted": true,
+            "error": null
+          },
+          "A2_correct_lossy_wan": {
+            "accepted": true,
+            "error": null
+          },
+          "B_heartbeat_raised": {
+            "accepted": false,
+            "error": "election timeout min 15 < 5 x heartbeat 20"
+          },
+          "C_aggressive_timeout_lossy_wan": {
+            "accepted": false,
+            "error": "election timeout min 3 < 5 x heartbeat 3; randomisation window 1 < 5 ticks"
+          },
+          "D_heartbeat_raised_prevote": {
+            "accepted": false,
+            "error": "election timeout min 15 < 5 x heartbeat 20"
+          }
+        }
+      },
+      "raft-leadership-churn": {
+        "A_baseline": {
+          "flap": false,
+          "attacker": false,
+          "pre_vote": false,
+          "ticks": 440,
+          "elections": 0,
+          "leader_changes": 0,
+          "ticks_without_leader_pct": 0.0,
+          "max_term": 1,
+          "orders_sent": 200,
+          "orders_committed": 200,
+          "orders_outstanding": 0,
+          "resends": 0,
+          "duplicate_commits": 0,
+          "latency_ticks_median": 2.0,
+          "latency_ticks_p95": 3,
+          "pre_votes_failed": 0,
+          "votes_refused_by_stickiness": 0,
+          "safety": {
+            "two_leaders_same_term": {},
+            "divergent_committed_logs": [],
+            "safe": true
+          },
+          "flap_node_term_vs_cluster_at_reconnect": [],
+          "terms_led_by_compromised_node": 0
+        },
+        "B_flapping_link": {
+          "flap": true,
+          "attacker": false,
+          "pre_vote": false,
+          "ticks": 440,
+          "elections": 26,
+          "leader_changes": 6,
+          "ticks_without_leader_pct": 31.4,
+          "max_term": 21,
+          "orders_sent": 200,
+          "orders_committed": 200,
+          "orders_outstanding": 0,
+          "resends": 0,
+          "duplicate_commits": 0,
+          "latency_ticks_median": 3.0,
+          "latency_ticks_p95": 25,
+          "pre_votes_failed": 0,
+          "votes_refused_by_stickiness": 0,
+          "safety": {
+            "two_leaders_same_term": {},
+            "divergent_committed_logs": [],
+            "safe": true
+          },
+          "flap_node_term_vs_cluster_at_reconnect": [
+            {
+              "tick": 65,
+              "flap_node_term": 3,
+              "leader_term": 1
+            },
+            {
+              "tick": 130,
+              "flap_node_term": 6,
+              "leader_term": 5
+            },
+            {
+              "tick": 195,
+              "flap_node_term": 9,
+              "leader_term": 6
+            },
+            {
+              "tick": 260,
+              "flap_node_term": 12,
+              "leader_term": 11
+            }
+          ],
+          "terms_led_by_compromised_node": 0
+        },
+        "C_flapping_link_prevote": {
+          "flap": true,
+          "attacker": false,
+          "pre_vote": true,
+          "ticks": 440,
+          "elections": 0,
+          "leader_changes": 0,
+          "ticks_without_leader_pct": 0.0,
+          "max_term": 1,
+          "orders_sent": 200,
+          "orders_committed": 200,
+          "orders_outstanding": 0,
+          "resends": 0,
+          "duplicate_commits": 0,
+          "latency_ticks_median": 2.0,
+          "latency_ticks_p95": 3,
+          "pre_votes_failed": 14,
+          "votes_refused_by_stickiness": 0,
+          "safety": {
+            "two_leaders_same_term": {},
+            "divergent_committed_logs": [],
+            "safe": true
+          },
+          "flap_node_term_vs_cluster_at_reconnect": [
+            {
+              "tick": 65,
+              "flap_node_term": 1,
+              "leader_term": 1
+            },
+            {
+              "tick": 130,
+              "flap_node_term": 1,
+              "leader_term": 1
+            },
+            {
+              "tick": 195,
+              "flap_node_term": 1,
+              "leader_term": 1
+            },
+            {
+              "tick": 260,
+              "flap_node_term": 1,
+              "leader_term": 1
+            }
+          ],
+          "terms_led_by_compromised_node": 0
+        },
+        "D_compromised_node_prevote": {
+          "flap": false,
+          "attacker": true,
+          "pre_vote": true,
+          "ticks": 440,
+          "elections": 21,
+          "leader_changes": 12,
+          "ticks_without_leader_pct": 63.2,
+          "max_term": 78,
+          "orders_sent": 200,
+          "orders_committed": 200,
+          "orders_outstanding": 0,
+          "resends": 0,
+          "duplicate_commits": 0,
+          "latency_ticks_median": 14.0,
+          "latency_ticks_p95": 54,
+          "pre_votes_failed": 12,
+          "votes_refused_by_stickiness": 0,
+          "safety": {
+            "two_leaders_same_term": {},
+            "divergent_committed_logs": [],
+            "safe": true
+          },
+          "flap_node_term_vs_cluster_at_reconnect": [],
+          "terms_led_by_compromised_node": 0
+        }
+      },
+      "raft-dos": {
+        "unprotected": {
+          "mitigated": false,
+          "legit_requests_during_attack": 100,
+          "legit_committed_during_run": 0,
+          "latency_ticks_median": null,
+          "latency_ticks_max": null,
+          "elections_total": 14,
+          "leader_changes": 13,
+          "ticks_leader_overloaded": 206,
+          "flood_dropped_at_gateway": 0,
+          "safety": {
+            "two_leaders_same_term": {},
+            "divergent_committed_logs": [],
+            "safe": true
+          }
+        },
+        "rate_limited": {
+          "mitigated": true,
+          "legit_requests_during_attack": 100,
+          "legit_committed_during_run": 100,
+          "latency_ticks_median": 2.0,
+          "latency_ticks_max": 3,
+          "elections_total": 1,
+          "leader_changes": 0,
+          "ticks_leader_overloaded": 0,
+          "flood_dropped_at_gateway": 36000,
+          "safety": {
+            "two_leaders_same_term": {},
+            "divergent_committed_logs": [],
+            "safe": true
+          }
+        }
+      },
+      "paxos-state-loss": {
+        "persistent_state": {
+          "persistent": true,
+          "unit": "Ambulance Unit 3",
+          "first_decision": "INC-002",
+          "second_decision": "INC-002",
+          "double_allocation": false,
+          "safety": {
+            "conflicting_decisions": {},
+            "safe": true
+          }
+        },
+        "volatile_state": {
+          "persistent": false,
+          "unit": "Ambulance Unit 3",
+          "first_decision": "INC-002",
+          "second_decision": "INC-004",
+          "double_allocation": true,
+          "safety": {
+            "conflicting_decisions": {
+              "Ambulance Unit 3": [
+                "'INC-002'",
+                "'INC-004'"
+              ]
+            },
+            "safe": false
+          }
+        },
+        "majority_loss": {
+          "acceptors_up": [
+            "A3",
+            "A4"
+          ],
+          "decided": null,
+          "available": false,
+          "safety": {
+            "conflicting_decisions": {},
+            "safe": true
+          }
+        }
+      },
+      "paxos-quorum-misconfig": {
+        "quorum_2_of_5": {
+          "quorum": 2,
+          "side_1_decision": "INC-002",
+          "side_2_decision": "INC-012",
+          "double_allocation": true,
+          "side_2_available": true,
+          "safety": {
+            "conflicting_decisions": {
+              "Ambulance Unit 3": [
+                "'INC-002'",
+                "'INC-012'"
+              ]
+            },
+            "safe": false
+          }
+        },
+        "quorum_3_of_5": {
+          "quorum": 3,
+          "side_1_decision": "INC-002",
+          "side_2_decision": null,
+          "double_allocation": false,
+          "side_2_available": false,
+          "safety": {
+            "conflicting_decisions": {},
+            "safe": true
+          }
+        },
+        "config_validation": {
+          "quorum_2_rejected": true,
+          "reason": "Quorum 2 of 5 is not a majority: two quorums may not overlap"
+        }
+      },
+      "bft-equivocation": {
+        "f1_baseline": {
+          "byzantine": [
+            "V0"
+          ],
+          "f_tolerated": 1,
+          "honest": [
+            "V1",
+            "V2",
+            "V3"
+          ],
+          "digest_genuine": "58156dba9af1817c",
+          "digest_downgraded": "09565b7687d8129a",
+          "committed": {
+            "V1": "58156dba9af1817c",
+            "V2": "58156dba9af1817c"
+          },
+          "honest_validators_without_decision": [
+            "V3"
+          ],
+          "fork": false,
+          "safety": {
+            "forks": {},
+            "safe": true
+          },
+          "revoked": []
+        },
+        "f2_baseline": {
+          "byzantine": [
+            "V0",
+            "V3"
+          ],
+          "f_tolerated": 1,
+          "honest": [
+            "V1",
+            "V2"
+          ],
+          "digest_genuine": "58156dba9af1817c",
+          "digest_downgraded": "09565b7687d8129a",
+          "committed": {
+            "V1": "58156dba9af1817c",
+            "V2": "09565b7687d8129a"
+          },
+          "honest_validators_without_decision": [],
+          "fork": true,
+          "safety": {
+            "forks": {
+              "1": [
+                "09565b7687d8129a",
+                "58156dba9af1817c"
+              ]
+            },
+            "safe": false
+          },
+          "revoked": []
+        },
+        "f2_hardened": {
+          "byzantine": [
+            "V0",
+            "V3"
+          ],
+          "f_tolerated": 1,
+          "honest": [
+            "V1",
+            "V2"
+          ],
+          "digest_genuine": "58156dba9af1817c",
+          "digest_downgraded": "09565b7687d8129a",
+          "committed": {},
+          "honest_validators_without_decision": [
+            "V1",
+            "V2"
+          ],
+          "fork": false,
+          "safety": {
+            "forks": {},
+            "safe": true
+          },
+          "revoked": [
+            "V0",
+            "V3"
+          ]
+        }
+      },
+      "bft-sybil": {
+        "closed_membership": {
+          "open_membership": false,
+          "sybil_identities": [
+            "S1",
+            "S2"
+          ],
+          "sybil_messages_rejected": 24,
+          "rejection_reasons": [
+            "unknown_validator"
+          ],
+          "committed": {
+            "V1": "da02e09759b96140",
+            "V2": "da02e09759b96140"
+          },
+          "fork": false,
+          "safety": {
+            "forks": {},
+            "safe": true
+          }
+        },
+        "open_membership": {
+          "open_membership": true,
+          "sybil_identities": [
+            "S1",
+            "S2"
+          ],
+          "sybil_messages_rejected": 0,
+          "rejection_reasons": [],
+          "committed": {
+            "V1": "da02e09759b96140",
+            "V2": "da02e09759b96140",
+            "V3": "7b1f9656653b2603"
+          },
+          "fork": true,
+          "safety": {
+            "forks": {
+              "1": [
+                "7b1f9656653b2603",
+                "da02e09759b96140"
+              ]
+            },
+            "safe": false
+          }
+        }
+      },
+      "bft-key-compromise": {
+        "A_baseline": {
+          "committed": {
+            "V1": "233eb308225222fe",
+            "V2": "75ea678f1ab9e334"
+          },
+          "fork": true,
+          "safety": {
+            "forks": {
+              "1": [
+                "233eb308225222fe",
+                "75ea678f1ab9e334"
+              ]
+            },
+            "safe": false
+          },
+          "rejection_reasons": []
+        },
+        "B_hardened_same_epoch": {
+          "committed": {},
+          "fork": false,
+          "safety": {
+            "forks": {},
+            "safe": true
+          },
+          "rejection_reasons": [
+            "revoked_validator"
+          ],
+          "revoked": [
+            "V0",
+            "V3"
+          ],
+          "proofs": 2
+        },
+        "C_hardened_after_rotation": {
+          "committed": {},
+          "fork": false,
+          "safety": {
+            "forks": {},
+            "safe": true
+          },
+          "rejection_reasons": [
+            "revoked_validator",
+            "stale_epoch"
+          ],
+          "revoked": [
+            "V0"
+          ],
+          "proofs": 1,
+          "stale_key_rejections": 2,
+          "epoch_0_quorum_certificate_valid": true,
+          "qc_signers": [
+            "V1",
+            "V2",
+            "V3"
+          ]
+        },
+        "D_identity_key_stolen": {
+          "rogue_epoch_key_accepted": true
+        }
+      },
+      "bft-audit-corruption": {
+        "normal_commits": {
+          "1": {
+            "V0": "794bcd7da16a8662",
+            "V1": "794bcd7da16a8662",
+            "V2": "794bcd7da16a8662"
+          },
+          "2": {
+            "V0": "8b68f14d72d51b87",
+            "V1": "8b68f14d72d51b87",
+            "V2": "8b68f14d72d51b87"
+          },
+          "3": {
+            "V0": "3a99461b35de4beb",
+            "V1": "3a99461b35de4beb",
+            "V2": "3a99461b35de4beb"
+          }
+        },
+        "tampering": {
+          "rejections": [
+            {
+              "at": "V1",
+              "from": "V0",
+              "type": "pre_prepare",
+              "reason": "bad_signature"
+            },
+            {
+              "at": "V2",
+              "from": "V0",
+              "type": "pre_prepare",
+              "reason": "bad_signature"
+            },
+            {
+              "at": "V0",
+              "from": "V3",
+              "type": "pre_prepare",
+              "reason": "pre_prepare_not_from_primary"
+            },
+            {
+              "at": "V1",
+              "from": "V3",
+              "type": "pre_prepare",
+              "reason": "pre_prepare_not_from_primary"
+            },
+            {
+              "at": "V2",
+              "from": "V3",
+              "type": "pre_prepare",
+              "reason": "pre_prepare_not_from_primary"
+            },
+            {
+              "at": "V1",
+              "from": "V0",
+              "type": "pre_prepare",
+              "reason": "bad_signature"
+            },
+            {
+              "at": "V2",
+              "from": "V0",
+              "type": "pre_prepare",
+              "reason": "bad_signature"
+            }
+          ],
+          "committed_digests": {
+            "V0": "2fd296039873d19d",
+            "V1": "2fd296039873d19d",
+            "V2": "2fd296039873d19d"
+          },
+          "committed_is_real_event": true,
+          "tampered_digest_committed": false,
+          "service_signature_valid_on_committed": true,
+          "service_signature_valid_on_tampered": false
+        },
+        "local_rewrite": {
+          "agreed_head_votes": 3,
+          "quorum": 3,
+          "outliers_detected": [
+            "V3"
+          ]
+        },
+        "pre_signing_corruption": {
+          "committed_on_honest_validators": 3,
+          "signature_valid": true,
+          "committed_resource": "INC-999",
+          "original_resource": "INC-003"
+        },
+        "safety": {
+          "forks": {},
+          "safe": true
+        }
+      }
+    },
+    "hardening": {
+      "epoch": 1,
+      "key_rotations": 1,
+      "revoked_validators": [],
+      "equivocation_proofs": 0,
+      "active_validators": 4,
+      "quorum": 3
+    },
+    "classification": {
+      "incidents": {
+        "by_label": {
+          "OFFICIAL": 0,
+          "CONFIDENTIAL": 16,
+          "SECRET": 4,
+          "TOP_SECRET": 0
+        },
+        "by_label_integrity": {
+          "SECRET/OPERATIONAL": 1,
+          "CONFIDENTIAL/OPERATIONAL": 14,
+          "CONFIDENTIAL/COMMAND": 2,
+          "SECRET/COMMAND": 3
+        },
+        "baseline": "CONFIDENTIAL",
+        "raised_above_baseline": [
+          "INC-001",
+          "INC-010",
+          "INC-014",
+          "INC-020"
+        ],
+        "review_queue": []
+      },
+      "responders": {
+        "by_label": {
+          "OFFICIAL": 0,
+          "CONFIDENTIAL": 18,
+          "SECRET": 2,
+          "TOP_SECRET": 0
+        },
+        "by_label_integrity": {
+          "SECRET/OPERATIONAL": 2,
+          "CONFIDENTIAL/OPERATIONAL": 18
+        },
+        "baseline": "CONFIDENTIAL",
+        "raised_above_baseline": [
+          "R001",
+          "R011"
+        ],
+        "review_queue": []
+      },
+      "intelligence": {
+        "by_label": {
+          "OFFICIAL": 3,
+          "CONFIDENTIAL": 4,
+          "SECRET": 9,
+          "TOP_SECRET": 4
+        },
+        "by_label_integrity": {
+          "SECRET/COMMAND": 9,
+          "CONFIDENTIAL/COMMAND": 4,
+          "OFFICIAL/COMMAND": 3,
+          "TOP_SECRET/COMMAND": 4
+        },
+        "baseline": "SECRET",
+        "raised_above_baseline": [
+          "INT-005",
+          "INT-010",
+          "INT-014",
+          "INT-020"
+        ],
+        "review_queue": [
+          "INT-012"
+        ]
+      },
+      "dispatch": {
+        "by_label": {
+          "OFFICIAL": 16,
+          "CONFIDENTIAL": 0,
+          "SECRET": 4,
+          "TOP_SECRET": 0
+        },
+        "by_label_integrity": {
+          "SECRET/OPERATIONAL": 1,
+          "OFFICIAL/OPERATIONAL": 14,
+          "OFFICIAL/COMMAND": 2,
+          "SECRET/COMMAND": 3
+        },
+        "baseline": "OFFICIAL",
+        "raised_above_baseline": [
+          "D001",
+          "D010",
+          "D014",
+          "D020"
+        ],
+        "review_queue": []
+      },
+      "audit": {
+        "by_label": {
+          "OFFICIAL": 0,
+          "CONFIDENTIAL": 13,
+          "SECRET": 7,
+          "TOP_SECRET": 0
+        },
+        "by_label_integrity": {
+          "SECRET/AUDIT": 7,
+          "CONFIDENTIAL/AUDIT": 13
+        },
+        "baseline": "CONFIDENTIAL",
+        "raised_above_baseline": [
+          "AUD-001",
+          "AUD-002",
+          "AUD-006",
+          "AUD-010",
+          "AUD-015",
+          "AUD-016",
+          "AUD-020"
+        ],
+        "review_queue": [
+          "AUD-006",
+          "AUD-007",
+          "AUD-010",
+          "AUD-014",
+          "AUD-016",
+          "AUD-020"
+        ]
+      }
+    },
+    "information_flow": {
+      "record_counts": {
+        "operational": {
+          "incidents": 20,
+          "dispatch": 20,
+          "responders": 14,
+          "threat_advisories": 9,
+          "audit": 0
+        },
+        "analytics": {
+          "incidents": 16,
+          "dispatch": 16
+        },
+        "research": {
+          "incidents": 16,
+          "dispatch": 16
+        }
+      },
+      "checks": {
+        "flow_properties": {
+          "operational": {
+            "records": 63,
+            "labels_above_ceiling": 0,
+            "leaks": [],
+            "orphan_records": 0,
+            "pass": true
+          },
+          "analytics": {
+            "records": 32,
+            "labels_above_ceiling": 0,
+            "leaks": [],
+            "orphan_records": 0,
+            "pass": true
+          },
+          "research": {
+            "records": 32,
+            "labels_above_ceiling": 0,
+            "leaks": [],
+            "orphan_records": 0,
+            "pass": true
+          }
+        },
+        "signatures_valid": {
+          "operational": true,
+          "analytics": true,
+          "research": true
+        },
+        "tampered_research_view_detected": true,
+        "reidentification": {
+          "v1_unsalted_sha256_reidentified": "20/20",
+          "v2_hmac_pids_matched_by_enumeration": 0,
+          "release_key_destroyed_after_publication": true
+        }
+      },
+      "research_generalisation": {
+        "in": 16,
+        "out": 16,
+        "k": 2,
+        "achieved_min_class_size": 2,
+        "generalisation_level": "region+category+date",
+        "suppressed": [],
+        "fields_removed": [
+          "incidentId",
+          "location",
+          "timestamp",
+          "incidentType"
+        ],
+        "fields_transformed": [
+          "incidentId -> pid (HMAC, per-release key)",
+          "location -> area",
+          "incidentType -> category",
+          "timestamp -> date (+ time band)",
+          "casualties -> band"
+        ]
+      }
+    },
+    "retention": {
+      "final": {
+        "checkpoint": "+26 years",
+        "date": "2052-11-26",
+        "actions": {
+          "pii_minimised": 0,
+          "archived": 0,
+          "destroyed": 0,
+          "queued_for_review": 4,
+          "blocked_by_legal_hold": 3,
+          "audit_deferred_referenced_record_live": 10
+        },
+        "tiers": {
+          "review": {
+            "incidents": 1,
+            "dispatch": 4,
+            "intelligence": 20,
+            "responders": 20
+          },
+          "destroyed": {
+            "incidents": 16,
+            "dispatch": 16,
+            "audit": 10
+          },
+          "archived": {
+            "incidents": 3,
+            "audit": 10
+          }
+        },
+        "bytes": {
+          "active": 0,
+          "archived": 3976,
+          "review": 12782
+        },
+        "legal_holds": [
+          "incidents/INC-010",
+          "incidents/INC-014",
+          "incidents/INC-020"
+        ]
+      },
+      "probes": {
+        "pii_after_31_days": {
+          "callerName": null,
+          "callerPhone": null
+        },
+        "archive_read_paramedic": {
+          "allowed": false,
+          "error": "RetentionError: paramedic may not read archived incidents/INC-002: not an archive role"
+        },
+        "archive_read_auditor_audit_record": {
+          "allowed": true,
+          "result": {
+            "_integrity": "AUDIT",
+            "_label": "CONFIDENTIAL",
+            "_reasons": [
+              "CONFIDENTIAL (baseline): records staff identity and activity",
+              "review: high-risk action 'Modified Classification' (insider-abuse indicator)",
+              "AUDIT integrity: audit record"
+            ],
+            "_review": [
+              "high-risk action 'Modified Classification'"
+            ],
+            "action": "Modified Classification",
+            "actor": "Regional Commander",
+            "eventId": "AUD-014",
+            "resource": "INT-012",
+            "timestamp": "2026-11-03T14:16:00Z"
+          }
+        },
+        "archive_read_regional_cmdr_secret_intel": {
+          "allowed": true,
+          "result": {
+            "_integrity": "COMMAND",
+            "_label": "SECRET",
+            "_reasons": [
+              "SECRET: originator marking (classificationHint)",
+              "contains a suspect identifier (personal data under investigation)",
+              "COMMAND integrity: intelligence report"
+            ],
+            "classificationHint": "SECRET",
+            "region": "South West",
+            "reportId": "INT-001",
+            "reportSource": "Counter Terrorism Unit",
+            "summary": "Possible hostile reconnaissance activity near critical transport infrastructure.",
+            "suspectIdentifier": "SUBJ-101",
+            "threatLevel": "SEVERE"
+          }
+        },
+        "archive_read_regional_cmdr_incident": {
+          "allowed": false,
+          "error": "RetentionError: regional_cmdr may not read archived incidents/INC-002: Denied by: Biba"
+        },
+        "early_destroy_audit_by_commander": {
+          "allowed": false,
+          "error": "RetentionError: regional_cmdr may not authorise destruction"
+        },
+        "early_destroy_audit_by_auditor": {
+          "allowed": false,
+          "error": "RetentionError: audit/AUD-014 retained until 2033-11-01"
+        },
+        "read_destroyed_record": {
+          "allowed": false,
+          "error": "KeyError: 'key incidents/INC-002@v119 destroyed (crypto-shredded)'"
+        },
+        "destroyed_key_id_still_in_keystore": false,
+        "INC-002_dispatch_D002_tier": "destroyed",
+        "destroy_under_legal_hold": {
+          "allowed": false,
+          "error": "RetentionError: incidents/INC-010 is under legal hold"
+        }
+      },
+      "log_integrity": {
+        "governance_log_entries": 214,
+        "chain_valid": true,
+        "forged_copy_detected": true
+      },
+      "regulation_20y": {
+        "years": 20,
+        "records_with_longer_retention": {
+          "incidents/CONFIDENTIAL": 16,
+          "dispatch/OFFICIAL": 16,
+          "intelligence/SECRET": 9,
+          "intelligence/CONFIDENTIAL": 4,
+          "intelligence/OFFICIAL": 3,
+          "audit/SECRET": 1,
+          "audit/CONFIDENTIAL": 13,
+          "responders/SECRET": 2,
+          "responders/CONFIDENTIAL": 18
+        },
+        "record_years_before": 1112.0,
+        "record_years_after": 2046.0,
+        "conflicts": [
+          "Caller PII: 20-year retention of the whole record conflicts with UK GDPR storage limitation; the field-level 30-day minimisation still applies unless the regulation names PII explicitly.",
+          "Data keys must stay recoverable for 20 years (HSM lifecycle, key escrow, crypto agility).",
+          "Intelligence 'review' rules become 'retain at least 20 years': review can no longer dispose early."
+        ]
+      }
+    },
+    "policy_engine": {
+      "scenarios": [
+        {
+          "scenario": "ACM permits but Bell-LaPadula prevents",
+          "user": "Henry Baker (police_officer, SECRET, OPERATIONAL)",
+          "action": "read intelligence",
+          "resource": "INT-005 (TOP_SECRET, COMMAND)",
+          "acm": "grant",
+          "bell_lapadula": "deny",
+          "biba": "grant",
+          "final": "deny",
+          "property_protected": "Confidentiality: No Read Up (SECRET subject, TOP SECRET object)"
+        },
+        {
+          "scenario": "Bell-LaPadula permits but Biba prevents",
+          "user": "Ruby Clark (paramedic, OFFICIAL, OPERATIONAL)",
+          "action": "write incidents",
+          "resource": "INC-007 (CONFIDENTIAL, COMMAND)",
+          "acm": "grant",
+          "bell_lapadula": "grant",
+          "biba": "deny",
+          "final": "deny",
+          "property_protected": "Integrity: No Write Up (OPERATIONAL subject, COMMAND Critical incident)"
+        },
+        {
+          "scenario": "All security controls permit",
+          "user": "Amelia Lewis (regional_cmdr, TOP_SECRET, COMMAND)",
+          "action": "read intelligence",
+          "resource": "INT-001 (SECRET, COMMAND)",
+          "acm": "grant",
+          "bell_lapadula": "grant",
+          "biba": "grant",
+          "final": "grant",
+          "property_protected": "Operational effectiveness: cleared commander reads SECRET intelligence"
+        },
+        {
+          "scenario": "Both MAC models permit but ACM prevents",
+          "user": "Ruby Clark (paramedic, OFFICIAL, OPERATIONAL)",
+          "action": "read intelligence",
+          "resource": "INT-004 (OFFICIAL, COMMAND)",
+          "acm": "deny",
+          "bell_lapadula": "grant",
+          "biba": "grant",
+          "final": "deny",
+          "property_protected": "Need-to-know: paramedics have no intelligence role permission"
+        },
+        {
+          "scenario": "Conflict: strict Biba blocks a legitimate read",
+          "user": "Amelia Lewis (regional_cmdr, TOP_SECRET, COMMAND)",
+          "action": "read incidents",
+          "resource": "INC-001 (SECRET, OPERATIONAL)",
+          "acm": "grant",
+          "bell_lapadula": "grant",
+          "biba": "deny",
+          "final": "deny",
+          "property_protected": "Biba No Read Down stops a COMMAND subject reading OPERATIONAL incidents"
+        },
+        {
+          "scenario": "Conflict: analyst cannot write intelligence",
+          "user": "James Reed (intel_analyst, TOP_SECRET, OPERATIONAL)",
+          "action": "write intelligence",
+          "resource": "INT-005 (TOP_SECRET, COMMAND)",
+          "acm": "grant",
+          "bell_lapadula": "grant",
+          "biba": "deny",
+          "final": "deny",
+          "property_protected": "Biba No Write Up: OPERATIONAL analyst vs COMMAND intelligence"
+        }
+      ],
+      "outcome_matrix": {
+        "police_officer": {
+          "incidents": {
+            "read": 20,
+            "write": 1,
+            "total": 20
+          },
+          "intelligence": {
+            "read": 16,
+            "write": 0,
+            "total": 20
+          },
+          "dispatch": {
+            "read": 20,
+            "write": 0,
+            "total": 20
+          },
+          "audit": {
+            "read": 0,
+            "write": 0,
+            "total": 20
+          },
+          "responders": {
+            "read": 20,
+            "write": 0,
+            "total": 20
+          }
+        },
+        "paramedic": {
+          "incidents": {
+            "read": 0,
+            "write": 15,
+            "total": 20
+          },
+          "intelligence": {
+            "read": 0,
+            "write": 0,
+            "total": 20
+          },
+          "dispatch": {
+            "read": 16,
+            "write": 0,
+            "total": 20
+          },
+          "audit": {
+            "read": 0,
+            "write": 0,
+            "total": 20
+          },
+          "responders": {
+            "read": 0,
+            "write": 0,
+            "total": 20
+          }
+        },
+        "fire_officer": {
+          "incidents": {
+            "read": 0,
+            "write": 15,
+            "total": 20
+          },
+          "intelligence": {
+            "read": 3,
+            "write": 0,
+            "total": 20
+          },
+          "dispatch": {
+            "read": 16,
+            "write": 0,
+            "total": 20
+          },
+          "audit": {
+            "read": 0,
+            "write": 0,
+            "total": 20
+          },
+          "responders": {
+            "read": 0,
+            "write": 0,
+            "total": 20
+          }
+        },
+        "intel_analyst": {
+          "incidents": {
+            "read": 20,
+            "write": 0,
+            "total": 20
+          },
+          "intelligence": {
+            "read": 20,
+            "write": 0,
+            "total": 20
+          },
+          "dispatch": {
+            "read": 20,
+            "write": 0,
+            "total": 20
+          },
+          "audit": {
+            "read": 20,
+            "write": 0,
+            "total": 20
+          },
+          "responders": {
+            "read": 20,
+            "write": 0,
+            "total": 20
+          }
+        },
+        "regional_cmdr": {
+          "incidents": {
+            "read": 5,
+            "write": 0,
+            "total": 20
+          },
+          "intelligence": {
+            "read": 20,
+            "write": 4,
+            "total": 20
+          },
+          "dispatch": {
+            "read": 5,
+            "write": 0,
+            "total": 20
+          },
+          "audit": {
+            "read": 20,
+            "write": 0,
+            "total": 20
+          },
+          "responders": {
+            "read": 0,
+            "write": 0,
+            "total": 20
+          }
+        },
+        "national_cmdr": {
+          "incidents": {
+            "read": 5,
+            "write": 0,
+            "total": 20
+          },
+          "intelligence": {
+            "read": 20,
+            "write": 4,
+            "total": 20
+          },
+          "dispatch": {
+            "read": 5,
+            "write": 0,
+            "total": 20
+          },
+          "audit": {
+            "read": 20,
+            "write": 0,
+            "total": 20
+          },
+          "responders": {
+            "read": 0,
+            "write": 0,
+            "total": 20
+          }
+        },
+        "auditor": {
+          "incidents": {
+            "read": 0,
+            "write": 0,
+            "total": 20
+          },
+          "intelligence": {
+            "read": 0,
+            "write": 0,
+            "total": 20
+          },
+          "dispatch": {
+            "read": 0,
+            "write": 0,
+            "total": 20
+          },
+          "audit": {
+            "read": 20,
+            "write": 0,
+            "total": 20
+          },
+          "responders": {
+            "read": 0,
+            "write": 0,
+            "total": 20
+          }
+        },
+        "dispatcher": {
+          "incidents": {
+            "read": 0,
+            "write": 15,
+            "total": 20
+          },
+          "intelligence": {
+            "read": 3,
+            "write": 0,
+            "total": 20
+          },
+          "dispatch": {
+            "read": 16,
+            "write": 15,
+            "total": 20
+          },
+          "audit": {
+            "read": 0,
+            "write": 0,
+            "total": 20
+          },
+          "responders": {
+            "read": 0,
+            "write": 20,
+            "total": 20
+          }
+        }
+      }
+    },
+    "governance": {
+      "impact_assessments": 5,
+      "governance_decisions": 5
+    }
+  }
+}

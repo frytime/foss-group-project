@@ -1,0 +1,1104 @@
+{
+  "incidents": [
+    {
+      "id": "INC-001",
+      "_label": "SECRET",
+      "_integrity": "OPERATIONAL",
+      "_reasons": [
+        "CONFIDENTIAL (baseline): caller name and phone number are personal data",
+        "SECRET: security-sensitive incident type 'Suspicious Package'",
+        "OPERATIONAL integrity: incident record",
+        "UNVERIFIED integrity on caller-supplied fields: callerName, callerPhone"
+      ],
+      "_review": []
+    },
+    {
+      "id": "INC-002",
+      "_label": "CONFIDENTIAL",
+      "_integrity": "OPERATIONAL",
+      "_reasons": [
+        "CONFIDENTIAL (baseline): caller name and phone number are personal data",
+        "also holds health data: 2 casualties",
+        "OPERATIONAL integrity: incident record",
+        "UNVERIFIED integrity on caller-supplied fields: callerName, callerPhone"
+      ],
+      "_review": []
+    },
+    {
+      "id": "INC-003",
+      "_label": "CONFIDENTIAL",
+      "_integrity": "OPERATIONAL",
+      "_reasons": [
+        "CONFIDENTIAL (baseline): caller name and phone number are personal data",
+        "OPERATIONAL integrity: incident record",
+        "UNVERIFIED integrity on caller-supplied fields: callerName, callerPhone"
+      ],
+      "_review": []
+    },
+    {
+      "id": "INC-004",
+      "_label": "CONFIDENTIAL",
+      "_integrity": "OPERATIONAL",
+      "_reasons": [
+        "CONFIDENTIAL (baseline): caller name and phone number are personal data",
+        "also holds health data: 1 casualties",
+        "OPERATIONAL integrity: incident record",
+        "UNVERIFIED integrity on caller-supplied fields: callerName, callerPhone"
+      ],
+      "_review": []
+    },
+    {
+      "id": "INC-005",
+      "_label": "CONFIDENTIAL",
+      "_integrity": "OPERATIONAL",
+      "_reasons": [
+        "CONFIDENTIAL (baseline): caller name and phone number are personal data",
+        "also safeguarding: 'Missing Person' concerns a potentially vulnerable person",
+        "OPERATIONAL integrity: incident record",
+        "UNVERIFIED integrity on caller-supplied fields: callerName, callerPhone"
+      ],
+      "_review": []
+    },
+    {
+      "id": "INC-006",
+      "_label": "CONFIDENTIAL",
+      "_integrity": "OPERATIONAL",
+      "_reasons": [
+        "CONFIDENTIAL (baseline): caller name and phone number are personal data",
+        "OPERATIONAL integrity: incident record",
+        "UNVERIFIED integrity on caller-supplied fields: callerName, callerPhone"
+      ],
+      "_review": []
+    },
+    {
+      "id": "INC-007",
+      "_label": "CONFIDENTIAL",
+      "_integrity": "COMMAND",
+      "_reasons": [
+        "CONFIDENTIAL (baseline): caller name and phone number are personal data",
+        "also holds health data: 3 casualties",
+        "COMMAND integrity: Critical incident",
+        "UNVERIFIED integrity on caller-supplied fields: callerName, callerPhone"
+      ],
+      "_review": []
+    },
+    {
+      "id": "INC-008",
+      "_label": "CONFIDENTIAL",
+      "_integrity": "COMMAND",
+      "_reasons": [
+        "CONFIDENTIAL (baseline): caller name and phone number are personal data",
+        "also holds health data: 5 casualties",
+        "COMMAND integrity: Critical incident",
+        "UNVERIFIED integrity on caller-supplied fields: callerName, callerPhone"
+      ],
+      "_review": []
+    },
+    {
+      "id": "INC-009",
+      "_label": "CONFIDENTIAL",
+      "_integrity": "OPERATIONAL",
+      "_reasons": [
+        "CONFIDENTIAL (baseline): caller name and phone number are personal data",
+        "OPERATIONAL integrity: incident record",
+        "UNVERIFIED integrity on caller-supplied fields: callerName, callerPhone"
+      ],
+      "_review": []
+    },
+    {
+      "id": "INC-010",
+      "_label": "SECRET",
+      "_integrity": "COMMAND",
+      "_reasons": [
+        "CONFIDENTIAL (baseline): caller name and phone number are personal data",
+        "SECRET: security-sensitive incident type 'Terrorism Threat'",
+        "COMMAND integrity: Critical incident",
+        "UNVERIFIED integrity on caller-supplied fields: callerName, callerPhone"
+      ],
+      "_review": []
+    },
+    {
+      "id": "INC-011",
+      "_label": "CONFIDENTIAL",
+      "_integrity": "OPERATIONAL",
+      "_reasons": [
+        "CONFIDENTIAL (baseline): caller name and phone number are personal data",
+        "also holds health data: 1 casualties",
+        "OPERATIONAL integrity: incident record",
+        "UNVERIFIED integrity on caller-supplied fields: callerName, callerPhone"
+      ],
+      "_review": []
+    },
+    {
+      "id": "INC-012",
+      "_label": "CONFIDENTIAL",
+      "_integrity": "OPERATIONAL",
+      "_reasons": [
+        "CONFIDENTIAL (baseline): caller name and phone number are personal data",
+        "also holds health data: 2 casualties",
+        "OPERATIONAL integrity: incident record",
+        "UNVERIFIED integrity on caller-supplied fields: callerName, callerPhone"
+      ],
+      "_review": []
+    },
+    {
+      "id": "INC-013",
+      "_label": "CONFIDENTIAL",
+      "_integrity": "OPERATIONAL",
+      "_reasons": [
+        "CONFIDENTIAL (baseline): caller name and phone number are personal data",
+        "also holds health data: 1 casualties",
+        "OPERATIONAL integrity: incident record",
+        "UNVERIFIED integrity on caller-supplied fields: callerName, callerPhone"
+      ],
+      "_review": []
+    },
+    {
+      "id": "INC-014",
+      "_label": "SECRET",
+      "_integrity": "COMMAND",
+      "_reasons": [
+        "CONFIDENTIAL (baseline): caller name and phone number are personal data",
+        "SECRET: security-sensitive incident type 'Suspicious Package'",
+        "COMMAND integrity: Critical incident",
+        "UNVERIFIED integrity on caller-supplied fields: callerName, callerPhone"
+      ],
+      "_review": []
+    },
+    {
+      "id": "INC-015",
+      "_label": "CONFIDENTIAL",
+      "_integrity": "OPERATIONAL",
+      "_reasons": [
+        "CONFIDENTIAL (baseline): caller name and phone number are personal data",
+        "also safeguarding: 'Missing Person' concerns a potentially vulnerable person",
+        "OPERATIONAL integrity: incident record",
+        "UNVERIFIED integrity on caller-supplied fields: callerName, callerPhone"
+      ],
+      "_review": []
+    },
+    {
+      "id": "INC-016",
+      "_label": "CONFIDENTIAL",
+      "_integrity": "OPERATIONAL",
+      "_reasons": [
+        "CONFIDENTIAL (baseline): caller name and phone number are personal data",
+        "OPERATIONAL integrity: incident record",
+        "UNVERIFIED integrity on caller-supplied fields: callerName, callerPhone"
+      ],
+      "_review": []
+    },
+    {
+      "id": "INC-017",
+      "_label": "CONFIDENTIAL",
+      "_integrity": "OPERATIONAL",
+      "_reasons": [
+        "CONFIDENTIAL (baseline): caller name and phone number are personal data",
+        "also holds health data: 1 casualties",
+        "OPERATIONAL integrity: incident record",
+        "UNVERIFIED integrity on caller-supplied fields: callerName, callerPhone"
+      ],
+      "_review": []
+    },
+    {
+      "id": "INC-018",
+      "_label": "CONFIDENTIAL",
+      "_integrity": "OPERATIONAL",
+      "_reasons": [
+        "CONFIDENTIAL (baseline): caller name and phone number are personal data",
+        "OPERATIONAL integrity: incident record",
+        "UNVERIFIED integrity on caller-supplied fields: callerName, callerPhone"
+      ],
+      "_review": []
+    },
+    {
+      "id": "INC-019",
+      "_label": "CONFIDENTIAL",
+      "_integrity": "OPERATIONAL",
+      "_reasons": [
+        "CONFIDENTIAL (baseline): caller name and phone number are personal data",
+        "also holds health data: 1 casualties",
+        "OPERATIONAL integrity: incident record",
+        "UNVERIFIED integrity on caller-supplied fields: callerName, callerPhone"
+      ],
+      "_review": []
+    },
+    {
+      "id": "INC-020",
+      "_label": "SECRET",
+      "_integrity": "COMMAND",
+      "_reasons": [
+        "CONFIDENTIAL (baseline): caller name and phone number are personal data",
+        "SECRET: security-sensitive incident type 'Terrorism Threat'",
+        "COMMAND integrity: Critical incident",
+        "UNVERIFIED integrity on caller-supplied fields: callerName, callerPhone"
+      ],
+      "_review": []
+    }
+  ],
+  "responders": [
+    {
+      "id": "R001",
+      "_label": "SECRET",
+      "_integrity": "OPERATIONAL",
+      "_reasons": [
+        "CONFIDENTIAL (baseline): personnel record with name, station and vetting level",
+        "SECRET: assigned to INC-001 (security incident); reveals who is deployed on it",
+        "OPERATIONAL integrity: personnel record"
+      ],
+      "_review": []
+    },
+    {
+      "id": "R002",
+      "_label": "CONFIDENTIAL",
+      "_integrity": "OPERATIONAL",
+      "_reasons": [
+        "CONFIDENTIAL (baseline): personnel record with name, station and vetting level",
+        "OPERATIONAL integrity: personnel record"
+      ],
+      "_review": []
+    },
+    {
+      "id": "R003",
+      "_label": "CONFIDENTIAL",
+      "_integrity": "OPERATIONAL",
+      "_reasons": [
+        "CONFIDENTIAL (baseline): personnel record with name, station and vetting level",
+        "OPERATIONAL integrity: personnel record"
+      ],
+      "_review": []
+    },
+    {
+      "id": "R004",
+      "_label": "CONFIDENTIAL",
+      "_integrity": "OPERATIONAL",
+      "_reasons": [
+        "CONFIDENTIAL (baseline): personnel record with name, station and vetting level",
+        "identity of a Intelligence Analyst",
+        "OPERATIONAL integrity: personnel record"
+      ],
+      "_review": []
+    },
+    {
+      "id": "R005",
+      "_label": "CONFIDENTIAL",
+      "_integrity": "OPERATIONAL",
+      "_reasons": [
+        "CONFIDENTIAL (baseline): personnel record with name, station and vetting level",
+        "OPERATIONAL integrity: personnel record"
+      ],
+      "_review": []
+    },
+    {
+      "id": "R006",
+      "_label": "CONFIDENTIAL",
+      "_integrity": "OPERATIONAL",
+      "_reasons": [
+        "CONFIDENTIAL (baseline): personnel record with name, station and vetting level",
+        "OPERATIONAL integrity: personnel record"
+      ],
+      "_review": []
+    },
+    {
+      "id": "R007",
+      "_label": "CONFIDENTIAL",
+      "_integrity": "OPERATIONAL",
+      "_reasons": [
+        "CONFIDENTIAL (baseline): personnel record with name, station and vetting level",
+        "OPERATIONAL integrity: personnel record"
+      ],
+      "_review": []
+    },
+    {
+      "id": "R008",
+      "_label": "CONFIDENTIAL",
+      "_integrity": "OPERATIONAL",
+      "_reasons": [
+        "CONFIDENTIAL (baseline): personnel record with name, station and vetting level",
+        "OPERATIONAL integrity: personnel record"
+      ],
+      "_review": []
+    },
+    {
+      "id": "R009",
+      "_label": "CONFIDENTIAL",
+      "_integrity": "OPERATIONAL",
+      "_reasons": [
+        "CONFIDENTIAL (baseline): personnel record with name, station and vetting level",
+        "identity of a Regional Commander",
+        "OPERATIONAL integrity: personnel record"
+      ],
+      "_review": []
+    },
+    {
+      "id": "R010",
+      "_label": "CONFIDENTIAL",
+      "_integrity": "OPERATIONAL",
+      "_reasons": [
+        "CONFIDENTIAL (baseline): personnel record with name, station and vetting level",
+        "identity of a National Commander",
+        "OPERATIONAL integrity: personnel record"
+      ],
+      "_review": []
+    },
+    {
+      "id": "R011",
+      "_label": "SECRET",
+      "_integrity": "OPERATIONAL",
+      "_reasons": [
+        "CONFIDENTIAL (baseline): personnel record with name, station and vetting level",
+        "SECRET: assigned to INC-010 (security incident); reveals who is deployed on it",
+        "OPERATIONAL integrity: personnel record"
+      ],
+      "_review": []
+    },
+    {
+      "id": "R012",
+      "_label": "CONFIDENTIAL",
+      "_integrity": "OPERATIONAL",
+      "_reasons": [
+        "CONFIDENTIAL (baseline): personnel record with name, station and vetting level",
+        "OPERATIONAL integrity: personnel record"
+      ],
+      "_review": []
+    },
+    {
+      "id": "R013",
+      "_label": "CONFIDENTIAL",
+      "_integrity": "OPERATIONAL",
+      "_reasons": [
+        "CONFIDENTIAL (baseline): personnel record with name, station and vetting level",
+        "OPERATIONAL integrity: personnel record"
+      ],
+      "_review": []
+    },
+    {
+      "id": "R014",
+      "_label": "CONFIDENTIAL",
+      "_integrity": "OPERATIONAL",
+      "_reasons": [
+        "CONFIDENTIAL (baseline): personnel record with name, station and vetting level",
+        "identity of a Intelligence Analyst",
+        "OPERATIONAL integrity: personnel record"
+      ],
+      "_review": []
+    },
+    {
+      "id": "R015",
+      "_label": "CONFIDENTIAL",
+      "_integrity": "OPERATIONAL",
+      "_reasons": [
+        "CONFIDENTIAL (baseline): personnel record with name, station and vetting level",
+        "OPERATIONAL integrity: personnel record"
+      ],
+      "_review": []
+    },
+    {
+      "id": "R016",
+      "_label": "CONFIDENTIAL",
+      "_integrity": "OPERATIONAL",
+      "_reasons": [
+        "CONFIDENTIAL (baseline): personnel record with name, station and vetting level",
+        "OPERATIONAL integrity: personnel record"
+      ],
+      "_review": []
+    },
+    {
+      "id": "R017",
+      "_label": "CONFIDENTIAL",
+      "_integrity": "OPERATIONAL",
+      "_reasons": [
+        "CONFIDENTIAL (baseline): personnel record with name, station and vetting level",
+        "OPERATIONAL integrity: personnel record"
+      ],
+      "_review": []
+    },
+    {
+      "id": "R018",
+      "_label": "CONFIDENTIAL",
+      "_integrity": "OPERATIONAL",
+      "_reasons": [
+        "CONFIDENTIAL (baseline): personnel record with name, station and vetting level",
+        "OPERATIONAL integrity: personnel record"
+      ],
+      "_review": []
+    },
+    {
+      "id": "R019",
+      "_label": "CONFIDENTIAL",
+      "_integrity": "OPERATIONAL",
+      "_reasons": [
+        "CONFIDENTIAL (baseline): personnel record with name, station and vetting level",
+        "identity of a Auditor",
+        "OPERATIONAL integrity: personnel record"
+      ],
+      "_review": []
+    },
+    {
+      "id": "R020",
+      "_label": "CONFIDENTIAL",
+      "_integrity": "OPERATIONAL",
+      "_reasons": [
+        "CONFIDENTIAL (baseline): personnel record with name, station and vetting level",
+        "identity of a Intelligence Analyst",
+        "OPERATIONAL integrity: personnel record"
+      ],
+      "_review": []
+    }
+  ],
+  "intelligence": [
+    {
+      "id": "INT-001",
+      "_label": "SECRET",
+      "_integrity": "COMMAND",
+      "_reasons": [
+        "SECRET: originator marking (classificationHint)",
+        "contains a suspect identifier (personal data under investigation)",
+        "COMMAND integrity: intelligence report"
+      ],
+      "_review": []
+    },
+    {
+      "id": "INT-002",
+      "_label": "SECRET",
+      "_integrity": "COMMAND",
+      "_reasons": [
+        "SECRET: originator marking (classificationHint)",
+        "contains a suspect identifier (personal data under investigation)",
+        "COMMAND integrity: intelligence report"
+      ],
+      "_review": []
+    },
+    {
+      "id": "INT-003",
+      "_label": "CONFIDENTIAL",
+      "_integrity": "COMMAND",
+      "_reasons": [
+        "CONFIDENTIAL: originator marking (classificationHint)",
+        "contains a suspect identifier (personal data under investigation)",
+        "COMMAND integrity: intelligence report"
+      ],
+      "_review": []
+    },
+    {
+      "id": "INT-004",
+      "_label": "OFFICIAL",
+      "_integrity": "COMMAND",
+      "_reasons": [
+        "OFFICIAL: originator marking (classificationHint)",
+        "COMMAND integrity: intelligence report"
+      ],
+      "_review": []
+    },
+    {
+      "id": "INT-005",
+      "_label": "TOP_SECRET",
+      "_integrity": "COMMAND",
+      "_reasons": [
+        "TOP_SECRET: originator marking (classificationHint)",
+        "contains a suspect identifier (personal data under investigation)",
+        "COMMAND integrity: intelligence report"
+      ],
+      "_review": []
+    },
+    {
+      "id": "INT-006",
+      "_label": "SECRET",
+      "_integrity": "COMMAND",
+      "_reasons": [
+        "SECRET: originator marking (classificationHint)",
+        "contains a suspect identifier (personal data under investigation)",
+        "COMMAND integrity: intelligence report"
+      ],
+      "_review": []
+    },
+    {
+      "id": "INT-007",
+      "_label": "CONFIDENTIAL",
+      "_integrity": "COMMAND",
+      "_reasons": [
+        "CONFIDENTIAL: originator marking (classificationHint)",
+        "contains a suspect identifier (personal data under investigation)",
+        "COMMAND integrity: intelligence report"
+      ],
+      "_review": []
+    },
+    {
+      "id": "INT-008",
+      "_label": "SECRET",
+      "_integrity": "COMMAND",
+      "_reasons": [
+        "SECRET: originator marking (classificationHint)",
+        "contains a suspect identifier (personal data under investigation)",
+        "COMMAND integrity: intelligence report"
+      ],
+      "_review": []
+    },
+    {
+      "id": "INT-009",
+      "_label": "SECRET",
+      "_integrity": "COMMAND",
+      "_reasons": [
+        "SECRET: originator marking (classificationHint)",
+        "contains a suspect identifier (personal data under investigation)",
+        "COMMAND integrity: intelligence report"
+      ],
+      "_review": []
+    },
+    {
+      "id": "INT-010",
+      "_label": "TOP_SECRET",
+      "_integrity": "COMMAND",
+      "_reasons": [
+        "TOP_SECRET: originator marking (classificationHint)",
+        "contains a suspect identifier (personal data under investigation)",
+        "COMMAND integrity: intelligence report"
+      ],
+      "_review": []
+    },
+    {
+      "id": "INT-011",
+      "_label": "OFFICIAL",
+      "_integrity": "COMMAND",
+      "_reasons": [
+        "OFFICIAL: originator marking (classificationHint)",
+        "COMMAND integrity: intelligence report"
+      ],
+      "_review": []
+    },
+    {
+      "id": "INT-012",
+      "_label": "CONFIDENTIAL",
+      "_integrity": "COMMAND",
+      "_reasons": [
+        "CONFIDENTIAL: originator marking (classificationHint)",
+        "review: national-security indicators ['extremist'] in summary vs marking CONFIDENTIAL",
+        "contains a suspect identifier (personal data under investigation)",
+        "COMMAND integrity: intelligence report"
+      ],
+      "_review": [
+        "content indicators ['extremist'] vs marking CONFIDENTIAL"
+      ]
+    },
+    {
+      "id": "INT-013",
+      "_label": "SECRET",
+      "_integrity": "COMMAND",
+      "_reasons": [
+        "SECRET: originator marking (classificationHint)",
+        "contains a suspect identifier (personal data under investigation)",
+        "COMMAND integrity: intelligence report"
+      ],
+      "_review": []
+    },
+    {
+      "id": "INT-014",
+      "_label": "TOP_SECRET",
+      "_integrity": "COMMAND",
+      "_reasons": [
+        "TOP_SECRET: originator marking (classificationHint)",
+        "contains a suspect identifier (personal data under investigation)",
+        "COMMAND integrity: intelligence report"
+      ],
+      "_review": []
+    },
+    {
+      "id": "INT-015",
+      "_label": "OFFICIAL",
+      "_integrity": "COMMAND",
+      "_reasons": [
+        "OFFICIAL: originator marking (classificationHint)",
+        "COMMAND integrity: intelligence report"
+      ],
+      "_review": []
+    },
+    {
+      "id": "INT-016",
+      "_label": "SECRET",
+      "_integrity": "COMMAND",
+      "_reasons": [
+        "SECRET: originator marking (classificationHint)",
+        "contains a suspect identifier (personal data under investigation)",
+        "COMMAND integrity: intelligence report"
+      ],
+      "_review": []
+    },
+    {
+      "id": "INT-017",
+      "_label": "CONFIDENTIAL",
+      "_integrity": "COMMAND",
+      "_reasons": [
+        "CONFIDENTIAL: originator marking (classificationHint)",
+        "contains a suspect identifier (personal data under investigation)",
+        "COMMAND integrity: intelligence report"
+      ],
+      "_review": []
+    },
+    {
+      "id": "INT-018",
+      "_label": "SECRET",
+      "_integrity": "COMMAND",
+      "_reasons": [
+        "SECRET: originator marking (classificationHint)",
+        "contains a suspect identifier (personal data under investigation)",
+        "COMMAND integrity: intelligence report"
+      ],
+      "_review": []
+    },
+    {
+      "id": "INT-019",
+      "_label": "SECRET",
+      "_integrity": "COMMAND",
+      "_reasons": [
+        "SECRET: originator marking (classificationHint)",
+        "contains a suspect identifier (personal data under investigation)",
+        "COMMAND integrity: intelligence report"
+      ],
+      "_review": []
+    },
+    {
+      "id": "INT-020",
+      "_label": "TOP_SECRET",
+      "_integrity": "COMMAND",
+      "_reasons": [
+        "TOP_SECRET: originator marking (classificationHint)",
+        "contains a suspect identifier (personal data under investigation)",
+        "COMMAND integrity: intelligence report"
+      ],
+      "_review": []
+    }
+  ],
+  "dispatch": [
+    {
+      "id": "D001",
+      "_label": "SECRET",
+      "_integrity": "OPERATIONAL",
+      "_reasons": [
+        "OFFICIAL: unit movement record",
+        "SECRET: inherits from INC-001 (security incident); unit movements to it reveal the counter-terrorism response",
+        "OPERATIONAL integrity: dispatch record"
+      ],
+      "_review": []
+    },
+    {
+      "id": "D002",
+      "_label": "OFFICIAL",
+      "_integrity": "OPERATIONAL",
+      "_reasons": [
+        "OFFICIAL: unit movement record",
+        "OPERATIONAL integrity: dispatch record"
+      ],
+      "_review": []
+    },
+    {
+      "id": "D003",
+      "_label": "OFFICIAL",
+      "_integrity": "OPERATIONAL",
+      "_reasons": [
+        "OFFICIAL: unit movement record",
+        "OPERATIONAL integrity: dispatch record"
+      ],
+      "_review": []
+    },
+    {
+      "id": "D004",
+      "_label": "OFFICIAL",
+      "_integrity": "OPERATIONAL",
+      "_reasons": [
+        "OFFICIAL: unit movement record",
+        "OPERATIONAL integrity: dispatch record"
+      ],
+      "_review": []
+    },
+    {
+      "id": "D005",
+      "_label": "OFFICIAL",
+      "_integrity": "OPERATIONAL",
+      "_reasons": [
+        "OFFICIAL: unit movement record",
+        "OPERATIONAL integrity: dispatch record"
+      ],
+      "_review": []
+    },
+    {
+      "id": "D006",
+      "_label": "OFFICIAL",
+      "_integrity": "OPERATIONAL",
+      "_reasons": [
+        "OFFICIAL: unit movement record",
+        "OPERATIONAL integrity: dispatch record"
+      ],
+      "_review": []
+    },
+    {
+      "id": "D007",
+      "_label": "OFFICIAL",
+      "_integrity": "COMMAND",
+      "_reasons": [
+        "OFFICIAL: unit movement record",
+        "COMMAND integrity: dispatch for Critical incident INC-007"
+      ],
+      "_review": []
+    },
+    {
+      "id": "D008",
+      "_label": "OFFICIAL",
+      "_integrity": "COMMAND",
+      "_reasons": [
+        "OFFICIAL: unit movement record",
+        "COMMAND integrity: dispatch for Critical incident INC-008"
+      ],
+      "_review": []
+    },
+    {
+      "id": "D009",
+      "_label": "OFFICIAL",
+      "_integrity": "OPERATIONAL",
+      "_reasons": [
+        "OFFICIAL: unit movement record",
+        "OPERATIONAL integrity: dispatch record"
+      ],
+      "_review": []
+    },
+    {
+      "id": "D010",
+      "_label": "SECRET",
+      "_integrity": "COMMAND",
+      "_reasons": [
+        "OFFICIAL: unit movement record",
+        "SECRET: inherits from INC-010 (security incident); unit movements to it reveal the counter-terrorism response",
+        "COMMAND integrity: dispatch for Critical incident INC-010"
+      ],
+      "_review": []
+    },
+    {
+      "id": "D011",
+      "_label": "OFFICIAL",
+      "_integrity": "OPERATIONAL",
+      "_reasons": [
+        "OFFICIAL: unit movement record",
+        "OPERATIONAL integrity: dispatch record"
+      ],
+      "_review": []
+    },
+    {
+      "id": "D012",
+      "_label": "OFFICIAL",
+      "_integrity": "OPERATIONAL",
+      "_reasons": [
+        "OFFICIAL: unit movement record",
+        "OPERATIONAL integrity: dispatch record"
+      ],
+      "_review": []
+    },
+    {
+      "id": "D013",
+      "_label": "OFFICIAL",
+      "_integrity": "OPERATIONAL",
+      "_reasons": [
+        "OFFICIAL: unit movement record",
+        "OPERATIONAL integrity: dispatch record"
+      ],
+      "_review": []
+    },
+    {
+      "id": "D014",
+      "_label": "SECRET",
+      "_integrity": "COMMAND",
+      "_reasons": [
+        "OFFICIAL: unit movement record",
+        "SECRET: inherits from INC-014 (security incident); unit movements to it reveal the counter-terrorism response",
+        "COMMAND integrity: dispatch for Critical incident INC-014"
+      ],
+      "_review": []
+    },
+    {
+      "id": "D015",
+      "_label": "OFFICIAL",
+      "_integrity": "OPERATIONAL",
+      "_reasons": [
+        "OFFICIAL: unit movement record",
+        "OPERATIONAL integrity: dispatch record"
+      ],
+      "_review": []
+    },
+    {
+      "id": "D016",
+      "_label": "OFFICIAL",
+      "_integrity": "OPERATIONAL",
+      "_reasons": [
+        "OFFICIAL: unit movement record",
+        "OPERATIONAL integrity: dispatch record"
+      ],
+      "_review": []
+    },
+    {
+      "id": "D017",
+      "_label": "OFFICIAL",
+      "_integrity": "OPERATIONAL",
+      "_reasons": [
+        "OFFICIAL: unit movement record",
+        "OPERATIONAL integrity: dispatch record"
+      ],
+      "_review": []
+    },
+    {
+      "id": "D018",
+      "_label": "OFFICIAL",
+      "_integrity": "OPERATIONAL",
+      "_reasons": [
+        "OFFICIAL: unit movement record",
+        "OPERATIONAL integrity: dispatch record"
+      ],
+      "_review": []
+    },
+    {
+      "id": "D019",
+      "_label": "OFFICIAL",
+      "_integrity": "OPERATIONAL",
+      "_reasons": [
+        "OFFICIAL: unit movement record",
+        "OPERATIONAL integrity: dispatch record"
+      ],
+      "_review": []
+    },
+    {
+      "id": "D020",
+      "_label": "SECRET",
+      "_integrity": "COMMAND",
+      "_reasons": [
+        "OFFICIAL: unit movement record",
+        "SECRET: inherits from INC-020 (security incident); unit movements to it reveal the counter-terrorism response",
+        "COMMAND integrity: dispatch for Critical incident INC-020"
+      ],
+      "_review": []
+    }
+  ],
+  "audit": [
+    {
+      "id": "AUD-001",
+      "_label": "SECRET",
+      "_integrity": "AUDIT",
+      "_reasons": [
+        "CONFIDENTIAL (baseline): records staff identity and activity",
+        "SECRET: inherits from INT-001 (SECRET)",
+        "AUDIT integrity: audit record"
+      ],
+      "_review": []
+    },
+    {
+      "id": "AUD-002",
+      "_label": "SECRET",
+      "_integrity": "AUDIT",
+      "_reasons": [
+        "CONFIDENTIAL (baseline): records staff identity and activity",
+        "SECRET: inherits from INC-001 (SECRET)",
+        "AUDIT integrity: audit record"
+      ],
+      "_review": []
+    },
+    {
+      "id": "AUD-003",
+      "_label": "CONFIDENTIAL",
+      "_integrity": "AUDIT",
+      "_reasons": [
+        "CONFIDENTIAL (baseline): records staff identity and activity",
+        "AUDIT integrity: audit record"
+      ],
+      "_review": []
+    },
+    {
+      "id": "AUD-004",
+      "_label": "CONFIDENTIAL",
+      "_integrity": "AUDIT",
+      "_reasons": [
+        "CONFIDENTIAL (baseline): records staff identity and activity",
+        "AUDIT integrity: audit record"
+      ],
+      "_review": []
+    },
+    {
+      "id": "AUD-005",
+      "_label": "CONFIDENTIAL",
+      "_integrity": "AUDIT",
+      "_reasons": [
+        "CONFIDENTIAL (baseline): records staff identity and activity",
+        "AUDIT integrity: audit record"
+      ],
+      "_review": []
+    },
+    {
+      "id": "AUD-006",
+      "_label": "SECRET",
+      "_integrity": "AUDIT",
+      "_reasons": [
+        "CONFIDENTIAL (baseline): records staff identity and activity",
+        "SECRET: inherits from INT-005 (TOP_SECRET)",
+        "capped at SECRET: references a TOP SECRET report by ID only",
+        "AUDIT integrity: audit record"
+      ],
+      "_review": [
+        "references TOP SECRET report INT-005"
+      ]
+    },
+    {
+      "id": "AUD-007",
+      "_label": "CONFIDENTIAL",
+      "_integrity": "AUDIT",
+      "_reasons": [
+        "CONFIDENTIAL (baseline): records staff identity and activity",
+        "review: high-risk action 'Exported Report' (insider-abuse indicator)",
+        "AUDIT integrity: audit record"
+      ],
+      "_review": [
+        "high-risk action 'Exported Report'"
+      ]
+    },
+    {
+      "id": "AUD-008",
+      "_label": "CONFIDENTIAL",
+      "_integrity": "AUDIT",
+      "_reasons": [
+        "CONFIDENTIAL (baseline): records staff identity and activity",
+        "AUDIT integrity: audit record"
+      ],
+      "_review": []
+    },
+    {
+      "id": "AUD-009",
+      "_label": "CONFIDENTIAL",
+      "_integrity": "AUDIT",
+      "_reasons": [
+        "CONFIDENTIAL (baseline): records staff identity and activity",
+        "AUDIT integrity: audit record"
+      ],
+      "_review": []
+    },
+    {
+      "id": "AUD-010",
+      "_label": "SECRET",
+      "_integrity": "AUDIT",
+      "_reasons": [
+        "CONFIDENTIAL (baseline): records staff identity and activity",
+        "SECRET: inherits from INT-010 (TOP_SECRET)",
+        "capped at SECRET: references a TOP SECRET report by ID only",
+        "AUDIT integrity: audit record"
+      ],
+      "_review": [
+        "references TOP SECRET report INT-010"
+      ]
+    },
+    {
+      "id": "AUD-011",
+      "_label": "CONFIDENTIAL",
+      "_integrity": "AUDIT",
+      "_reasons": [
+        "CONFIDENTIAL (baseline): records staff identity and activity",
+        "AUDIT integrity: audit record"
+      ],
+      "_review": []
+    },
+    {
+      "id": "AUD-012",
+      "_label": "CONFIDENTIAL",
+      "_integrity": "AUDIT",
+      "_reasons": [
+        "CONFIDENTIAL (baseline): records staff identity and activity",
+        "AUDIT integrity: audit record"
+      ],
+      "_review": []
+    },
+    {
+      "id": "AUD-013",
+      "_label": "CONFIDENTIAL",
+      "_integrity": "AUDIT",
+      "_reasons": [
+        "CONFIDENTIAL (baseline): records staff identity and activity",
+        "AUDIT integrity: audit record"
+      ],
+      "_review": []
+    },
+    {
+      "id": "AUD-014",
+      "_label": "CONFIDENTIAL",
+      "_integrity": "AUDIT",
+      "_reasons": [
+        "CONFIDENTIAL (baseline): records staff identity and activity",
+        "review: high-risk action 'Modified Classification' (insider-abuse indicator)",
+        "AUDIT integrity: audit record"
+      ],
+      "_review": [
+        "high-risk action 'Modified Classification'"
+      ]
+    },
+    {
+      "id": "AUD-015",
+      "_label": "SECRET",
+      "_integrity": "AUDIT",
+      "_reasons": [
+        "CONFIDENTIAL (baseline): records staff identity and activity",
+        "SECRET: inherits from INC-014 (SECRET)",
+        "AUDIT integrity: audit record"
+      ],
+      "_review": []
+    },
+    {
+      "id": "AUD-016",
+      "_label": "SECRET",
+      "_integrity": "AUDIT",
+      "_reasons": [
+        "CONFIDENTIAL (baseline): records staff identity and activity",
+        "SECRET: inherits from INT-014 (TOP_SECRET)",
+        "capped at SECRET: references a TOP SECRET report by ID only",
+        "AUDIT integrity: audit record"
+      ],
+      "_review": [
+        "references TOP SECRET report INT-014"
+      ]
+    },
+    {
+      "id": "AUD-017",
+      "_label": "CONFIDENTIAL",
+      "_integrity": "AUDIT",
+      "_reasons": [
+        "CONFIDENTIAL (baseline): records staff identity and activity",
+        "AUDIT integrity: audit record"
+      ],
+      "_review": []
+    },
+    {
+      "id": "AUD-018",
+      "_label": "CONFIDENTIAL",
+      "_integrity": "AUDIT",
+      "_reasons": [
+        "CONFIDENTIAL (baseline): records staff identity and activity",
+        "AUDIT integrity: audit record"
+      ],
+      "_review": []
+    },
+    {
+      "id": "AUD-019",
+      "_label": "CONFIDENTIAL",
+      "_integrity": "AUDIT",
+      "_reasons": [
+        "CONFIDENTIAL (baseline): records staff identity and activity",
+        "AUDIT integrity: audit record"
+      ],
+      "_review": []
+    },
+    {
+      "id": "AUD-020",
+      "_label": "SECRET",
+      "_integrity": "AUDIT",
+      "_reasons": [
+        "CONFIDENTIAL (baseline): records staff identity and activity",
+        "SECRET: inherits from INT-020 (TOP_SECRET)",
+        "capped at SECRET: references a TOP SECRET report by ID only",
+        "AUDIT integrity: audit record"
+      ],
+      "_review": [
+        "references TOP SECRET report INT-020"
+      ]
+    }
+  ]
+}

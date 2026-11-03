@@ -1,0 +1,162 @@
+{
+  "tool_id_legend": "Microsoft Threat Modeling Tool threat ID; Manual = added by the team",
+  "threats": [
+    {
+      "id": "T1",
+      "name": "Denial of service",
+      "stride": "D",
+      "tool_id": "285-286",
+      "assets": [
+        "Call intake",
+        "Dispatch"
+      ],
+      "attack": "Flood edge gateway or a Raft leader with requests",
+      "consequences": "Delayed calls and stalled dispatch",
+      "mitigation": "Rate limits across the external boundary and load balancing",
+      "residual_risk": "Large DDoS can still saturate links; mitigated with upstream scrubbing",
+      "experiment": [
+        "raft-dos",
+        "raft-election-storm"
+      ]
+    },
+    {
+      "id": "T2",
+      "name": "Credential theft",
+      "stride": "S",
+      "tool_id": "302",
+      "assets": [
+        "Responder accounts and every record they can read"
+      ],
+      "attack": "Phishing or credential stuffing",
+      "consequences": "Unauthorised reads of confidential data",
+      "mitigation": "Policy engine applies BLP to stolen identities; short-lived tokens; MFA",
+      "residual_risk": "Real-time phishing, malware or session hijacking, especially of high-clearance accounts",
+      "experiment": [
+        "bft-key-compromise"
+      ],
+      "experiment_note": "validator credentials are the credential-theft case exercised experimentally; user-credential effects are bounded by the Part D policy engine (policy_conflicts.json)"
+    },
+    {
+      "id": "T3",
+      "name": "Insider abuse (export / reclassify)",
+      "stride": "E",
+      "tool_id": "153-155",
+      "assets": [
+        "Threat flag integrity",
+        "Intelligence reports",
+        "Audit trail"
+      ],
+      "attack": "Legitimate user exports or reclassifies data beyond their need",
+      "consequences": "Classified intelligence leaked and labels lowered to widen access",
+      "mitigation": "Least privilege via the policy engine; approval before intelligence leaves the Guard's zone",
+      "residual_risk": "An insider acting within their permissions can only be detected afterwards",
+      "experiment": [
+        "bft-equivocation",
+        "raft-leadership-churn"
+      ],
+      "experiment_note": "insider operating a validator (equivocation) or a Raft node (term inflation, run D)"
+    },
+    {
+      "id": "T4",
+      "name": "Insider abuse (Guard impersonation)",
+      "stride": "E",
+      "tool_id": "229-231",
+      "assets": [
+        "Incident records",
+        "Operational decisions"
+      ],
+      "attack": "Insider impersonates the Guard and exploits Incident via a crafted threat flag",
+      "consequences": "Unauthorised incident modifications, false threat assessments, misleading dispatch",
+      "mitigation": "Service authentication, input validation, least privilege",
+      "residual_risk": "Stolen Guard certificates may bypass authentication",
+      "experiment": []
+    },
+    {
+      "id": "T5",
+      "name": "Malware",
+      "stride": "T",
+      "tool_id": "340",
+      "assets": [
+        "Dispatch service and its data store"
+      ],
+      "attack": "Compromised host in the operational zone",
+      "consequences": "Dispatch orders tampered with or blocked; attempt to move into intelligence",
+      "mitigation": "Domain segmentation blocks lateral movement; every service-to-service request re-authorised",
+      "residual_risk": "Malware acts with the infected host's legitimate rights until detected",
+      "experiment": [
+        "raft-leadership-churn"
+      ],
+      "experiment_note": "run D: modified code on one Raft node degrades dispatch without breaking safety"
+    },
+    {
+      "id": "T6",
+      "name": "Supply-chain compromise",
+      "stride": "T, E",
+      "tool_id": "Manual",
+      "assets": [
+        "All services",
+        "Consensus nodes"
+      ],
+      "attack": "Malicious library, container image or update rolled out to every region",
+      "consequences": "Backdoors in every replica at once",
+      "mitigation": "Signed builds, pinned and verified dependencies, rolling out one region at a time",
+      "residual_risk": "Common-mode failure: consensus cannot detect replicas that are all wrong the same way",
+      "experiment": [
+        "bft-audit-corruption",
+        "bft-key-compromise"
+      ],
+      "experiment_note": "bft-audit-corruption (pre-signing corruption) shows identical bad input on every replica is committed: the common-mode effect of a backdoored build. bft-key-compromise shows the effect of signing keys exfiltrated by such a build."
+    },
+    {
+      "id": "T7",
+      "name": "Datacentre failure",
+      "stride": "D",
+      "tool_id": "7",
+      "assets": [
+        "Services and data stores in one region"
+      ],
+      "attack": "Power loss, flood or a physical attack on one datacentre",
+      "consequences": "That region's services go down",
+      "mitigation": "Replicas in the other 2 regions keep a majority; the gateway reroutes traffic",
+      "residual_risk": "With 3 regions BFT may halt; async-replicated data can lose its latest writes",
+      "experiment": [
+        "paxos-state-loss"
+      ]
+    },
+    {
+      "id": "T8",
+      "name": "Network partition",
+      "stride": "D",
+      "tool_id": "Manual",
+      "assets": [
+        "Consistency of incident and dispatch records across regions"
+      ],
+      "attack": "Network links between regions are cut",
+      "consequences": "Stale or inconsistent information; regions act on different incident states",
+      "mitigation": "Consensus ensures only the majority side can commit",
+      "residual_risk": "Minority region loses write access until the partition heals",
+      "experiment": [
+        "raft-partition",
+        "raft-leadership-churn",
+        "paxos-quorum-misconfig"
+      ]
+    },
+    {
+      "id": "T9",
+      "name": "Data corruption",
+      "stride": "T",
+      "tool_id": "272",
+      "assets": [
+        "Audit log",
+        "Casualty figures"
+      ],
+      "attack": "Deliberate tampering via a crafted query, software bug, or disk fault",
+      "consequences": "Wrong operational decisions; the audit trail can't be trusted",
+      "mitigation": "Signed audit events on a tamper-evident log, parameterised queries, consensus replication",
+      "residual_risk": "Corruption that happens before signing or commit is replicated faithfully",
+      "experiment": [
+        "bft-audit-corruption"
+      ]
+    }
+  ]
+}

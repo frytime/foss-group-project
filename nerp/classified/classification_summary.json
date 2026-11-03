@@ -1,0 +1,118 @@
+{
+  "incidents": {
+    "by_label": {
+      "OFFICIAL": 0,
+      "CONFIDENTIAL": 16,
+      "SECRET": 4,
+      "TOP_SECRET": 0
+    },
+    "by_label_integrity": {
+      "SECRET/OPERATIONAL": 1,
+      "CONFIDENTIAL/OPERATIONAL": 14,
+      "CONFIDENTIAL/COMMAND": 2,
+      "SECRET/COMMAND": 3
+    },
+    "baseline": "CONFIDENTIAL",
+    "raised_above_baseline": [
+      "INC-001",
+      "INC-010",
+      "INC-014",
+      "INC-020"
+    ],
+    "review_queue": []
+  },
+  "responders": {
+    "by_label": {
+      "OFFICIAL": 0,
+      "CONFIDENTIAL": 18,
+      "SECRET": 2,
+      "TOP_SECRET": 0
+    },
+    "by_label_integrity": {
+      "SECRET/OPERATIONAL": 2,
+      "CONFIDENTIAL/OPERATIONAL": 18
+    },
+    "baseline": "CONFIDENTIAL",
+    "raised_above_baseline": [
+      "R001",
+      "R011"
+    ],
+    "review_queue": []
+  },
+  "intelligence": {
+    "by_label": {
+      "OFFICIAL": 3,
+      "CONFIDENTIAL": 4,
+      "SECRET": 9,
+      "TOP_SECRET": 4
+    },
+    "by_label_integrity": {
+      "SECRET/COMMAND": 9,
+      "CONFIDENTIAL/COMMAND": 4,
+      "OFFICIAL/COMMAND": 3,
+      "TOP_SECRET/COMMAND": 4
+    },
+    "baseline": "SECRET",
+    "raised_above_baseline": [
+      "INT-005",
+      "INT-010",
+      "INT-014",
+      "INT-020"
+    ],
+    "review_queue": [
+      "INT-012"
+    ]
+  },
+  "dispatch": {
+    "by_label": {
+      "OFFICIAL": 16,
+      "CONFIDENTIAL": 0,
+      "SECRET": 4,
+      "TOP_SECRET": 0
+    },
+    "by_label_integrity": {
+      "SECRET/OPERATIONAL": 1,
+      "OFFICIAL/OPERATIONAL": 14,
+      "OFFICIAL/COMMAND": 2,
+      "SECRET/COMMAND": 3
+    },
+    "baseline": "OFFICIAL",
+    "raised_above_baseline": [
+      "D001",
+      "D010",
+      "D014",
+      "D020"
+    ],
+    "review_queue": []
+  },
+  "audit": {
+    "by_label": {
+      "OFFICIAL": 0,
+      "CONFIDENTIAL": 13,
+      "SECRET": 7,
+      "TOP_SECRET": 0
+    },
+    "by_label_integrity": {
+      "SECRET/AUDIT": 7,
+      "CONFIDENTIAL/AUDIT": 13
+    },
+    "baseline": "CONFIDENTIAL",
+    "raised_above_baseline": [
+      "AUD-001",
+      "AUD-002",
+      "AUD-006",
+      "AUD-010",
+      "AUD-015",
+      "AUD-016",
+      "AUD-020"
+    ],
+    "review_queue": [
+      "AUD-006",
+      "AUD-007",
+      "AUD-010",
+      "AUD-014",
+      "AUD-016",
+      "AUD-020"
+    ]
+  }
+}

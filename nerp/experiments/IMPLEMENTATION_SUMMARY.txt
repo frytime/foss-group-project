@@ -1,0 +1,71 @@
+NERP PROTOTYPE - IMPLEMENTATION SUMMARY
+============================================================
+Generated: 2026-11-03T16:13:10.277867
+
+PART A - ARCHITECTURE & THREAT MODEL
+  12 services, 3 security domains (operational, oversight, intelligence), 5 trust boundaries (TB1 Users/Internet -> API Gateway, TB2 Entry services -> Operational domain, TB3 Operational domain -> Intelligence domain (Guard), TB4 Operational/Intelligence domains -> Oversight domain, TB5 NERP -> External research partners)
+  9 threats (Table 1):
+    T1 Denial of service [STRIDE D, tool 285-286] -> raft-dos, raft-election-storm
+    T2 Credential theft [STRIDE S, tool 302] -> bft-key-compromise
+    T3 Insider abuse (export / reclassify) [STRIDE E, tool 153-155] -> bft-equivocation, raft-leadership-churn
+    T4 Insider abuse (Guard impersonation) [STRIDE E, tool 229-231]
+    T5 Malware [STRIDE T, tool 340] -> raft-leadership-churn
+    T6 Supply-chain compromise [STRIDE T, E, tool Manual] -> bft-audit-corruption, bft-key-compromise
+    T7 Datacentre failure [STRIDE D, tool 7] -> paxos-state-loss
+    T8 Network partition [STRIDE D, tool Manual] -> raft-partition, raft-leadership-churn, paxos-quorum-misconfig
+    T9 Data corruption [STRIDE T, tool 272] -> bft-audit-corruption
+
+PART B - CONSENSUS
+  Selection: Regional Incident Database=Raft, Emergency Dispatch Service=Raft, Resource Allocation Service=Paxos, National Audit Log=Byzantine Fault Tolerance, Intelligence Distribution Service=Byzantine Fault Tolerance
+  Experiments (each drives the real protocol code; logs in experiments/<name>/log.jsonl):
+    raft-partition: check-quorum: old leader steps down after 16 ticks, 0 stale reads | without: 2 leaders, 102 stale reads | safe=True
+    raft-election-storm: correct: 0 elections, 125/125 committed, 0 duplicates | heartbeat raised: 14 elections, 0/125 committed, 0 duplicates | aggressive timeout+10% loss: 61 elections, 125/125 committed, 3 duplicates | +pre-vote: 0 committed | validation rejects ['B_heartbeat_raised', 'C_aggressive_timeout_lossy_wan', 'D_heartbeat_raised_prevote']
+    raft-leadership-churn: flapping link: 6 leader changes, 31.4% leaderless, p95 25 ticks | +pre-vote: 0 leader changes, 0.0% leaderless, p95 3 ticks | compromised node (+pre-vote): 12 leader changes, 63.2% leaderless, p95 54 ticks
+    raft-dos: unprotected: 0/100 dispatches committed, 13 leader changes | rate-limited: 100/100, median 2.0 ticks
+    paxos-state-loss: persistent: double allocation=False | volatile: double allocation=True | majority loss: available=False
+    paxos-quorum-misconfig: quorum 2/5: double allocation=True | quorum 3/5: double allocation=False, minority available=False | bad config rejected=True
+    bft-equivocation: f1_baseline: fork=False, revoked=[] | f2_baseline: fork=True, revoked=[] | f2_hardened: fork=False, revoked=['V0', 'V3']
+    bft-sybil: closed_membership: fork=False, sybil msgs rejected=24 | open_membership: fork=True, sybil msgs rejected=0
+    bft-key-compromise: baseline fork=True | hardened same epoch fork=False revoked=['V0', 'V3'] | after rotation stale-key rejections=2 | identity key stolen: rogue key accepted=True
+    bft-audit-corruption: tampered entry committed=False, rewritten copy detected=['V3'] | pre-signing corruption committed on 3 validators
+  Hardening (B5): epoch-scoped Ed25519 keys + equivocation-proof revocation + quorum certificates
+    demo: epoch 1, rotations 1, active validators 4, quorum 3
+
+PART C - CLASSIFICATION & INFORMATION FLOW
+  dataset      OFFICIAL CONFIDENTIAL SECRET TOP_SECRET  raised above baseline
+  incidents           0           16      4          0  INC-001, INC-010, INC-014, INC-020
+  responders          0           18      2          0  R001, R011
+  intelligence        3            4      9          4  INT-005, INT-010, INT-014, INT-020
+  dispatch           16            0      4          0  D001, D010, D014, D020
+  audit               0           13      7          0  AUD-001, AUD-002, AUD-006, AUD-010, AUD-015, AUD-016, AUD-020
+  review queue: intelligence: INT-012; audit: AUD-006, AUD-007, AUD-010, AUD-014, AUD-016, AUD-020
+  Views (classified -> operational -> analytics -> research):
+    operational: {'incidents': 20, 'dispatch': 20, 'responders': 14, 'threat_advisories': 9, 'audit': 0}
+    analytics: {'incidents': 16, 'dispatch': 16}
+    research: {'incidents': 16, 'dispatch': 16}
+    flow checks: operational=pass, analytics=pass, research=pass; signatures valid=True; tampering detected=True
+    research: k=2 at region+category+date, suppressed 0; re-identification 20/20 (old hash) vs 0 (HMAC)
+  Retention (C4): tiers after 26 years {"review": {"incidents": 1, "dispatch": 4, "intelligence": 20, "responders": 20}, "destroyed": {"incidents": 16, "dispatch": 16, "audit": 10}, "archived": {"incidents": 3, "audit": 10}}
+    legal holds ['incidents/INC-010', 'incidents/INC-014', 'incidents/INC-020']; caller PII after 31 days: {'callerName': None, 'callerPhone': None}
+    destroyed record readable=False; destroy under hold allowed=False; early audit deletion allowed=False
+    governance log chain valid=True, forgery detected=True
+    20-year regulation: record-years 1112.0 -> 2046.0
+
+PART D - POLICY ENGINE (ACM + Bell-LaPadula + Biba, deny if any denies)
+  ACM permits but Bell-LaPadula prevents: ACM=grant BLP=deny Biba=grant -> DENY
+  Bell-LaPadula permits but Biba prevents: ACM=grant BLP=grant Biba=deny -> DENY
+  All security controls permit: ACM=grant BLP=grant Biba=grant -> GRANT
+  Both MAC models permit but ACM prevents: ACM=deny BLP=grant Biba=grant -> DENY
+  Conflict: strict Biba blocks a legitimate read: ACM=grant BLP=grant Biba=deny -> DENY
+  Conflict: analyst cannot write intelligence: ACM=grant BLP=grant Biba=deny -> DENY
+
+GOVERNANCE
+  5 impact assessments, 5 decisions
+
+VERIFY
+  python3 nerp/run.py
+  python3 nerp/experiments/run_consensus_experiments.py
+  python3 nerp/experiments/<experiment>/run.py
+  python3 -m nerp.information_flow part-d  # C3 views + checks
+  python3 -m nerp.retention                # C4 retention / archive / destruction
+  python3 -m nerp.policy_engine            # Part D scenarios + outcome matrix

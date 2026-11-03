@@ -1,0 +1,293 @@
+[
+  {
+    "eventId": "AUD-001",
+    "actor": "Regional Commander",
+    "action": "Viewed Intelligence Report",
+    "resource": "INT-001",
+    "timestamp": "2026-11-03T10:35:00Z",
+    "_label": "SECRET",
+    "_integrity": "AUDIT",
+    "_reasons": [
+      "CONFIDENTIAL (baseline): records staff identity and activity",
+      "SECRET: inherits from INT-001 (SECRET)",
+      "AUDIT integrity: audit record"
+    ]
+  },
+  {
+    "eventId": "AUD-002",
+    "actor": "Police Officer",
+    "action": "Created Incident",
+    "resource": "INC-001",
+    "timestamp": "2026-11-03T10:16:00Z",
+    "_label": "SECRET",
+    "_integrity": "AUDIT",
+    "_reasons": [
+      "CONFIDENTIAL (baseline): records staff identity and activity",
+      "SECRET: inherits from INC-001 (SECRET)",
+      "AUDIT integrity: audit record"
+    ]
+  },
+  {
+    "eventId": "AUD-003",
+    "actor": "Dispatcher",
+    "action": "Assigned Responder",
+    "resource": "INC-002",
+    "timestamp": "2026-11-03T10:32:00Z",
+    "_label": "CONFIDENTIAL",
+    "_integrity": "AUDIT",
+    "_reasons": [
+      "CONFIDENTIAL (baseline): records staff identity and activity",
+      "AUDIT integrity: audit record"
+    ]
+  },
+  {
+    "eventId": "AUD-004",
+    "actor": "Paramedic",
+    "action": "Updated Incident",
+    "resource": "INC-004",
+    "timestamp": "2026-11-03T11:12:00Z",
+    "_label": "CONFIDENTIAL",
+    "_integrity": "AUDIT",
+    "_reasons": [
+      "CONFIDENTIAL (baseline): records staff identity and activity",
+      "AUDIT integrity: audit record"
+    ]
+  },
+  {
+    "eventId": "AUD-005",
+    "actor": "Fire Officer",
+    "action": "Viewed Incident",
+    "resource": "INC-003",
+    "timestamp": "2026-11-03T10:59:00Z",
+    "_label": "CONFIDENTIAL",
+    "_integrity": "AUDIT",
+    "_reasons": [
+      "CONFIDENTIAL (baseline): records staff identity and activity",
+      "AUDIT integrity: audit record"
+    ]
+  },
+  {
+    "eventId": "AUD-006",
+    "actor": "Intelligence Analyst",
+    "action": "Viewed Intelligence Report",
+    "resource": "INT-005",
+    "timestamp": "2026-11-03T11:20:00Z",
+    "_label": "SECRET",
+    "_integrity": "AUDIT",
+    "_reasons": [
+      "CONFIDENTIAL (baseline): records staff identity and activity",
+      "SECRET: inherits from INT-005 (TOP_SECRET)",
+      "capped at SECRET: references a TOP SECRET report by ID only",
+      "AUDIT integrity: audit record"
+    ],
+    "_review": [
+      "references TOP SECRET report INT-005"
+    ]
+  },
+  {
+    "eventId": "AUD-007",
+    "actor": "Regional Commander",
+    "action": "Exported Report",
+    "resource": "INT-007",
+    "timestamp": "2026-11-03T11:45:00Z",
+    "_label": "CONFIDENTIAL",
+    "_integrity": "AUDIT",
+    "_reasons": [
+      "CONFIDENTIAL (baseline): records staff identity and activity",
+      "review: high-risk action 'Exported Report' (insider-abuse indicator)",
+      "AUDIT integrity: audit record"
+    ],
+    "_review": [
+      "high-risk action 'Exported Report'"
+    ]
+  },
+  {
+    "eventId": "AUD-008",
+    "actor": "Dispatcher",
+    "action": "Assigned Responder",
+    "resource": "INC-008",
+    "timestamp": "2026-11-03T12:13:00Z",
+    "_label": "CONFIDENTIAL",
+    "_integrity": "AUDIT",
+    "_reasons": [
+      "CONFIDENTIAL (baseline): records staff identity and activity",
+      "AUDIT integrity: audit record"
+    ]
+  },
+  {
+    "eventId": "AUD-009",
+    "actor": "Police Officer",
+    "action": "Viewed Intelligence Report",
+    "resource": "INT-003",
+    "timestamp": "2026-11-03T12:21:00Z",
+    "_label": "CONFIDENTIAL",
+    "_integrity": "AUDIT",
+    "_reasons": [
+      "CONFIDENTIAL (baseline): records staff identity and activity",
+      "AUDIT integrity: audit record"
+    ]
+  },
+  {
+    "eventId": "AUD-010",
+    "actor": "National Commander",
+    "action": "Viewed Intelligence Report",
+    "resource": "INT-010",
+    "timestamp": "2026-11-03T12:55:00Z",
+    "_label": "SECRET",
+    "_integrity": "AUDIT",
+    "_reasons": [
+      "CONFIDENTIAL (baseline): records staff identity and activity",
+      "SECRET: inherits from INT-010 (TOP_SECRET)",
+      "capped at SECRET: references a TOP SECRET report by ID only",
+      "AUDIT integrity: audit record"
+    ],
+    "_review": [
+      "references TOP SECRET report INT-010"
+    ]
+  },
+  {
+    "eventId": "AUD-011",
+    "actor": "Fire Officer",
+    "action": "Closed Incident",
+    "resource": "INC-011",
+    "timestamp": "2026-11-03T13:28:00Z",
+    "_label": "CONFIDENTIAL",
+    "_integrity": "AUDIT",
+    "_reasons": [
+      "CONFIDENTIAL (baseline): records staff identity and activity",
+      "AUDIT integrity: audit record"
+    ]
+  },
+  {
+    "eventId": "AUD-012",
+    "actor": "Paramedic",
+    "action": "Updated Incident",
+    "resource": "INC-012",
+    "timestamp": "2026-11-03T13:42:00Z",
+    "_label": "CONFIDENTIAL",
+    "_integrity": "AUDIT",
+    "_reasons": [
+      "CONFIDENTIAL (baseline): records staff identity and activity",
+      "AUDIT integrity: audit record"
+    ]
+  },
+  {
+    "eventId": "AUD-013",
+    "actor": "Auditor",
+    "action": "Reviewed Audit Trail",
+    "resource": "AUDIT-SYSTEM",
+    "timestamp": "2026-11-03T14:00:00Z",
+    "_label": "CONFIDENTIAL",
+    "_integrity": "AUDIT",
+    "_reasons": [
+      "CONFIDENTIAL (baseline): records staff identity and activity",
+      "AUDIT integrity: audit record"
+    ]
+  },
+  {
+    "eventId": "AUD-014",
+    "actor": "Regional Commander",
+    "action": "Modified Classification",
+    "resource": "INT-012",
+    "timestamp": "2026-11-03T14:16:00Z",
+    "_label": "CONFIDENTIAL",
+    "_integrity": "AUDIT",
+    "_reasons": [
+      "CONFIDENTIAL (baseline): records staff identity and activity",
+      "review: high-risk action 'Modified Classification' (insider-abuse indicator)",
+      "AUDIT integrity: audit record"
+    ],
+    "_review": [
+      "high-risk action 'Modified Classification'"
+    ]
+  },
+  {
+    "eventId": "AUD-015",
+    "actor": "Police Officer",
+    "action": "Created Incident",
+    "resource": "INC-014",
+    "timestamp": "2026-11-03T14:17:00Z",
+    "_label": "SECRET",
+    "_integrity": "AUDIT",
+    "_reasons": [
+      "CONFIDENTIAL (baseline): records staff identity and activity",
+      "SECRET: inherits from INC-014 (SECRET)",
+      "AUDIT integrity: audit record"
+    ]
+  },
+  {
+    "eventId": "AUD-016",
+    "actor": "Intelligence Analyst",
+    "action": "Viewed Intelligence Report",
+    "resource": "INT-014",
+    "timestamp": "2026-11-03T14:30:00Z",
+    "_label": "SECRET",
+    "_integrity": "AUDIT",
+    "_reasons": [
+      "CONFIDENTIAL (baseline): records staff identity and activity",
+      "SECRET: inherits from INT-014 (TOP_SECRET)",
+      "capped at SECRET: references a TOP SECRET report by ID only",
+      "AUDIT integrity: audit record"
+    ],
+    "_review": [
+      "references TOP SECRET report INT-014"
+    ]
+  },
+  {
+    "eventId": "AUD-017",
+    "actor": "Dispatcher",
+    "action": "Assigned Responder",
+    "resource": "INC-017",
+    "timestamp": "2026-11-03T15:04:00Z",
+    "_label": "CONFIDENTIAL",
+    "_integrity": "AUDIT",
+    "_reasons": [
+      "CONFIDENTIAL (baseline): records staff identity and activity",
+      "AUDIT integrity: audit record"
+    ]
+  },
+  {
+    "eventId": "AUD-018",
+    "actor": "Regional Commander",
+    "action": "Archived Record",
+    "resource": "INC-006",
+    "timestamp": "2026-11-03T15:20:00Z",
+    "_label": "CONFIDENTIAL",
+    "_integrity": "AUDIT",
+    "_reasons": [
+      "CONFIDENTIAL (baseline): records staff identity and activity",
+      "AUDIT integrity: audit record"
+    ]
+  },
+  {
+    "eventId": "AUD-019",
+    "actor": "Auditor",
+    "action": "Reviewed Audit Trail",
+    "resource": "AUDIT-SYSTEM",
+    "timestamp": "2026-11-03T15:40:00Z",
+    "_label": "CONFIDENTIAL",
+    "_integrity": "AUDIT",
+    "_reasons": [
+      "CONFIDENTIAL (baseline): records staff identity and activity",
+      "AUDIT integrity: audit record"
+    ]
+  },
+  {
+    "eventId": "AUD-020",
+    "actor": "National Commander",
+    "action": "Viewed Intelligence Report",
+    "resource": "INT-020",
+    "timestamp": "2026-11-03T16:05:00Z",
+    "_label": "SECRET",
+    "_integrity": "AUDIT",
+    "_reasons": [
+      "CONFIDENTIAL (baseline): records staff identity and activity",
+      "SECRET: inherits from INT-020 (TOP_SECRET)",
+      "capped at SECRET: references a TOP SECRET report by ID only",
+      "AUDIT integrity: audit record"
+    ],
+    "_review": [
+      "references TOP SECRET report INT-020"
+    ]
+  }
+]

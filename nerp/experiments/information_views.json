@@ -1,0 +1,2684 @@
+{
+  "views": {
+    "operational": {
+      "incidents": [
+        {
+          "incidentId": "INC-001",
+          "timestamp": "2026-11-03T10:15:00Z",
+          "callerName": "Alice Turner",
+          "callerPhone": "07700110001",
+          "location": "Bristol City Centre",
+          "incidentType": "Suspicious Package",
+          "casualties": 0,
+          "priority": "High",
+          "assignedAgency": "Police",
+          "_label": "SECRET",
+          "_integrity": "OPERATIONAL",
+          "_reasons": [
+            "CONFIDENTIAL (baseline): caller name and phone number are personal data",
+            "SECRET: security-sensitive incident type 'Suspicious Package'",
+            "OPERATIONAL integrity: incident record",
+            "UNVERIFIED integrity on caller-supplied fields: callerName, callerPhone"
+          ],
+          "_field_integrity": {
+            "callerName": "UNVERIFIED",
+            "callerPhone": "UNVERIFIED"
+          },
+          "_lineage": {
+            "source": "incidents",
+            "source_digest": "4e043a47ba393239",
+            "transform": "views.v2:operational.passthrough"
+          }
+        },
+        {
+          "incidentId": "INC-002",
+          "timestamp": "2026-11-03T10:30:00Z",
+          "callerName": "David Hall",
+          "callerPhone": "07700110002",
+          "location": "Bath",
+          "incidentType": "Road Traffic Collision",
+          "casualties": 2,
+          "priority": "Medium",
+          "assignedAgency": "Ambulance",
+          "_label": "CONFIDENTIAL",
+          "_integrity": "OPERATIONAL",
+          "_reasons": [
+            "CONFIDENTIAL (baseline): caller name and phone number are personal data",
+            "also holds health data: 2 casualties",
+            "OPERATIONAL integrity: incident record",
+            "UNVERIFIED integrity on caller-supplied fields: callerName, callerPhone"
+          ],
+          "_field_integrity": {
+            "callerName": "UNVERIFIED",
+            "callerPhone": "UNVERIFIED"
+          },
+          "_lineage": {
+            "source": "incidents",
+            "source_digest": "7442e9294d1709d8",
+            "transform": "views.v2:operational.passthrough"
+          }
+        },
+        {
+          "incidentId": "INC-003",
+          "timestamp": "2026-11-03T10:45:00Z",
+          "callerName": "Emma Lewis",
+          "callerPhone": "07700110003",
+          "location": "Taunton",
+          "incidentType": "Fire",
+          "casualties": 0,
+          "priority": "High",
+          "assignedAgency": "Fire",
+          "_label": "CONFIDENTIAL",
+          "_integrity": "OPERATIONAL",
+          "_reasons": [
+            "CONFIDENTIAL (baseline): caller name and phone number are personal data",
+            "OPERATIONAL integrity: incident record",
+            "UNVERIFIED integrity on caller-supplied fields: callerName, callerPhone"
+          ],
+          "_field_integrity": {
+            "callerName": "UNVERIFIED",
+            "callerPhone": "UNVERIFIED"
+          },
+          "_lineage": {
+            "source": "incidents",
+            "source_digest": "efbb2b23e3c5d9bf",
+            "transform": "views.v2:operational.passthrough"
+          }
+        },
+        {
+          "incidentId": "INC-004",
+          "timestamp": "2026-11-03T11:00:00Z",
+          "callerName": "Jacob Smith",
+          "callerPhone": "07700110004",
+          "location": "Exeter",
+          "incidentType": "Medical Emergency",
+          "casualties": 1,
+          "priority": "High",
+          "assignedAgency": "Ambulance",
+          "_label": "CONFIDENTIAL",
+          "_integrity": "OPERATIONAL",
+          "_reasons": [
+            "CONFIDENTIAL (baseline): caller name and phone number are personal data",
+            "also holds health data: 1 casualties",
+            "OPERATIONAL integrity: incident record",
+            "UNVERIFIED integrity on caller-supplied fields: callerName, callerPhone"
+          ],
+          "_field_integrity": {
+            "callerName": "UNVERIFIED",
+            "callerPhone": "UNVERIFIED"
+          },
+          "_lineage": {
+            "source": "incidents",
+            "source_digest": "09002e60c13014c3",
+            "transform": "views.v2:operational.passthrough"
+          }
+        },
+        {
+          "incidentId": "INC-005",
+          "timestamp": "2026-11-03T11:20:00Z",
+          "callerName": "Sophie Baker",
+          "callerPhone": "07700110005",
+          "location": "Gloucester",
+          "incidentType": "Missing Person",
+          "casualties": 0,
+          "priority": "Medium",
+          "assignedAgency": "Police",
+          "_label": "CONFIDENTIAL",
+          "_integrity": "OPERATIONAL",
+          "_reasons": [
+            "CONFIDENTIAL (baseline): caller name and phone number are personal data",
+            "also safeguarding: 'Missing Person' concerns a potentially vulnerable person",
+            "OPERATIONAL integrity: incident record",
+            "UNVERIFIED integrity on caller-supplied fields: callerName, callerPhone"
+          ],
+          "_field_integrity": {
+            "callerName": "UNVERIFIED",
+            "callerPhone": "UNVERIFIED"
+          },
+          "_lineage": {
+            "source": "incidents",
+            "source_digest": "9212a057a64d44b5",
+            "transform": "views.v2:operational.passthrough"
+          }
+        },
+        {
+          "incidentId": "INC-006",
+          "timestamp": "2026-11-03T11:35:00Z",
+          "callerName": "Oliver Young",
+          "callerPhone": "07700110006",
+          "location": "Yeovil",
+          "incidentType": "Flooding",
+          "casualties": 0,
+          "priority": "High",
+          "assignedAgency": "Fire",
+          "_label": "CONFIDENTIAL",
+          "_integrity": "OPERATIONAL",
+          "_reasons": [
+            "CONFIDENTIAL (baseline): caller name and phone number are personal data",
+            "OPERATIONAL integrity: incident record",
+            "UNVERIFIED integrity on caller-supplied fields: callerName, callerPhone"
+          ],
+          "_field_integrity": {
+            "callerName": "UNVERIFIED",
+            "callerPhone": "UNVERIFIED"
+          },
+          "_lineage": {
+            "source": "incidents",
+            "source_digest": "7de4892aa8ce6e1b",
+            "transform": "views.v2:operational.passthrough"
+          }
+        },
+        {
+          "incidentId": "INC-007",
+          "timestamp": "2026-11-03T11:50:00Z",
+          "callerName": "Grace Evans",
+          "callerPhone": "07700110007",
+          "location": "Plymouth",
+          "incidentType": "Chemical Spill",
+          "casualties": 3,
+          "priority": "Critical",
+          "assignedAgency": "Fire",
+          "_label": "CONFIDENTIAL",
+          "_integrity": "COMMAND",
+          "_reasons": [
+            "CONFIDENTIAL (baseline): caller name and phone number are personal data",
+            "also holds health data: 3 casualties",
+            "COMMAND integrity: Critical incident",
+            "UNVERIFIED integrity on caller-supplied fields: callerName, callerPhone"
+          ],
+          "_field_integrity": {
+            "callerName": "UNVERIFIED",
+            "callerPhone": "UNVERIFIED"
+          },
+          "_lineage": {
+            "source": "incidents",
+            "source_digest": "c3f914d5e2acb5a4",
+            "transform": "views.v2:operational.passthrough"
+          }
+        },
+        {
+          "incidentId": "INC-008",
+          "timestamp": "2026-11-03T12:10:00Z",
+          "callerName": "Harry Green",
+          "callerPhone": "07700110008",
+          "location": "Swindon",
+          "incidentType": "Building Collapse",
+          "casualties": 5,
+          "priority": "Critical",
+          "assignedAgency": "Fire",
+          "_label": "CONFIDENTIAL",
+          "_integrity": "COMMAND",
+          "_reasons": [
+            "CONFIDENTIAL (baseline): caller name and phone number are personal data",
+            "also holds health data: 5 casualties",
+            "COMMAND integrity: Critical incident",
+            "UNVERIFIED integrity on caller-supplied fields: callerName, callerPhone"
+          ],
+          "_field_integrity": {
+            "callerName": "UNVERIFIED",
+            "callerPhone": "UNVERIFIED"
+          },
+          "_lineage": {
+            "source": "incidents",
+            "source_digest": "1f7a90bb08508f48",
+            "transform": "views.v2:operational.passthrough"
+          }
+        },
+        {
+          "incidentId": "INC-009",
+          "timestamp": "2026-11-03T12:30:00Z",
+          "callerName": "Mia Adams",
+          "callerPhone": "07700110009",
+          "location": "Bournemouth",
+          "incidentType": "Public Disorder",
+          "casualties": 0,
+          "priority": "Medium",
+          "assignedAgency": "Police",
+          "_label": "CONFIDENTIAL",
+          "_integrity": "OPERATIONAL",
+          "_reasons": [
+            "CONFIDENTIAL (baseline): caller name and phone number are personal data",
+            "OPERATIONAL integrity: incident record",
+            "UNVERIFIED integrity on caller-supplied fields: callerName, callerPhone"
+          ],
+          "_field_integrity": {
+            "callerName": "UNVERIFIED",
+            "callerPhone": "UNVERIFIED"
+          },
+          "_lineage": {
+            "source": "incidents",
+            "source_digest": "51cb64ef703c6cef",
+            "transform": "views.v2:operational.passthrough"
+          }
+        },
+        {
+          "incidentId": "INC-010",
+          "timestamp": "2026-11-03T12:50:00Z",
+          "callerName": "Leo Ward",
+          "callerPhone": "07700110010",
+          "location": "Cheltenham",
+          "incidentType": "Terrorism Threat",
+          "casualties": 0,
+          "priority": "Critical",
+          "assignedAgency": "Police",
+          "_label": "SECRET",
+          "_integrity": "COMMAND",
+          "_reasons": [
+            "CONFIDENTIAL (baseline): caller name and phone number are personal data",
+            "SECRET: security-sensitive incident type 'Terrorism Threat'",
+            "COMMAND integrity: Critical incident",
+            "UNVERIFIED integrity on caller-supplied fields: callerName, callerPhone"
+          ],
+          "_field_integrity": {
+            "callerName": "UNVERIFIED",
+            "callerPhone": "UNVERIFIED"
+          },
+          "_lineage": {
+            "source": "incidents",
+            "source_digest": "1b8173e5b23064cb",
+            "transform": "views.v2:operational.passthrough"
+          }
+        },
+        {
+          "incidentId": "INC-011",
+          "timestamp": "2026-11-03T13:10:00Z",
+          "callerName": "Sarah White",
+          "callerPhone": "07700110011",
+          "location": "Weston-super-Mare",
+          "incidentType": "Fire",
+          "casualties": 1,
+          "priority": "High",
+          "assignedAgency": "Fire",
+          "_label": "CONFIDENTIAL",
+          "_integrity": "OPERATIONAL",
+          "_reasons": [
+            "CONFIDENTIAL (baseline): caller name and phone number are personal data",
+            "also holds health data: 1 casualties",
+            "OPERATIONAL integrity: incident record",
+            "UNVERIFIED integrity on caller-supplied fields: callerName, callerPhone"
+          ],
+          "_field_integrity": {
+            "callerName": "UNVERIFIED",
+            "callerPhone": "UNVERIFIED"
+          },
+          "_lineage": {
+            "source": "incidents",
+            "source_digest": "f7b4be2012f9a9ac",
+            "transform": "views.v2:operational.passthrough"
+          }
+        },
+        {
+          "incidentId": "INC-012",
+          "timestamp": "2026-11-03T13:30:00Z",
+          "callerName": "Ethan Cooper",
+          "callerPhone": "07700110012",
+          "location": "Chippenham",
+          "incidentType": "Medical Emergency",
+          "casualties": 2,
+          "priority": "High",
+          "assignedAgency": "Ambulance",
+          "_label": "CONFIDENTIAL",
+          "_integrity": "OPERATIONAL",
+          "_reasons": [
+            "CONFIDENTIAL (baseline): caller name and phone number are personal data",
+            "also holds health data: 2 casualties",
+            "OPERATIONAL integrity: incident record",
+            "UNVERIFIED integrity on caller-supplied fields: callerName, callerPhone"
+          ],
+          "_field_integrity": {
+            "callerName": "UNVERIFIED",
+            "callerPhone": "UNVERIFIED"
+          },
+          "_lineage": {
+            "source": "incidents",
+            "source_digest": "68a8b5299e6dc45a",
+            "transform": "views.v2:operational.passthrough"
+          }
+        },
+        {
+          "incidentId": "INC-013",
+          "timestamp": "2026-11-03T14:00:00Z",
+          "callerName": "Ruby King",
+          "callerPhone": "07700110013",
+          "location": "Torquay",
+          "incidentType": "Road Traffic Collision",
+          "casualties": 1,
+          "priority": "Medium",
+          "assignedAgency": "Ambulance",
+          "_label": "CONFIDENTIAL",
+          "_integrity": "OPERATIONAL",
+          "_reasons": [
+            "CONFIDENTIAL (baseline): caller name and phone number are personal data",
+            "also holds health data: 1 casualties",
+            "OPERATIONAL integrity: incident record",
+            "UNVERIFIED integrity on caller-supplied fields: callerName, callerPhone"
+          ],
+          "_field_integrity": {
+            "callerName": "UNVERIFIED",
+            "callerPhone": "UNVERIFIED"
+          },
+          "_lineage": {
+            "source": "incidents",
+            "source_digest": "d3ebdc5c112803f3",
+            "transform": "views.v2:operational.passthrough"
+          }
+        },
+        {
+          "incidentId": "INC-014",
+          "timestamp": "2026-11-03T14:15:00Z",
+          "callerName": "Lucas Hill",
+          "callerPhone": "07700110014",
+          "location": "Bristol Airport",
+          "incidentType": "Suspicious Package",
+          "casualties": 0,
+          "priority": "Critical",
+          "assignedAgency": "Police",
+          "_label": "SECRET",
+          "_integrity": "COMMAND",
+          "_reasons": [
+            "CONFIDENTIAL (baseline): caller name and phone number are personal data",
+            "SECRET: security-sensitive incident type 'Suspicious Package'",
+            "COMMAND integrity: Critical incident",
+            "UNVERIFIED integrity on caller-supplied fields: callerName, callerPhone"
+          ],
+          "_field_integrity": {
+            "callerName": "UNVERIFIED",
+            "callerPhone": "UNVERIFIED"
+          },
+          "_lineage": {
+            "source": "incidents",
+            "source_digest": "ace92fd0c38109bb",
+            "transform": "views.v2:operational.passthrough"
+          }
+        },
+        {
+          "incidentId": "INC-015",
+          "timestamp": "2026-11-03T14:30:00Z",
+          "callerName": "Amelia Scott",
+          "callerPhone": "07700110015",
+          "location": "Salisbury",
+          "incidentType": "Missing Person",
+          "casualties": 0,
+          "priority": "Medium",
+          "assignedAgency": "Police",
+          "_label": "CONFIDENTIAL",
+          "_integrity": "OPERATIONAL",
+          "_reasons": [
+            "CONFIDENTIAL (baseline): caller name and phone number are personal data",
+            "also safeguarding: 'Missing Person' concerns a potentially vulnerable person",
+            "OPERATIONAL integrity: incident record",
+            "UNVERIFIED integrity on caller-supplied fields: callerName, callerPhone"
+          ],
+          "_field_integrity": {
+            "callerName": "UNVERIFIED",
+            "callerPhone": "UNVERIFIED"
+          },
+          "_lineage": {
+            "source": "incidents",
+            "source_digest": "834a9a1270cd2e87",
+            "transform": "views.v2:operational.passthrough"
+          }
+        },
+        {
+          "incidentId": "INC-016",
+          "timestamp": "2026-11-03T14:45:00Z",
+          "callerName": "Thomas Clark",
+          "callerPhone": "07700110016",
+          "location": "Truro",
+          "incidentType": "Flooding",
+          "casualties": 0,
+          "priority": "Medium",
+          "assignedAgency": "Fire",
+          "_label": "CONFIDENTIAL",
+          "_integrity": "OPERATIONAL",
+          "_reasons": [
+            "CONFIDENTIAL (baseline): caller name and phone number are personal data",
+            "OPERATIONAL integrity: incident record",
+            "UNVERIFIED integrity on caller-supplied fields: callerName, callerPhone"
+          ],
+          "_field_integrity": {
+            "callerName": "UNVERIFIED",
+            "callerPhone": "UNVERIFIED"
+          },
+          "_lineage": {
+            "source": "incidents",
+            "source_digest": "99d4840fbab1842f",
+            "transform": "views.v2:operational.passthrough"
+          }
+        },
+        {
+          "incidentId": "INC-017",
+          "timestamp": "2026-11-03T15:00:00Z",
+          "callerName": "Chloe Bell",
+          "callerPhone": "07700110017",
+          "location": "Newquay",
+          "incidentType": "Medical Emergency",
+          "casualties": 1,
+          "priority": "High",
+          "assignedAgency": "Ambulance",
+          "_label": "CONFIDENTIAL",
+          "_integrity": "OPERATIONAL",
+          "_reasons": [
+            "CONFIDENTIAL (baseline): caller name and phone number are personal data",
+            "also holds health data: 1 casualties",
+            "OPERATIONAL integrity: incident record",
+            "UNVERIFIED integrity on caller-supplied fields: callerName, callerPhone"
+          ],
+          "_field_integrity": {
+            "callerName": "UNVERIFIED",
+            "callerPhone": "UNVERIFIED"
+          },
+          "_lineage": {
+            "source": "incidents",
+            "source_digest": "ae611bc9b1fe7eb4",
+            "transform": "views.v2:operational.passthrough"
+          }
+        },
+        {
+          "incidentId": "INC-018",
+          "timestamp": "2026-11-03T15:20:00Z",
+          "callerName": "James Reed",
+          "callerPhone": "07700110018",
+          "location": "Poole",
+          "incidentType": "Public Disorder",
+          "casualties": 0,
+          "priority": "Medium",
+          "assignedAgency": "Police",
+          "_label": "CONFIDENTIAL",
+          "_integrity": "OPERATIONAL",
+          "_reasons": [
+            "CONFIDENTIAL (baseline): caller name and phone number are personal data",
+            "OPERATIONAL integrity: incident record",
+            "UNVERIFIED integrity on caller-supplied fields: callerName, callerPhone"
+          ],
+          "_field_integrity": {
+            "callerName": "UNVERIFIED",
+            "callerPhone": "UNVERIFIED"
+          },
+          "_lineage": {
+            "source": "incidents",
+            "source_digest": "12ae576d39859c1c",
+            "transform": "views.v2:operational.passthrough"
+          }
+        },
+        {
+          "incidentId": "INC-019",
+          "timestamp": "2026-11-03T15:40:00Z",
+          "callerName": "Lily Cook",
+          "callerPhone": "07700110019",
+          "location": "Bridgwater",
+          "incidentType": "Chemical Spill",
+          "casualties": 1,
+          "priority": "High",
+          "assignedAgency": "Fire",
+          "_label": "CONFIDENTIAL",
+          "_integrity": "OPERATIONAL",
+          "_reasons": [
+            "CONFIDENTIAL (baseline): caller name and phone number are personal data",
+            "also holds health data: 1 casualties",
+            "OPERATIONAL integrity: incident record",
+            "UNVERIFIED integrity on caller-supplied fields: callerName, callerPhone"
+          ],
+          "_field_integrity": {
+            "callerName": "UNVERIFIED",
+            "callerPhone": "UNVERIFIED"
+          },
+          "_lineage": {
+            "source": "incidents",
+            "source_digest": "ef286cc9fe6ef25e",
+            "transform": "views.v2:operational.passthrough"
+          }
+        },
+        {
+          "incidentId": "INC-020",
+          "timestamp": "2026-11-03T16:00:00Z",
+          "callerName": "Daniel Price",
+          "callerPhone": "07700110020",
+          "location": "Cardiff",
+          "incidentType": "Terrorism Threat",
+          "casualties": 0,
+          "priority": "Critical",
+          "assignedAgency": "Police",
+          "_label": "SECRET",
+          "_integrity": "COMMAND",
+          "_reasons": [
+            "CONFIDENTIAL (baseline): caller name and phone number are personal data",
+            "SECRET: security-sensitive incident type 'Terrorism Threat'",
+            "COMMAND integrity: Critical incident",
+            "UNVERIFIED integrity on caller-supplied fields: callerName, callerPhone"
+          ],
+          "_field_integrity": {
+            "callerName": "UNVERIFIED",
+            "callerPhone": "UNVERIFIED"
+          },
+          "_lineage": {
+            "source": "incidents",
+            "source_digest": "ce0da814d60c3f88",
+            "transform": "views.v2:operational.passthrough"
+          }
+        }
+      ],
+      "dispatch": [
+        {
+          "dispatchId": "D001",
+          "incidentId": "INC-001",
+          "unit": "Police Unit 7",
+          "departureTime": "10:20",
+          "arrivalTime": "10:27",
+          "status": "Completed",
+          "_label": "SECRET",
+          "_integrity": "OPERATIONAL",
+          "_reasons": [
+            "OFFICIAL: unit movement record",
+            "SECRET: inherits from INC-001 (security incident); unit movements to it reveal the counter-terrorism response",
+            "OPERATIONAL integrity: dispatch record"
+          ],
+          "_lineage": {
+            "source": "dispatch",
+            "source_digest": "5b705a1bb06158cf",
+            "transform": "views.v2:operational.passthrough"
+          }
+        },
+        {
+          "dispatchId": "D002",
+          "incidentId": "INC-002",
+          "unit": "Ambulance Unit 3",
+          "departureTime": "10:33",
+          "arrivalTime": "10:40",
+          "status": "Completed",
+          "_label": "OFFICIAL",
+          "_integrity": "OPERATIONAL",
+          "_reasons": [
+            "OFFICIAL: unit movement record",
+            "OPERATIONAL integrity: dispatch record"
+          ],
+          "_lineage": {
+            "source": "dispatch",
+            "source_digest": "3ce7f9329d17362a",
+            "transform": "views.v2:operational.passthrough"
+          }
+        },
+        {
+          "dispatchId": "D003",
+          "incidentId": "INC-003",
+          "unit": "Fire Unit 5",
+          "departureTime": "10:48",
+          "arrivalTime": "10:56",
+          "status": "Completed",
+          "_label": "OFFICIAL",
+          "_integrity": "OPERATIONAL",
+          "_reasons": [
+            "OFFICIAL: unit movement record",
+            "OPERATIONAL integrity: dispatch record"
+          ],
+          "_lineage": {
+            "source": "dispatch",
+            "source_digest": "273d772b9df99636",
+            "transform": "views.v2:operational.passthrough"
+          }
+        },
+        {
+          "dispatchId": "D004",
+          "incidentId": "INC-004",
+          "unit": "Ambulance Unit 8",
+          "departureTime": "11:02",
+          "arrivalTime": "11:11",
+          "status": "Completed",
+          "_label": "OFFICIAL",
+          "_integrity": "OPERATIONAL",
+          "_reasons": [
+            "OFFICIAL: unit movement record",
+            "OPERATIONAL integrity: dispatch record"
+          ],
+          "_lineage": {
+            "source": "dispatch",
+            "source_digest": "665d97376c276098",
+            "transform": "views.v2:operational.passthrough"
+          }
+        },
+        {
+          "dispatchId": "D005",
+          "incidentId": "INC-005",
+          "unit": "Police Unit 2",
+          "departureTime": "11:22",
+          "arrivalTime": "11:34",
+          "status": "Completed",
+          "_label": "OFFICIAL",
+          "_integrity": "OPERATIONAL",
+          "_reasons": [
+            "OFFICIAL: unit movement record",
+            "OPERATIONAL integrity: dispatch record"
+          ],
+          "_lineage": {
+            "source": "dispatch",
+            "source_digest": "d52ac4d1d5231f19",
+            "transform": "views.v2:operational.passthrough"
+          }
+        },
+        {
+          "dispatchId": "D006",
+          "incidentId": "INC-006",
+          "unit": "Fire Unit 9",
+          "departureTime": "11:39",
+          "arrivalTime": "11:52",
+          "status": "Completed",
+          "_label": "OFFICIAL",
+          "_integrity": "OPERATIONAL",
+          "_reasons": [
+            "OFFICIAL: unit movement record",
+            "OPERATIONAL integrity: dispatch record"
+          ],
+          "_lineage": {
+            "source": "dispatch",
+            "source_digest": "441abfa58503ed38",
+            "transform": "views.v2:operational.passthrough"
+          }
+        },
+        {
+          "dispatchId": "D007",
+          "incidentId": "INC-007",
+          "unit": "Hazmat Team 1",
+          "departureTime": "11:55",
+          "arrivalTime": "12:05",
+          "status": "Escalated",
+          "_label": "OFFICIAL",
+          "_integrity": "COMMAND",
+          "_reasons": [
+            "OFFICIAL: unit movement record",
+            "COMMAND integrity: dispatch for Critical incident INC-007"
+          ],
+          "_lineage": {
+            "source": "dispatch",
+            "source_digest": "fc22a605a4ad2be6",
+            "transform": "views.v2:operational.passthrough"
+          }
+        },
+        {
+          "dispatchId": "D008",
+          "incidentId": "INC-008",
+          "unit": "Urban Rescue Team",
+          "departureTime": "12:12",
+          "arrivalTime": "12:24",
+          "status": "Escalated",
+          "_label": "OFFICIAL",
+          "_integrity": "COMMAND",
+          "_reasons": [
+            "OFFICIAL: unit movement record",
+            "COMMAND integrity: dispatch for Critical incident INC-008"
+          ],
+          "_lineage": {
+            "source": "dispatch",
+            "source_digest": "61ae55c619283a0d",
+            "transform": "views.v2:operational.passthrough"
+          }
+        },
+        {
+          "dispatchId": "D009",
+          "incidentId": "INC-009",
+          "unit": "Police Unit 12",
+          "departureTime": "12:35",
+          "arrivalTime": "12:43",
+          "status": "Completed",
+          "_label": "OFFICIAL",
+          "_integrity": "OPERATIONAL",
+          "_reasons": [
+            "OFFICIAL: unit movement record",
+            "OPERATIONAL integrity: dispatch record"
+          ],
+          "_lineage": {
+            "source": "dispatch",
+            "source_digest": "9a628bd31d09eeae",
+            "transform": "views.v2:operational.passthrough"
+          }
+        },
+        {
+          "dispatchId": "D010",
+          "incidentId": "INC-010",
+          "unit": "Counter Terror Unit",
+          "departureTime": "12:52",
+          "arrivalTime": "13:01",
+          "status": "In Progress",
+          "_label": "SECRET",
+          "_integrity": "COMMAND",
+          "_reasons": [
+            "OFFICIAL: unit movement record",
+            "SECRET: inherits from INC-010 (security incident); unit movements to it reveal the counter-terrorism response",
+            "COMMAND integrity: dispatch for Critical incident INC-010"
+          ],
+          "_lineage": {
+            "source": "dispatch",
+            "source_digest": "5e295678e644eda7",
+            "transform": "views.v2:operational.passthrough"
+          }
+        },
+        {
+          "dispatchId": "D011",
+          "incidentId": "INC-011",
+          "unit": "Fire Unit 4",
+          "departureTime": "13:12",
+          "arrivalTime": "13:20",
+          "status": "Completed",
+          "_label": "OFFICIAL",
+          "_integrity": "OPERATIONAL",
+          "_reasons": [
+            "OFFICIAL: unit movement record",
+            "OPERATIONAL integrity: dispatch record"
+          ],
+          "_lineage": {
+            "source": "dispatch",
+            "source_digest": "e1425a30bf7ed42b",
+            "transform": "views.v2:operational.passthrough"
+          }
+        },
+        {
+          "dispatchId": "D012",
+          "incidentId": "INC-012",
+          "unit": "Ambulance Unit 5",
+          "departureTime": "13:33",
+          "arrivalTime": "13:41",
+          "status": "Completed",
+          "_label": "OFFICIAL",
+          "_integrity": "OPERATIONAL",
+          "_reasons": [
+            "OFFICIAL: unit movement record",
+            "OPERATIONAL integrity: dispatch record"
+          ],
+          "_lineage": {
+            "source": "dispatch",
+            "source_digest": "e2800c6a77efb8d8",
+            "transform": "views.v2:operational.passthrough"
+          }
+        },
+        {
+          "dispatchId": "D013",
+          "incidentId": "INC-013",
+          "unit": "Ambulance Unit 1",
+          "departureTime": "14:01",
+          "arrivalTime": "14:09",
+          "status": "Completed",
+          "_label": "OFFICIAL",
+          "_integrity": "OPERATIONAL",
+          "_reasons": [
+            "OFFICIAL: unit movement record",
+            "OPERATIONAL integrity: dispatch record"
+          ],
+          "_lineage": {
+            "source": "dispatch",
+            "source_digest": "d24f56a2659db61d",
+            "transform": "views.v2:operational.passthrough"
+          }
+        },
+        {
+          "dispatchId": "D014",
+          "incidentId": "INC-014",
+          "unit": "Explosives Team 2",
+          "departureTime": "14:18",
+          "arrivalTime": "14:29",
+          "status": "In Progress",
+          "_label": "SECRET",
+          "_integrity": "COMMAND",
+          "_reasons": [
+            "OFFICIAL: unit movement record",
+            "SECRET: inherits from INC-014 (security incident); unit movements to it reveal the counter-terrorism response",
+            "COMMAND integrity: dispatch for Critical incident INC-014"
+          ],
+          "_lineage": {
+            "source": "dispatch",
+            "source_digest": "f71b0abba7b60b6f",
+            "transform": "views.v2:operational.passthrough"
+          }
+        },
+        {
+          "dispatchId": "D015",
+          "incidentId": "INC-015",
+          "unit": "Police Unit 5",
+          "departureTime": "14:32",
+          "arrivalTime": "14:46",
+          "status": "Completed",
+          "_label": "OFFICIAL",
+          "_integrity": "OPERATIONAL",
+          "_reasons": [
+            "OFFICIAL: unit movement record",
+            "OPERATIONAL integrity: dispatch record"
+          ],
+          "_lineage": {
+            "source": "dispatch",
+            "source_digest": "b9b8d45c247f211e",
+            "transform": "views.v2:operational.passthrough"
+          }
+        },
+        {
+          "dispatchId": "D016",
+          "incidentId": "INC-016",
+          "unit": "Fire Unit 11",
+          "departureTime": "14:47",
+          "arrivalTime": "15:01",
+          "status": "Completed",
+          "_label": "OFFICIAL",
+          "_integrity": "OPERATIONAL",
+          "_reasons": [
+            "OFFICIAL: unit movement record",
+            "OPERATIONAL integrity: dispatch record"
+          ],
+          "_lineage": {
+            "source": "dispatch",
+            "source_digest": "21eb64de2f0113d7",
+            "transform": "views.v2:operational.passthrough"
+          }
+        },
+        {
+          "dispatchId": "D017",
+          "incidentId": "INC-017",
+          "unit": "Ambulance Unit 6",
+          "departureTime": "15:02",
+          "arrivalTime": "15:11",
+          "status": "Completed",
+          "_label": "OFFICIAL",
+          "_integrity": "OPERATIONAL",
+          "_reasons": [
+            "OFFICIAL: unit movement record",
+            "OPERATIONAL integrity: dispatch record"
+          ],
+          "_lineage": {
+            "source": "dispatch",
+            "source_digest": "5d0439c892c15e39",
+            "transform": "views.v2:operational.passthrough"
+          }
+        },
+        {
+          "dispatchId": "D018",
+          "incidentId": "INC-018",
+          "unit": "Police Unit 4",
+          "departureTime": "15:25",
+          "arrivalTime": "15:36",
+          "status": "Completed",
+          "_label": "OFFICIAL",
+          "_integrity": "OPERATIONAL",
+          "_reasons": [
+            "OFFICIAL: unit movement record",
+            "OPERATIONAL integrity: dispatch record"
+          ],
+          "_lineage": {
+            "source": "dispatch",
+            "source_digest": "30a16fdf858de051",
+            "transform": "views.v2:operational.passthrough"
+          }
+        },
+        {
+          "dispatchId": "D019",
+          "incidentId": "INC-019",
+          "unit": "Hazmat Team 2",
+          "departureTime": "15:43",
+          "arrivalTime": "15:54",
+          "status": "Completed",
+          "_label": "OFFICIAL",
+          "_integrity": "OPERATIONAL",
+          "_reasons": [
+            "OFFICIAL: unit movement record",
+            "OPERATIONAL integrity: dispatch record"
+          ],
+          "_lineage": {
+            "source": "dispatch",
+            "source_digest": "6e03aab6cca4eb9b",
+            "transform": "views.v2:operational.passthrough"
+          }
+        },
+        {
+          "dispatchId": "D020",
+          "incidentId": "INC-020",
+          "unit": "Counter Terror Unit",
+          "departureTime": "16:01",
+          "arrivalTime": null,
+          "status": "Pending",
+          "_label": "SECRET",
+          "_integrity": "COMMAND",
+          "_reasons": [
+            "OFFICIAL: unit movement record",
+            "SECRET: inherits from INC-020 (security incident); unit movements to it reveal the counter-terrorism response",
+            "COMMAND integrity: dispatch for Critical incident INC-020"
+          ],
+          "_lineage": {
+            "source": "dispatch",
+            "source_digest": "99337076296e2df5",
+            "transform": "views.v2:operational.passthrough"
+          }
+        }
+      ],
+      "responders": [
+        {
+          "responderId": "R001",
+          "name": "Emma Wright",
+          "role": "Police Officer",
+          "station": "Bristol Central",
+          "currentAssignment": "INC-001",
+          "_label": "SECRET",
+          "_integrity": "OPERATIONAL",
+          "_lineage": {
+            "source": "responders",
+            "source_digest": "5a687338fff60399",
+            "transform": "views.v2:operational.roster"
+          }
+        },
+        {
+          "responderId": "R002",
+          "name": "Daniel Morgan",
+          "role": "Paramedic",
+          "station": "Bath South",
+          "currentAssignment": "INC-002",
+          "_label": "CONFIDENTIAL",
+          "_integrity": "OPERATIONAL",
+          "_lineage": {
+            "source": "responders",
+            "source_digest": "305a3a3088978882",
+            "transform": "views.v2:operational.roster"
+          }
+        },
+        {
+          "responderId": "R003",
+          "name": "Olivia Price",
+          "role": "Fire Officer",
+          "station": "Taunton",
+          "currentAssignment": "INC-003",
+          "_label": "CONFIDENTIAL",
+          "_integrity": "OPERATIONAL",
+          "_lineage": {
+            "source": "responders",
+            "source_digest": "e2258a13a0487d25",
+            "transform": "views.v2:operational.roster"
+          }
+        },
+        {
+          "responderId": "R005",
+          "name": "Sophia Davies",
+          "role": "Police Officer",
+          "station": "Exeter",
+          "currentAssignment": "INC-005",
+          "_label": "CONFIDENTIAL",
+          "_integrity": "OPERATIONAL",
+          "_lineage": {
+            "source": "responders",
+            "source_digest": "2b82c9f0d6d7938f",
+            "transform": "views.v2:operational.roster"
+          }
+        },
+        {
+          "responderId": "R006",
+          "name": "Jack Thomas",
+          "role": "Fire Officer",
+          "station": "Yeovil",
+          "currentAssignment": "INC-006",
+          "_label": "CONFIDENTIAL",
+          "_integrity": "OPERATIONAL",
+          "_lineage": {
+            "source": "responders",
+            "source_digest": "bab4e58ecc058bd1",
+            "transform": "views.v2:operational.roster"
+          }
+        },
+        {
+          "responderId": "R007",
+          "name": "Mia Roberts",
+          "role": "Paramedic",
+          "station": "Plymouth",
+          "currentAssignment": "INC-007",
+          "_label": "CONFIDENTIAL",
+          "_integrity": "OPERATIONAL",
+          "_lineage": {
+            "source": "responders",
+            "source_digest": "e2b2eb612a6633f7",
+            "transform": "views.v2:operational.roster"
+          }
+        },
+        {
+          "responderId": "R008",
+          "name": "Harry Wilson",
+          "role": "Police Officer",
+          "station": "Swindon",
+          "currentAssignment": "INC-008",
+          "_label": "CONFIDENTIAL",
+          "_integrity": "OPERATIONAL",
+          "_lineage": {
+            "source": "responders",
+            "source_digest": "63ef509b0942ae31",
+            "transform": "views.v2:operational.roster"
+          }
+        },
+        {
+          "responderId": "R011",
+          "name": "Lily Walker",
+          "role": "Police Officer",
+          "station": "Cheltenham",
+          "currentAssignment": "INC-010",
+          "_label": "SECRET",
+          "_integrity": "OPERATIONAL",
+          "_lineage": {
+            "source": "responders",
+            "source_digest": "1b33862a31785e2e",
+            "transform": "views.v2:operational.roster"
+          }
+        },
+        {
+          "responderId": "R012",
+          "name": "Noah Young",
+          "role": "Paramedic",
+          "station": "Weston-super-Mare",
+          "currentAssignment": "INC-011",
+          "_label": "CONFIDENTIAL",
+          "_integrity": "OPERATIONAL",
+          "_lineage": {
+            "source": "responders",
+            "source_digest": "e709d13d6e9ae958",
+            "transform": "views.v2:operational.roster"
+          }
+        },
+        {
+          "responderId": "R013",
+          "name": "Grace King",
+          "role": "Fire Officer",
+          "station": "Chippenham",
+          "currentAssignment": "INC-012",
+          "_label": "CONFIDENTIAL",
+          "_integrity": "OPERATIONAL",
+          "_lineage": {
+            "source": "responders",
+            "source_digest": "17763415c27247c4",
+            "transform": "views.v2:operational.roster"
+          }
+        },
+        {
+          "responderId": "R015",
+          "name": "Ella Green",
+          "role": "Police Officer",
+          "station": "Torquay",
+          "currentAssignment": "INC-013",
+          "_label": "CONFIDENTIAL",
+          "_integrity": "OPERATIONAL",
+          "_lineage": {
+            "source": "responders",
+            "source_digest": "a2797564d017c5d3",
+            "transform": "views.v2:operational.roster"
+          }
+        },
+        {
+          "responderId": "R016",
+          "name": "Leo Adams",
+          "role": "Fire Officer",
+          "station": "Truro",
+          "currentAssignment": "INC-016",
+          "_label": "CONFIDENTIAL",
+          "_integrity": "OPERATIONAL",
+          "_lineage": {
+            "source": "responders",
+            "source_digest": "7824f494ee0c48de",
+            "transform": "views.v2:operational.roster"
+          }
+        },
+        {
+          "responderId": "R017",
+          "name": "Ruby Clark",
+          "role": "Paramedic",
+          "station": "Poole",
+          "currentAssignment": "INC-018",
+          "_label": "CONFIDENTIAL",
+          "_integrity": "OPERATIONAL",
+          "_lineage": {
+            "source": "responders",
+            "source_digest": "01b1b7c146347343",
+            "transform": "views.v2:operational.roster"
+          }
+        },
+        {
+          "responderId": "R018",
+          "name": "Henry Baker",
+          "role": "Police Officer",
+          "station": "Bridgwater",
+          "currentAssignment": "INC-019",
+          "_label": "CONFIDENTIAL",
+          "_integrity": "OPERATIONAL",
+          "_lineage": {
+            "source": "responders",
+            "source_digest": "13368e5c33b46a8d",
+            "transform": "views.v2:operational.roster"
+          }
+        }
+      ],
+      "threat_advisories": [
+        {
+          "advisoryId": "ADV-b6c98d10",
+          "region": "South West",
+          "threatLevel": "SEVERE",
+          "category": "terrorism",
+          "guidance": "Heightened terrorism threat (SEVERE) in South West: follow JESIP / CT protocols.",
+          "_label": "OFFICIAL",
+          "_integrity": "COMMAND",
+          "_reasons": [
+            "Guard advisory derived from a SECRET report; source, suspect and summary removed"
+          ],
+          "_lineage": {
+            "source": "intelligence",
+            "source_digest": "380b84905fd6258d",
+            "transform": "views.v2:operational.guard_advisory",
+            "sanitiser": "Guard"
+          }
+        },
+        {
+          "advisoryId": "ADV-9293f01d",
+          "region": "National",
+          "threatLevel": "HIGH",
+          "category": "cyber",
+          "guidance": "Heightened cyber threat (HIGH) in National: follow standard protocols.",
+          "_label": "OFFICIAL",
+          "_integrity": "COMMAND",
+          "_reasons": [
+            "Guard advisory derived from a SECRET report; source, suspect and summary removed"
+          ],
+          "_lineage": {
+            "source": "intelligence",
+            "source_digest": "9c9cd464a046f9c1",
+            "transform": "views.v2:operational.guard_advisory",
+            "sanitiser": "Guard"
+          }
+        },
+        {
+          "advisoryId": "ADV-d77f974c",
+          "region": "Regional",
+          "threatLevel": "HIGH",
+          "category": "cyber",
+          "guidance": "Heightened cyber threat (HIGH) in Regional: follow standard protocols.",
+          "_label": "OFFICIAL",
+          "_integrity": "COMMAND",
+          "_reasons": [
+            "Guard advisory derived from a SECRET report; source, suspect and summary removed"
+          ],
+          "_lineage": {
+            "source": "intelligence",
+            "source_digest": "48084b4c5572c052",
+            "transform": "views.v2:operational.guard_advisory",
+            "sanitiser": "Guard"
+          }
+        },
+        {
+          "advisoryId": "ADV-36e1e158",
+          "region": "South West",
+          "threatLevel": "HIGH",
+          "category": "border",
+          "guidance": "Heightened border threat (HIGH) in South West: follow standard protocols.",
+          "_label": "OFFICIAL",
+          "_integrity": "COMMAND",
+          "_reasons": [
+            "Guard advisory derived from a SECRET report; source, suspect and summary removed"
+          ],
+          "_lineage": {
+            "source": "intelligence",
+            "source_digest": "f83343c49051c646",
+            "transform": "views.v2:operational.guard_advisory",
+            "sanitiser": "Guard"
+          }
+        },
+        {
+          "advisoryId": "ADV-d96141ec",
+          "region": "National",
+          "threatLevel": "HIGH",
+          "category": "infrastructure",
+          "guidance": "Heightened infrastructure threat (HIGH) in National: follow standard protocols.",
+          "_label": "OFFICIAL",
+          "_integrity": "COMMAND",
+          "_reasons": [
+            "Guard advisory derived from a SECRET report; source, suspect and summary removed"
+          ],
+          "_lineage": {
+            "source": "intelligence",
+            "source_digest": "f5dca4bc40d06f3a",
+            "transform": "views.v2:operational.guard_advisory",
+            "sanitiser": "Guard"
+          }
+        },
+        {
+          "advisoryId": "ADV-1c45ac63",
+          "region": "National",
+          "threatLevel": "HIGH",
+          "category": "cyber",
+          "guidance": "Heightened cyber threat (HIGH) in National: follow standard protocols.",
+          "_label": "OFFICIAL",
+          "_integrity": "COMMAND",
+          "_reasons": [
+            "Guard advisory derived from a SECRET report; source, suspect and summary removed"
+          ],
+          "_lineage": {
+            "source": "intelligence",
+            "source_digest": "59288aa6f55bc13f",
+            "transform": "views.v2:operational.guard_advisory",
+            "sanitiser": "Guard"
+          }
+        },
+        {
+          "advisoryId": "ADV-d83d6558",
+          "region": "South West",
+          "threatLevel": "SEVERE",
+          "category": "terrorism",
+          "guidance": "Heightened terrorism threat (SEVERE) in South West: follow JESIP / CT protocols.",
+          "_label": "OFFICIAL",
+          "_integrity": "COMMAND",
+          "_reasons": [
+            "Guard advisory derived from a SECRET report; source, suspect and summary removed"
+          ],
+          "_lineage": {
+            "source": "intelligence",
+            "source_digest": "f7590838ddffce2b",
+            "transform": "views.v2:operational.guard_advisory",
+            "sanitiser": "Guard"
+          }
+        },
+        {
+          "advisoryId": "ADV-57043ce7",
+          "region": "Wales",
+          "threatLevel": "HIGH",
+          "category": "serious crime",
+          "guidance": "Heightened serious crime threat (HIGH) in Wales: follow standard protocols.",
+          "_label": "OFFICIAL",
+          "_integrity": "COMMAND",
+          "_reasons": [
+            "Guard advisory derived from a SECRET report; source, suspect and summary removed"
+          ],
+          "_lineage": {
+            "source": "intelligence",
+            "source_digest": "db93bdc1353ed31b",
+            "transform": "views.v2:operational.guard_advisory",
+            "sanitiser": "Guard"
+          }
+        },
+        {
+          "advisoryId": "ADV-e88f4f92",
+          "region": "National",
+          "threatLevel": "HIGH",
+          "category": "infrastructure",
+          "guidance": "Heightened infrastructure threat (HIGH) in National: follow standard protocols.",
+          "_label": "OFFICIAL",
+          "_integrity": "COMMAND",
+          "_reasons": [
+            "Guard advisory derived from a SECRET report; source, suspect and summary removed"
+          ],
+          "_lineage": {
+            "source": "intelligence",
+            "source_digest": "955df13e2d10da30",
+            "transform": "views.v2:operational.guard_advisory",
+            "sanitiser": "Guard"
+          }
+        }
+      ],
+      "audit": []
+    },
+    "analytics": {
+      "incidents": [
+        {
+          "incidentId": "INC-002",
+          "timestamp": "2026-11-03T10:30:00Z",
+          "location": "Bath",
+          "incidentType": "Road Traffic Collision",
+          "casualties": 2,
+          "priority": "Medium",
+          "assignedAgency": "Ambulance",
+          "_label": "CONFIDENTIAL",
+          "_integrity": "OPERATIONAL",
+          "_reasons": [
+            "CONFIDENTIAL: caller identifiers removed; casualty/safeguarding content remains"
+          ],
+          "_lineage": {
+            "source": "incidents",
+            "source_digest": "bacba80d93823a9b",
+            "transform": "views.v2:analytics.strip_pii",
+            "sanitiser": "Information Governance"
+          }
+        },
+        {
+          "incidentId": "INC-003",
+          "timestamp": "2026-11-03T10:45:00Z",
+          "location": "Taunton",
+          "incidentType": "Fire",
+          "casualties": 0,
+          "priority": "High",
+          "assignedAgency": "Fire",
+          "_label": "OFFICIAL",
+          "_integrity": "OPERATIONAL",
+          "_reasons": [
+            "OFFICIAL: downgraded from CONFIDENTIAL by the analytics sanitiser after caller identifiers were removed"
+          ],
+          "_lineage": {
+            "source": "incidents",
+            "source_digest": "449eddff646449aa",
+            "transform": "views.v2:analytics.strip_pii",
+            "sanitiser": "Information Governance"
+          }
+        },
+        {
+          "incidentId": "INC-004",
+          "timestamp": "2026-11-03T11:00:00Z",
+          "location": "Exeter",
+          "incidentType": "Medical Emergency",
+          "casualties": 1,
+          "priority": "High",
+          "assignedAgency": "Ambulance",
+          "_label": "CONFIDENTIAL",
+          "_integrity": "OPERATIONAL",
+          "_reasons": [
+            "CONFIDENTIAL: caller identifiers removed; casualty/safeguarding content remains"
+          ],
+          "_lineage": {
+            "source": "incidents",
+            "source_digest": "3d6f4bcc8e31209f",
+            "transform": "views.v2:analytics.strip_pii",
+            "sanitiser": "Information Governance"
+          }
+        },
+        {
+          "incidentId": "INC-005",
+          "timestamp": "2026-11-03T11:20:00Z",
+          "location": "Gloucester",
+          "incidentType": "Missing Person",
+          "casualties": 0,
+          "priority": "Medium",
+          "assignedAgency": "Police",
+          "_label": "CONFIDENTIAL",
+          "_integrity": "OPERATIONAL",
+          "_reasons": [
+            "CONFIDENTIAL: caller identifiers removed; casualty/safeguarding content remains"
+          ],
+          "_lineage": {
+            "source": "incidents",
+            "source_digest": "b4cad2cda7b8c2d7",
+            "transform": "views.v2:analytics.strip_pii",
+            "sanitiser": "Information Governance"
+          }
+        },
+        {
+          "incidentId": "INC-006",
+          "timestamp": "2026-11-03T11:35:00Z",
+          "location": "Yeovil",
+          "incidentType": "Flooding",
+          "casualties": 0,
+          "priority": "High",
+          "assignedAgency": "Fire",
+          "_label": "OFFICIAL",
+          "_integrity": "OPERATIONAL",
+          "_reasons": [
+            "OFFICIAL: downgraded from CONFIDENTIAL by the analytics sanitiser after caller identifiers were removed"
+          ],
+          "_lineage": {
+            "source": "incidents",
+            "source_digest": "8e3ef9eb7e5aed0a",
+            "transform": "views.v2:analytics.strip_pii",
+            "sanitiser": "Information Governance"
+          }
+        },
+        {
+          "incidentId": "INC-007",
+          "timestamp": "2026-11-03T11:50:00Z",
+          "location": "Plymouth",
+          "incidentType": "Chemical Spill",
+          "casualties": 3,
+          "priority": "Critical",
+          "assignedAgency": "Fire",
+          "_label": "CONFIDENTIAL",
+          "_integrity": "COMMAND",
+          "_reasons": [
+            "CONFIDENTIAL: caller identifiers removed; casualty/safeguarding content remains"
+          ],
+          "_lineage": {
+            "source": "incidents",
+            "source_digest": "cc77ef65a92225ce",
+            "transform": "views.v2:analytics.strip_pii",
+            "sanitiser": "Information Governance"
+          }
+        },
+        {
+          "incidentId": "INC-008",
+          "timestamp": "2026-11-03T12:10:00Z",
+          "location": "Swindon",
+          "incidentType": "Building Collapse",
+          "casualties": 5,
+          "priority": "Critical",
+          "assignedAgency": "Fire",
+          "_label": "CONFIDENTIAL",
+          "_integrity": "COMMAND",
+          "_reasons": [
+            "CONFIDENTIAL: caller identifiers removed; casualty/safeguarding content remains"
+          ],
+          "_lineage": {
+            "source": "incidents",
+            "source_digest": "2e674c439d8ea2e8",
+            "transform": "views.v2:analytics.strip_pii",
+            "sanitiser": "Information Governance"
+          }
+        },
+        {
+          "incidentId": "INC-009",
+          "timestamp": "2026-11-03T12:30:00Z",
+          "location": "Bournemouth",
+          "incidentType": "Public Disorder",
+          "casualties": 0,
+          "priority": "Medium",
+          "assignedAgency": "Police",
+          "_label": "OFFICIAL",
+          "_integrity": "OPERATIONAL",
+          "_reasons": [
+            "OFFICIAL: downgraded from CONFIDENTIAL by the analytics sanitiser after caller identifiers were removed"
+          ],
+          "_lineage": {
+            "source": "incidents",
+            "source_digest": "36dcf470292167c4",
+            "transform": "views.v2:analytics.strip_pii",
+            "sanitiser": "Information Governance"
+          }
+        },
+        {
+          "incidentId": "INC-011",
+          "timestamp": "2026-11-03T13:10:00Z",
+          "location": "Weston-super-Mare",
+          "incidentType": "Fire",
+          "casualties": 1,
+          "priority": "High",
+          "assignedAgency": "Fire",
+          "_label": "CONFIDENTIAL",
+          "_integrity": "OPERATIONAL",
+          "_reasons": [
+            "CONFIDENTIAL: caller identifiers removed; casualty/safeguarding content remains"
+          ],
+          "_lineage": {
+            "source": "incidents",
+            "source_digest": "0ad7551c32d61ea0",
+            "transform": "views.v2:analytics.strip_pii",
+            "sanitiser": "Information Governance"
+          }
+        },
+        {
+          "incidentId": "INC-012",
+          "timestamp": "2026-11-03T13:30:00Z",
+          "location": "Chippenham",
+          "incidentType": "Medical Emergency",
+          "casualties": 2,
+          "priority": "High",
+          "assignedAgency": "Ambulance",
+          "_label": "CONFIDENTIAL",
+          "_integrity": "OPERATIONAL",
+          "_reasons": [
+            "CONFIDENTIAL: caller identifiers removed; casualty/safeguarding content remains"
+          ],
+          "_lineage": {
+            "source": "incidents",
+            "source_digest": "6ee32c402e815414",
+            "transform": "views.v2:analytics.strip_pii",
+            "sanitiser": "Information Governance"
+          }
+        },
+        {
+          "incidentId": "INC-013",
+          "timestamp": "2026-11-03T14:00:00Z",
+          "location": "Torquay",
+          "incidentType": "Road Traffic Collision",
+          "casualties": 1,
+          "priority": "Medium",
+          "assignedAgency": "Ambulance",
+          "_label": "CONFIDENTIAL",
+          "_integrity": "OPERATIONAL",
+          "_reasons": [
+            "CONFIDENTIAL: caller identifiers removed; casualty/safeguarding content remains"
+          ],
+          "_lineage": {
+            "source": "incidents",
+            "source_digest": "55476b693448def7",
+            "transform": "views.v2:analytics.strip_pii",
+            "sanitiser": "Information Governance"
+          }
+        },
+        {
+          "incidentId": "INC-015",
+          "timestamp": "2026-11-03T14:30:00Z",
+          "location": "Salisbury",
+          "incidentType": "Missing Person",
+          "casualties": 0,
+          "priority": "Medium",
+          "assignedAgency": "Police",
+          "_label": "CONFIDENTIAL",
+          "_integrity": "OPERATIONAL",
+          "_reasons": [
+            "CONFIDENTIAL: caller identifiers removed; casualty/safeguarding content remains"
+          ],
+          "_lineage": {
+            "source": "incidents",
+            "source_digest": "9b7449ae418ceb31",
+            "transform": "views.v2:analytics.strip_pii",
+            "sanitiser": "Information Governance"
+          }
+        },
+        {
+          "incidentId": "INC-016",
+          "timestamp": "2026-11-03T14:45:00Z",
+          "location": "Truro",
+          "incidentType": "Flooding",
+          "casualties": 0,
+          "priority": "Medium",
+          "assignedAgency": "Fire",
+          "_label": "OFFICIAL",
+          "_integrity": "OPERATIONAL",
+          "_reasons": [
+            "OFFICIAL: downgraded from CONFIDENTIAL by the analytics sanitiser after caller identifiers were removed"
+          ],
+          "_lineage": {
+            "source": "incidents",
+            "source_digest": "44da873e6a22cf2e",
+            "transform": "views.v2:analytics.strip_pii",
+            "sanitiser": "Information Governance"
+          }
+        },
+        {
+          "incidentId": "INC-017",
+          "timestamp": "2026-11-03T15:00:00Z",
+          "location": "Newquay",
+          "incidentType": "Medical Emergency",
+          "casualties": 1,
+          "priority": "High",
+          "assignedAgency": "Ambulance",
+          "_label": "CONFIDENTIAL",
+          "_integrity": "OPERATIONAL",
+          "_reasons": [
+            "CONFIDENTIAL: caller identifiers removed; casualty/safeguarding content remains"
+          ],
+          "_lineage": {
+            "source": "incidents",
+            "source_digest": "5c0d6f697c3d297b",
+            "transform": "views.v2:analytics.strip_pii",
+            "sanitiser": "Information Governance"
+          }
+        },
+        {
+          "incidentId": "INC-018",
+          "timestamp": "2026-11-03T15:20:00Z",
+          "location": "Poole",
+          "incidentType": "Public Disorder",
+          "casualties": 0,
+          "priority": "Medium",
+          "assignedAgency": "Police",
+          "_label": "OFFICIAL",
+          "_integrity": "OPERATIONAL",
+          "_reasons": [
+            "OFFICIAL: downgraded from CONFIDENTIAL by the analytics sanitiser after caller identifiers were removed"
+          ],
+          "_lineage": {
+            "source": "incidents",
+            "source_digest": "db82f7a3f739ea96",
+            "transform": "views.v2:analytics.strip_pii",
+            "sanitiser": "Information Governance"
+          }
+        },
+        {
+          "incidentId": "INC-019",
+          "timestamp": "2026-11-03T15:40:00Z",
+          "location": "Bridgwater",
+          "incidentType": "Chemical Spill",
+          "casualties": 1,
+          "priority": "High",
+          "assignedAgency": "Fire",
+          "_label": "CONFIDENTIAL",
+          "_integrity": "OPERATIONAL",
+          "_reasons": [
+            "CONFIDENTIAL: caller identifiers removed; casualty/safeguarding content remains"
+          ],
+          "_lineage": {
+            "source": "incidents",
+            "source_digest": "b9ff4cbad3b55d99",
+            "transform": "views.v2:analytics.strip_pii",
+            "sanitiser": "Information Governance"
+          }
+        }
+      ],
+      "dispatch": [
+        {
+          "dispatchId": "D002",
+          "incidentId": "INC-002",
+          "unitType": "AMBULANCE",
+          "departureTime": "10:33",
+          "arrivalTime": "10:40",
+          "responseMinutes": 7,
+          "status": "Completed",
+          "_label": "OFFICIAL",
+          "_integrity": "OPERATIONAL",
+          "_lineage": {
+            "source": "dispatch",
+            "source_digest": "5db702530515dcbb",
+            "transform": "views.v2:analytics.unit_type"
+          }
+        },
+        {
+          "dispatchId": "D003",
+          "incidentId": "INC-003",
+          "unitType": "FIRE",
+          "departureTime": "10:48",
+          "arrivalTime": "10:56",
+          "responseMinutes": 8,
+          "status": "Completed",
+          "_label": "OFFICIAL",
+          "_integrity": "OPERATIONAL",
+          "_lineage": {
+            "source": "dispatch",
+            "source_digest": "1f7dc8be31f8b347",
+            "transform": "views.v2:analytics.unit_type"
+          }
+        },
+        {
+          "dispatchId": "D004",
+          "incidentId": "INC-004",
+          "unitType": "AMBULANCE",
+          "departureTime": "11:02",
+          "arrivalTime": "11:11",
+          "responseMinutes": 9,
+          "status": "Completed",
+          "_label": "OFFICIAL",
+          "_integrity": "OPERATIONAL",
+          "_lineage": {
+            "source": "dispatch",
+            "source_digest": "01a22981cce295e7",
+            "transform": "views.v2:analytics.unit_type"
+          }
+        },
+        {
+          "dispatchId": "D005",
+          "incidentId": "INC-005",
+          "unitType": "POLICE",
+          "departureTime": "11:22",
+          "arrivalTime": "11:34",
+          "responseMinutes": 12,
+          "status": "Completed",
+          "_label": "OFFICIAL",
+          "_integrity": "OPERATIONAL",
+          "_lineage": {
+            "source": "dispatch",
+            "source_digest": "8db288b236c8736e",
+            "transform": "views.v2:analytics.unit_type"
+          }
+        },
+        {
+          "dispatchId": "D006",
+          "incidentId": "INC-006",
+          "unitType": "FIRE",
+          "departureTime": "11:39",
+          "arrivalTime": "11:52",
+          "responseMinutes": 13,
+          "status": "Completed",
+          "_label": "OFFICIAL",
+          "_integrity": "OPERATIONAL",
+          "_lineage": {
+            "source": "dispatch",
+            "source_digest": "3af78b71aa9d5cd8",
+            "transform": "views.v2:analytics.unit_type"
+          }
+        },
+        {
+          "dispatchId": "D007",
+          "incidentId": "INC-007",
+          "unitType": "HAZMAT",
+          "departureTime": "11:55",
+          "arrivalTime": "12:05",
+          "responseMinutes": 10,
+          "status": "Escalated",
+          "_label": "OFFICIAL",
+          "_integrity": "COMMAND",
+          "_lineage": {
+            "source": "dispatch",
+            "source_digest": "021bb65a8052da43",
+            "transform": "views.v2:analytics.unit_type"
+          }
+        },
+        {
+          "dispatchId": "D008",
+          "incidentId": "INC-008",
+          "unitType": "RESCUE",
+          "departureTime": "12:12",
+          "arrivalTime": "12:24",
+          "responseMinutes": 12,
+          "status": "Escalated",
+          "_label": "OFFICIAL",
+          "_integrity": "COMMAND",
+          "_lineage": {
+            "source": "dispatch",
+            "source_digest": "9b641b100adcfba6",
+            "transform": "views.v2:analytics.unit_type"
+          }
+        },
+        {
+          "dispatchId": "D009",
+          "incidentId": "INC-009",
+          "unitType": "POLICE",
+          "departureTime": "12:35",
+          "arrivalTime": "12:43",
+          "responseMinutes": 8,
+          "status": "Completed",
+          "_label": "OFFICIAL",
+          "_integrity": "OPERATIONAL",
+          "_lineage": {
+            "source": "dispatch",
+            "source_digest": "d25d56eaed037a1e",
+            "transform": "views.v2:analytics.unit_type"
+          }
+        },
+        {
+          "dispatchId": "D011",
+          "incidentId": "INC-011",
+          "unitType": "FIRE",
+          "departureTime": "13:12",
+          "arrivalTime": "13:20",
+          "responseMinutes": 8,
+          "status": "Completed",
+          "_label": "OFFICIAL",
+          "_integrity": "OPERATIONAL",
+          "_lineage": {
+            "source": "dispatch",
+            "source_digest": "cb6d2e256f7f9766",
+            "transform": "views.v2:analytics.unit_type"
+          }
+        },
+        {
+          "dispatchId": "D012",
+          "incidentId": "INC-012",
+          "unitType": "AMBULANCE",
+          "departureTime": "13:33",
+          "arrivalTime": "13:41",
+          "responseMinutes": 8,
+          "status": "Completed",
+          "_label": "OFFICIAL",
+          "_integrity": "OPERATIONAL",
+          "_lineage": {
+            "source": "dispatch",
+            "source_digest": "bb877c856005ace9",
+            "transform": "views.v2:analytics.unit_type"
+          }
+        },
+        {
+          "dispatchId": "D013",
+          "incidentId": "INC-013",
+          "unitType": "AMBULANCE",
+          "departureTime": "14:01",
+          "arrivalTime": "14:09",
+          "responseMinutes": 8,
+          "status": "Completed",
+          "_label": "OFFICIAL",
+          "_integrity": "OPERATIONAL",
+          "_lineage": {
+            "source": "dispatch",
+            "source_digest": "a64d6efda014df0f",
+            "transform": "views.v2:analytics.unit_type"
+          }
+        },
+        {
+          "dispatchId": "D015",
+          "incidentId": "INC-015",
+          "unitType": "POLICE",
+          "departureTime": "14:32",
+          "arrivalTime": "14:46",
+          "responseMinutes": 14,
+          "status": "Completed",
+          "_label": "OFFICIAL",
+          "_integrity": "OPERATIONAL",
+          "_lineage": {
+            "source": "dispatch",
+            "source_digest": "672e6cc46adc0289",
+            "transform": "views.v2:analytics.unit_type"
+          }
+        },
+        {
+          "dispatchId": "D016",
+          "incidentId": "INC-016",
+          "unitType": "FIRE",
+          "departureTime": "14:47",
+          "arrivalTime": "15:01",
+          "responseMinutes": 14,
+          "status": "Completed",
+          "_label": "OFFICIAL",
+          "_integrity": "OPERATIONAL",
+          "_lineage": {
+            "source": "dispatch",
+            "source_digest": "ad208ed07ee3c136",
+            "transform": "views.v2:analytics.unit_type"
+          }
+        },
+        {
+          "dispatchId": "D017",
+          "incidentId": "INC-017",
+          "unitType": "AMBULANCE",
+          "departureTime": "15:02",
+          "arrivalTime": "15:11",
+          "responseMinutes": 9,
+          "status": "Completed",
+          "_label": "OFFICIAL",
+          "_integrity": "OPERATIONAL",
+          "_lineage": {
+            "source": "dispatch",
+            "source_digest": "66643866a06bc6e9",
+            "transform": "views.v2:analytics.unit_type"
+          }
+        },
+        {
+          "dispatchId": "D018",
+          "incidentId": "INC-018",
+          "unitType": "POLICE",
+          "departureTime": "15:25",
+          "arrivalTime": "15:36",
+          "responseMinutes": 11,
+          "status": "Completed",
+          "_label": "OFFICIAL",
+          "_integrity": "OPERATIONAL",
+          "_lineage": {
+            "source": "dispatch",
+            "source_digest": "c1af31943a09faa0",
+            "transform": "views.v2:analytics.unit_type"
+          }
+        },
+        {
+          "dispatchId": "D019",
+          "incidentId": "INC-019",
+          "unitType": "HAZMAT",
+          "departureTime": "15:43",
+          "arrivalTime": "15:54",
+          "responseMinutes": 11,
+          "status": "Completed",
+          "_label": "OFFICIAL",
+          "_integrity": "OPERATIONAL",
+          "_lineage": {
+            "source": "dispatch",
+            "source_digest": "ed9857e6211e52e8",
+            "transform": "views.v2:analytics.unit_type"
+          }
+        }
+      ],
+      "aggregates": {
+        "_label": "OFFICIAL",
+        "incidents_by_category": {
+          "Security": 4,
+          "Transport": 2,
+          "Fire & Hazard": 7,
+          "Medical": 3,
+          "Public Order & Welfare": 4
+        },
+        "median_response_minutes_by_unit_type": {
+          "AMBULANCE": 8,
+          "FIRE": 10.5,
+          "HAZMAT": 10.5,
+          "POLICE": 11.5,
+          "RESCUE": 12
+        },
+        "responder_utilisation_by_role": {
+          "Police Officer": {
+            "total": 6,
+            "assigned": 6
+          },
+          "Paramedic": {
+            "total": 4,
+            "assigned": 4
+          },
+          "Fire Officer": {
+            "total": 4,
+            "assigned": 4
+          }
+        },
+        "threat_advisories_by_level": {
+          "CRITICAL": 0,
+          "HIGH": 7,
+          "SEVERE": 2
+        }
+      }
+    },
+    "research": {
+      "incidents": [
+        {
+          "pid": "c1269c06a6d2",
+          "area": "South West England",
+          "category": "Transport",
+          "date": "2026-11-03",
+          "casualties": "1-2",
+          "priority": "Medium",
+          "assignedAgency": "Ambulance",
+          "_label": "OFFICIAL",
+          "_integrity": "OPERATIONAL",
+          "_reasons": [
+            "OFFICIAL: anonymised (region+category+date, k>=2); casualties banded; ids pseudonymised with a per-release key"
+          ],
+          "_lineage": {
+            "source": "incidents",
+            "source_digest": "0044b57948cd63c6",
+            "transform": "views.v2:research.k_anonymise",
+            "sanitiser": "Information Governance"
+          }
+        },
+        {
+          "pid": "20270aee47b1",
+          "area": "South West England",
+          "category": "Fire & Hazard",
+          "date": "2026-11-03",
+          "casualties": "0",
+          "priority": "High",
+          "assignedAgency": "Fire",
+          "_label": "OFFICIAL",
+          "_integrity": "OPERATIONAL",
+          "_reasons": [
+            "OFFICIAL: anonymised (region+category+date, k>=2); casualties banded; ids pseudonymised with a per-release key"
+          ],
+          "_lineage": {
+            "source": "incidents",
+            "source_digest": "f5d9856ca5d0b1b1",
+            "transform": "views.v2:research.k_anonymise",
+            "sanitiser": "Information Governance"
+          }
+        },
+        {
+          "pid": "42ebb0f77030",
+          "area": "South West England",
+          "category": "Medical",
+          "date": "2026-11-03",
+          "casualties": "1-2",
+          "priority": "High",
+          "assignedAgency": "Ambulance",
+          "_label": "OFFICIAL",
+          "_integrity": "OPERATIONAL",
+          "_reasons": [
+            "OFFICIAL: anonymised (region+category+date, k>=2); casualties banded; ids pseudonymised with a per-release key"
+          ],
+          "_lineage": {
+            "source": "incidents",
+            "source_digest": "55b645071354dc3d",
+            "transform": "views.v2:research.k_anonymise",
+            "sanitiser": "Information Governance"
+          }
+        },
+        {
+          "pid": "1438a354c373",
+          "area": "South West England",
+          "category": "Public Order & Welfare",
+          "date": "2026-11-03",
+          "casualties": "0",
+          "priority": "Medium",
+          "assignedAgency": "Police",
+          "_label": "OFFICIAL",
+          "_integrity": "OPERATIONAL",
+          "_reasons": [
+            "OFFICIAL: anonymised (region+category+date, k>=2); casualties banded; ids pseudonymised with a per-release key"
+          ],
+          "_lineage": {
+            "source": "incidents",
+            "source_digest": "b64248ddee563283",
+            "transform": "views.v2:research.k_anonymise",
+            "sanitiser": "Information Governance"
+          }
+        },
+        {
+          "pid": "97758ebf5d13",
+          "area": "South West England",
+          "category": "Fire & Hazard",
+          "date": "2026-11-03",
+          "casualties": "0",
+          "priority": "High",
+          "assignedAgency": "Fire",
+          "_label": "OFFICIAL",
+          "_integrity": "OPERATIONAL",
+          "_reasons": [
+            "OFFICIAL: anonymised (region+category+date, k>=2); casualties banded; ids pseudonymised with a per-release key"
+          ],
+          "_lineage": {
+            "source": "incidents",
+            "source_digest": "bf19a39e4d49c05c",
+            "transform": "views.v2:research.k_anonymise",
+            "sanitiser": "Information Governance"
+          }
+        },
+        {
+          "pid": "2fa9576c6789",
+          "area": "South West England",
+          "category": "Fire & Hazard",
+          "date": "2026-11-03",
+          "casualties": "3+",
+          "priority": "Critical",
+          "assignedAgency": "Fire",
+          "_label": "OFFICIAL",
+          "_integrity": "OPERATIONAL",
+          "_reasons": [
+            "OFFICIAL: anonymised (region+category+date, k>=2); casualties banded; ids pseudonymised with a per-release key"
+          ],
+          "_lineage": {
+            "source": "incidents",
+            "source_digest": "cf45fd81b3d9e3c2",
+            "transform": "views.v2:research.k_anonymise",
+            "sanitiser": "Information Governance"
+          }
+        },
+        {
+          "pid": "78835f13831d",
+          "area": "South West England",
+          "category": "Fire & Hazard",
+          "date": "2026-11-03",
+          "casualties": "3+",
+          "priority": "Critical",
+          "assignedAgency": "Fire",
+          "_label": "OFFICIAL",
+          "_integrity": "OPERATIONAL",
+          "_reasons": [
+            "OFFICIAL: anonymised (region+category+date, k>=2); casualties banded; ids pseudonymised with a per-release key"
+          ],
+          "_lineage": {
+            "source": "incidents",
+            "source_digest": "8011438875feaacd",
+            "transform": "views.v2:research.k_anonymise",
+            "sanitiser": "Information Governance"
+          }
+        },
+        {
+          "pid": "410262f7a74e",
+          "area": "South West England",
+          "category": "Public Order & Welfare",
+          "date": "2026-11-03",
+          "casualties": "0",
+          "priority": "Medium",
+          "assignedAgency": "Police",
+          "_label": "OFFICIAL",
+          "_integrity": "OPERATIONAL",
+          "_reasons": [
+            "OFFICIAL: anonymised (region+category+date, k>=2); casualties banded; ids pseudonymised with a per-release key"
+          ],
+          "_lineage": {
+            "source": "incidents",
+            "source_digest": "0a03c98c9ec0f6ca",
+            "transform": "views.v2:research.k_anonymise",
+            "sanitiser": "Information Governance"
+          }
+        },
+        {
+          "pid": "7b95b0348dd4",
+          "area": "South West England",
+          "category": "Fire & Hazard",
+          "date": "2026-11-03",
+          "casualties": "1-2",
+          "priority": "High",
+          "assignedAgency": "Fire",
+          "_label": "OFFICIAL",
+          "_integrity": "OPERATIONAL",
+          "_reasons": [
+            "OFFICIAL: anonymised (region+category+date, k>=2); casualties banded; ids pseudonymised with a per-release key"
+          ],
+          "_lineage": {
+            "source": "incidents",
+            "source_digest": "366d314821849e70",
+            "transform": "views.v2:research.k_anonymise",
+            "sanitiser": "Information Governance"
+          }
+        },
+        {
+          "pid": "554c7938f9cb",
+          "area": "South West England",
+          "category": "Medical",
+          "date": "2026-11-03",
+          "casualties": "1-2",
+          "priority": "High",
+          "assignedAgency": "Ambulance",
+          "_label": "OFFICIAL",
+          "_integrity": "OPERATIONAL",
+          "_reasons": [
+            "OFFICIAL: anonymised (region+category+date, k>=2); casualties banded; ids pseudonymised with a per-release key"
+          ],
+          "_lineage": {
+            "source": "incidents",
+            "source_digest": "74dd3704e0055e30",
+            "transform": "views.v2:research.k_anonymise",
+            "sanitiser": "Information Governance"
+          }
+        },
+        {
+          "pid": "b7cf53a532e4",
+          "area": "South West England",
+          "category": "Transport",
+          "date": "2026-11-03",
+          "casualties": "1-2",
+          "priority": "Medium",
+          "assignedAgency": "Ambulance",
+          "_label": "OFFICIAL",
+          "_integrity": "OPERATIONAL",
+          "_reasons": [
+            "OFFICIAL: anonymised (region+category+date, k>=2); casualties banded; ids pseudonymised with a per-release key"
+          ],
+          "_lineage": {
+            "source": "incidents",
+            "source_digest": "6fe8b5e682bad7ae",
+            "transform": "views.v2:research.k_anonymise",
+            "sanitiser": "Information Governance"
+          }
+        },
+        {
+          "pid": "5cfe1746057b",
+          "area": "South West England",
+          "category": "Public Order & Welfare",
+          "date": "2026-11-03",
+          "casualties": "0",
+          "priority": "Medium",
+          "assignedAgency": "Police",
+          "_label": "OFFICIAL",
+          "_integrity": "OPERATIONAL",
+          "_reasons": [
+            "OFFICIAL: anonymised (region+category+date, k>=2); casualties banded; ids pseudonymised with a per-release key"
+          ],
+          "_lineage": {
+            "source": "incidents",
+            "source_digest": "bb40aa9121664313",
+            "transform": "views.v2:research.k_anonymise",
+            "sanitiser": "Information Governance"
+          }
+        },
+        {
+          "pid": "3ca1f2db041b",
+          "area": "South West England",
+          "category": "Fire & Hazard",
+          "date": "2026-11-03",
+          "casualties": "0",
+          "priority": "Medium",
+          "assignedAgency": "Fire",
+          "_label": "OFFICIAL",
+          "_integrity": "OPERATIONAL",
+          "_reasons": [
+            "OFFICIAL: anonymised (region+category+date, k>=2); casualties banded; ids pseudonymised with a per-release key"
+          ],
+          "_lineage": {
+            "source": "incidents",
+            "source_digest": "a045e796de9510bf",
+            "transform": "views.v2:research.k_anonymise",
+            "sanitiser": "Information Governance"
+          }
+        },
+        {
+          "pid": "c543a7aaf524",
+          "area": "South West England",
+          "category": "Medical",
+          "date": "2026-11-03",
+          "casualties": "1-2",
+          "priority": "High",
+          "assignedAgency": "Ambulance",
+          "_label": "OFFICIAL",
+          "_integrity": "OPERATIONAL",
+          "_reasons": [
+            "OFFICIAL: anonymised (region+category+date, k>=2); casualties banded; ids pseudonymised with a per-release key"
+          ],
+          "_lineage": {
+            "source": "incidents",
+            "source_digest": "ea57d0fcb798871a",
+            "transform": "views.v2:research.k_anonymise",
+            "sanitiser": "Information Governance"
+          }
+        },
+        {
+          "pid": "22d4fcb3d419",
+          "area": "South West England",
+          "category": "Public Order & Welfare",
+          "date": "2026-11-03",
+          "casualties": "0",
+          "priority": "Medium",
+          "assignedAgency": "Police",
+          "_label": "OFFICIAL",
+          "_integrity": "OPERATIONAL",
+          "_reasons": [
+            "OFFICIAL: anonymised (region+category+date, k>=2); casualties banded; ids pseudonymised with a per-release key"
+          ],
+          "_lineage": {
+            "source": "incidents",
+            "source_digest": "0ec79fc5a3c3895f",
+            "transform": "views.v2:research.k_anonymise",
+            "sanitiser": "Information Governance"
+          }
+        },
+        {
+          "pid": "6030c4544c1b",
+          "area": "South West England",
+          "category": "Fire & Hazard",
+          "date": "2026-11-03",
+          "casualties": "1-2",
+          "priority": "High",
+          "assignedAgency": "Fire",
+          "_label": "OFFICIAL",
+          "_integrity": "OPERATIONAL",
+          "_reasons": [
+            "OFFICIAL: anonymised (region+category+date, k>=2); casualties banded; ids pseudonymised with a per-release key"
+          ],
+          "_lineage": {
+            "source": "incidents",
+            "source_digest": "e70cb9b901c0c800",
+            "transform": "views.v2:research.k_anonymise",
+            "sanitiser": "Information Governance"
+          }
+        }
+      ],
+      "dispatch": [
+        {
+          "pid": "26bf4c8e5aa3",
+          "incidentPid": "c1269c06a6d2",
+          "unitType": "AMBULANCE",
+          "responseMinutes": "<=8",
+          "status": "Completed",
+          "_label": "OFFICIAL",
+          "_integrity": "OPERATIONAL",
+          "_lineage": {
+            "source": "dispatch",
+            "source_digest": "7c2a87c9473642a1",
+            "transform": "views.v2:research.pseudonymise",
+            "sanitiser": "Information Governance"
+          }
+        },
+        {
+          "pid": "f8bb5ee2788d",
+          "incidentPid": "20270aee47b1",
+          "unitType": "FIRE",
+          "responseMinutes": "<=8",
+          "status": "Completed",
+          "_label": "OFFICIAL",
+          "_integrity": "OPERATIONAL",
+          "_lineage": {
+            "source": "dispatch",
+            "source_digest": "8e7e55df949749e1",
+            "transform": "views.v2:research.pseudonymise",
+            "sanitiser": "Information Governance"
+          }
+        },
+        {
+          "pid": "a1ef7fea7aef",
+          "incidentPid": "42ebb0f77030",
+          "unitType": "AMBULANCE",
+          "responseMinutes": "9-12",
+          "status": "Completed",
+          "_label": "OFFICIAL",
+          "_integrity": "OPERATIONAL",
+          "_lineage": {
+            "source": "dispatch",
+            "source_digest": "0fc4f7e0781a8bd9",
+            "transform": "views.v2:research.pseudonymise",
+            "sanitiser": "Information Governance"
+          }
+        },
+        {
+          "pid": "bbbc01eb1224",
+          "incidentPid": "1438a354c373",
+          "unitType": "POLICE",
+          "responseMinutes": "9-12",
+          "status": "Completed",
+          "_label": "OFFICIAL",
+          "_integrity": "OPERATIONAL",
+          "_lineage": {
+            "source": "dispatch",
+            "source_digest": "913947c232e585d6",
+            "transform": "views.v2:research.pseudonymise",
+            "sanitiser": "Information Governance"
+          }
+        },
+        {
+          "pid": "1898549e49b2",
+          "incidentPid": "97758ebf5d13",
+          "unitType": "FIRE",
+          "responseMinutes": ">12",
+          "status": "Completed",
+          "_label": "OFFICIAL",
+          "_integrity": "OPERATIONAL",
+          "_lineage": {
+            "source": "dispatch",
+            "source_digest": "97d4540cff9224af",
+            "transform": "views.v2:research.pseudonymise",
+            "sanitiser": "Information Governance"
+          }
+        },
+        {
+          "pid": "bcb89b2ff9b9",
+          "incidentPid": "2fa9576c6789",
+          "unitType": "HAZMAT",
+          "responseMinutes": "9-12",
+          "status": "Escalated",
+          "_label": "OFFICIAL",
+          "_integrity": "OPERATIONAL",
+          "_lineage": {
+            "source": "dispatch",
+            "source_digest": "a287ccae1219c1c5",
+            "transform": "views.v2:research.pseudonymise",
+            "sanitiser": "Information Governance"
+          }
+        },
+        {
+          "pid": "ea59b0d36e23",
+          "incidentPid": "78835f13831d",
+          "unitType": "RESCUE",
+          "responseMinutes": "9-12",
+          "status": "Escalated",
+          "_label": "OFFICIAL",
+          "_integrity": "OPERATIONAL",
+          "_lineage": {
+            "source": "dispatch",
+            "source_digest": "615938cd8a1c28eb",
+            "transform": "views.v2:research.pseudonymise",
+            "sanitiser": "Information Governance"
+          }
+        },
+        {
+          "pid": "abc7c474f7c0",
+          "incidentPid": "410262f7a74e",
+          "unitType": "POLICE",
+          "responseMinutes": "<=8",
+          "status": "Completed",
+          "_label": "OFFICIAL",
+          "_integrity": "OPERATIONAL",
+          "_lineage": {
+            "source": "dispatch",
+            "source_digest": "420181e4eabc8f8d",
+            "transform": "views.v2:research.pseudonymise",
+            "sanitiser": "Information Governance"
+          }
+        },
+        {
+          "pid": "72ab11be5f6d",
+          "incidentPid": "7b95b0348dd4",
+          "unitType": "FIRE",
+          "responseMinutes": "<=8",
+          "status": "Completed",
+          "_label": "OFFICIAL",
+          "_integrity": "OPERATIONAL",
+          "_lineage": {
+            "source": "dispatch",
+            "source_digest": "0fcbaa513a5d0a36",
+            "transform": "views.v2:research.pseudonymise",
+            "sanitiser": "Information Governance"
+          }
+        },
+        {
+          "pid": "02382f555874",
+          "incidentPid": "554c7938f9cb",
+          "unitType": "AMBULANCE",
+          "responseMinutes": "<=8",
+          "status": "Completed",
+          "_label": "OFFICIAL",
+          "_integrity": "OPERATIONAL",
+          "_lineage": {
+            "source": "dispatch",
+            "source_digest": "6dd689b97465f76d",
+            "transform": "views.v2:research.pseudonymise",
+            "sanitiser": "Information Governance"
+          }
+        },
+        {
+          "pid": "bc58e0242ced",
+          "incidentPid": "b7cf53a532e4",
+          "unitType": "AMBULANCE",
+          "responseMinutes": "<=8",
+          "status": "Completed",
+          "_label": "OFFICIAL",
+          "_integrity": "OPERATIONAL",
+          "_lineage": {
+            "source": "dispatch",
+            "source_digest": "f82e7936f6ac9b79",
+            "transform": "views.v2:research.pseudonymise",
+            "sanitiser": "Information Governance"
+          }
+        },
+        {
+          "pid": "5954ba4b08c8",
+          "incidentPid": "5cfe1746057b",
+          "unitType": "POLICE",
+          "responseMinutes": ">12",
+          "status": "Completed",
+          "_label": "OFFICIAL",
+          "_integrity": "OPERATIONAL",
+          "_lineage": {
+            "source": "dispatch",
+            "source_digest": "99026ce920bad166",
+            "transform": "views.v2:research.pseudonymise",
+            "sanitiser": "Information Governance"
+          }
+        },
+        {
+          "pid": "0a8b43e5724a",
+          "incidentPid": "3ca1f2db041b",
+          "unitType": "FIRE",
+          "responseMinutes": ">12",
+          "status": "Completed",
+          "_label": "OFFICIAL",
+          "_integrity": "OPERATIONAL",
+          "_lineage": {
+            "source": "dispatch",
+            "source_digest": "091d6c886cce4af9",
+            "transform": "views.v2:research.pseudonymise",
+            "sanitiser": "Information Governance"
+          }
+        },
+        {
+          "pid": "0a3a7ee1b6e0",
+          "incidentPid": "c543a7aaf524",
+          "unitType": "AMBULANCE",
+          "responseMinutes": "9-12",
+          "status": "Completed",
+          "_label": "OFFICIAL",
+          "_integrity": "OPERATIONAL",
+          "_lineage": {
+            "source": "dispatch",
+            "source_digest": "590a45c2a5761444",
+            "transform": "views.v2:research.pseudonymise",
+            "sanitiser": "Information Governance"
+          }
+        },
+        {
+          "pid": "b3561bc3cdbd",
+          "incidentPid": "22d4fcb3d419",
+          "unitType": "POLICE",
+          "responseMinutes": "9-12",
+          "status": "Completed",
+          "_label": "OFFICIAL",
+          "_integrity": "OPERATIONAL",
+          "_lineage": {
+            "source": "dispatch",
+            "source_digest": "3acd76506bebd51e",
+            "transform": "views.v2:research.pseudonymise",
+            "sanitiser": "Information Governance"
+          }
+        },
+        {
+          "pid": "3e38e3c8e78c",
+          "incidentPid": "6030c4544c1b",
+          "unitType": "HAZMAT",
+          "responseMinutes": "9-12",
+          "status": "Completed",
+          "_label": "OFFICIAL",
+          "_integrity": "OPERATIONAL",
+          "_lineage": {
+            "source": "dispatch",
+            "source_digest": "4688d3e5533d77e7",
+            "transform": "views.v2:research.pseudonymise",
+            "sanitiser": "Information Governance"
+          }
+        }
+      ]
+    }
+  },
+  "flow": {
+    "classified->operational": {
+      "incidents": {
+        "in": 20,
+        "out": 20,
+        "fields_removed": [],
+        "fields_transformed": []
+      },
+      "dispatch": {
+        "in": 20,
+        "out": 20,
+        "fields_removed": [],
+        "fields_transformed": []
+      },
+      "responders": {
+        "in": 20,
+        "out": 14,
+        "fields_removed": [
+          "clearanceLevel"
+        ],
+        "fields_transformed": [],
+        "records_withheld": "command, analyst and auditor identities (not operationally needed)"
+      },
+      "intelligence": {
+        "in": 20,
+        "out": 0,
+        "advisories_issued": 9,
+        "top_secret_held_for_analyst_brief": [
+          "INT-005",
+          "INT-010",
+          "INT-014",
+          "INT-020"
+        ],
+        "fields_removed": [
+          "reportId",
+          "reportSource",
+          "suspectIdentifier",
+          "summary",
+          "classificationHint"
+        ],
+        "fields_transformed": [
+          "reportSource -> category",
+          "threatLevel -> guidance"
+        ]
+      },
+      "audit": {
+        "in": 20,
+        "out": 0,
+        "reason": "audit stays in the Oversight domain"
+      }
+    },
+    "operational->analytics": {
+      "incidents": {
+        "in": 20,
+        "out": 16,
+        "records_withheld": 4,
+        "fields_removed": [
+          "callerName",
+          "callerPhone"
+        ],
+        "fields_transformed": []
+      },
+      "dispatch": {
+        "in": 20,
+        "out": 16,
+        "records_withheld": 4,
+        "fields_removed": [
+          "unit"
+        ],
+        "fields_transformed": [
+          "unit -> unitType",
+          "+responseMinutes (derived)"
+        ]
+      },
+      "responders": {
+        "in": 14,
+        "out": 0,
+        "aggregated": true,
+        "fields_removed": [
+          "responderId",
+          "name",
+          "station",
+          "currentAssignment"
+        ]
+      },
+      "intelligence": {
+        "in": 9,
+        "out": 0,
+        "aggregated": true
+      }
+    },
+    "analytics->research": {
+      "incidents": {
+        "in": 16,
+        "out": 16,
+        "k": 2,
+        "achieved_min_class_size": 2,
+        "generalisation_level": "region+category+date",
+        "suppressed": [],
+        "fields_removed": [
+          "incidentId",
+          "location",
+          "timestamp",
+          "incidentType"
+        ],
+        "fields_transformed": [
+          "incidentId -> pid (HMAC, per-release key)",
+          "location -> area",
+          "incidentType -> category",
+          "timestamp -> date (+ time band)",
+          "casualties -> band"
+        ]
+      },
+      "dispatch": {
+        "in": 16,
+        "out": 16,
+        "fields_removed": [
+          "dispatchId",
+          "incidentId",
+          "departureTime",
+          "arrivalTime"
+        ],
+        "fields_transformed": [
+          "ids -> pid",
+          "responseMinutes -> band"
+        ]
+      }
+    }
+  },
+  "manifests": {
+    "operational": {
+      "view": "operational",
+      "transform_version": "views.v2",
+      "sha256": "bcecc3774801716e4d2a7c226dbd285376e7c68b4467bbcb6917e43aa9010e9b",
+      "signature": "7bad15cd66efa699444e7cfaab741bb2ac3b0c1ce6e9fabc06577c876c95d26b248bfe8c5663a1f11a62fc8b56fa57681502e328987a87c8d3c3742c529b0e03",
+      "public_key": "d4af1f544b654307f2129a1d5529a9296f8f74ca5bd4b927cb8ed501033a91e4"
+    },
+    "analytics": {
+      "view": "analytics",
+      "transform_version": "views.v2",
+      "sha256": "d27e630d976638c5e922dd43179f33873d8d9c6c4b95053b13ff1c41e99707e4",
+      "signature": "a4401844dd5b78681f257c2ba9dc2ba6e9fa7ddce57f5146c06eada74a9b277af0b414190b9fac926733decc8af90dbe840ee349bcdc5f7704eb1a61571f9103",
+      "public_key": "d4af1f544b654307f2129a1d5529a9296f8f74ca5bd4b927cb8ed501033a91e4"
+    },
+    "research": {
+      "view": "research",
+      "transform_version": "views.v2",
+      "sha256": "2da89ecae41600e8ebf92926f140d95c676d94b45011fabc6d1724cb9735d42b",
+      "signature": "d3f8b1f6511fc3b0d013d2b40c3ae2ed9f789adfe891db8b62bff19413ec2ca11fea1b2741252f45b17c491bbecab1879044eb12a46fe267fb40c07dd6496008",
+      "public_key": "d4af1f544b654307f2129a1d5529a9296f8f74ca5bd4b927cb8ed501033a91e4"
+    }
+  },
+  "checks": {
+    "flow_properties": {
+      "operational": {
+        "records": 63,
+        "labels_above_ceiling": 0,
+        "leaks": [],
+        "orphan_records": 0,
+        "pass": true
+      },
+      "analytics": {
+        "records": 32,
+        "labels_above_ceiling": 0,
+        "leaks": [],
+        "orphan_records": 0,
+        "pass": true
+      },
+      "research": {
+        "records": 32,
+        "labels_above_ceiling": 0,
+        "leaks": [],
+        "orphan_records": 0,
+        "pass": true
+      }
+    },
+    "signatures_valid": {
+      "operational": true,
+      "analytics": true,
+      "research": true
+    },
+    "tampered_research_view_detected": true,
+    "reidentification": {
+      "v1_unsalted_sha256_reidentified": "20/20",
+      "v2_hmac_pids_matched_by_enumeration": 0,
+      "release_key_destroyed_after_publication": true
+    }
+  }
+}
